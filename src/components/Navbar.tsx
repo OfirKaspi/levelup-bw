@@ -1,46 +1,52 @@
-import Image from "next/image";
+"use client"
+
 import Link from "next/link";
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "./ui/sheet";
+import { Menu } from "lucide-react";
+import { Separator } from "./ui/separator";
+import Logo from "./Logo";
+import { usePathname } from "next/navigation";
+import { links } from "@/utils/links";
 
-async function Navbar() {
 
-  const logoLink = { text: "Home", href: "/", logo: '/favicon.svg', alt: "digital agency logo", title: "Digital Agency" }
-  const links = [
-    logoLink,
-    { text: "About", href: "/about" },
-    { text: "Projects", href: "/projects" },
-  ]
+const Navbar = () => {
+  const pathname = usePathname()
+  const isHomePage = pathname === "/"
 
   return (
-    <div className="w-full">
-      <nav className="flex flex-col gap-2 md:flex-row items-center justify-between">
+    <div className="w-full p-5 z-10">
+      <nav className="flex items-center justify-between">
         {/* Logo  */}
-        <Link href={logoLink.href} className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
-          <Image
-            src={logoLink.logo}
-            alt={logoLink.alt}
-            height={32}
-            width={32}
-            className="w-8"
-          />
-          <span>{logoLink.title}</span>
-        </Link>
+        <Logo isTextWhite={isHomePage} />
 
         {/* menu  */}
-        <ul className="flex">
-          {links.map((menu, index) => (
-            <li key={index}>
-              <Link
-                href={menu.href}
-                className="mx-2 px-2 py-1 rounded-md text-gray-800 no-underline hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800"
-              >
-                {menu.text}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Sheet>
+          <SheetTrigger>
+            {/* <div className="w-10 h-10 bg-slate-400 flex items-center justify-center rounded-md"> */}
+            <Menu className="bg-slate-300 text-indigo-500 h-10 w-10 p-2 rounded-md" />
+            {/* </div> */}
+          </SheetTrigger>
+          <SheetContent>
+            <SheetTitle className="text-indigo-500">
+              Welcome to LevelUp!
+            </SheetTitle>
+            <Separator className="my-2" />
+            <SheetDescription asChild>
+              <ul className="space-y-2">
+                {links.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="flex gap-2 items-center text-base">
+                      {link.icon}
+                      {link.text}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </SheetDescription>
+          </SheetContent>
+        </Sheet>
       </nav>
     </div>
-
   );
 }
 

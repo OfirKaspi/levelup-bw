@@ -13,9 +13,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="antialiased flex flex-col min-h-screen p-5">
+      <body className="antialiased flex flex-col min-h-screen">
         <Navbar />
-        <main className="flex-1 py-5">{children}</main>
+        <main className="flex-1 px-5">{children}</main>
         <Footer />
       </body>
     </html>
