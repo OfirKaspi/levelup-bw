@@ -1,5 +1,6 @@
 import { Brush, Puzzle, SquareChartGantt } from "lucide-react"
 import { Button } from "./ui/button"
+import Image from "next/image"
 
 const OurServices = () => {
   const data = {
@@ -30,37 +31,33 @@ const OurServices = () => {
   return (
     <section>
       <div className="relative -mx-5">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover -z-10"
-        >
-          <source
-            src="https://res.cloudinary.com/dudwjf2pu/video/upload/v1732805216/6802803_Digital_Animation_Montage_1920x1080_dgh71r.mp4"
-            type="video/mp4"
-          />
-        </video>
-
-        <header className="relative text-center space-y-2 px-5 py-10">
+        <Image
+          className="absolute inset-0 w-full h-full object-cover -z-10 brightness-50"
+          src="https://res.cloudinary.com/dudwjf2pu/image/upload/v1732822552/45176455_9151730_zok7cd.jpg"
+          alt="our services image"
+          width='300'
+          height='300'
+        />
+        <header className="relative text-center space-y-2 px-5 py-14">
           <h2 className="text-2xl font-bold text-white">{data.header}</h2>
-          <p className="text-sm text-gray-200">{data.desc}</p>
+          <p className="text-sm text-white">{data.desc}</p>
         </header>
       </div>
 
-      {data.services.map((service, index) => (
-        <div key={service.header} className={`p-5 space-y-5 border-x-2 ${index > 0 && 'border-t-2'}`}>
-          <header className="flex items-center gap-2">
-            <div className="p-2 border-2 rounded-md text-indigo-500">
-              {service.icon}
-            </div>
-            <h4 className="font-bold">{service.header}</h4>
-          </header>
-          <p className="text-sm text-muted-foreground">{service.desc}</p>
-          <Button className="bg-indigo-500 w-full h-12">{service.buttonText}</Button>
-        </div>
-      ))}
+      <ul className="py-5 space-y-5">
+        {data.services.map((service, index) => (
+          <li key={service.header} className={`p-5 space-y-5 border-2 rounded-lg ${index > 0 && 'border-t-2'}`}>
+            <header className="flex items-center gap-2">
+              <div className="p-2 border-2 rounded-md text-purple-800">
+                {service.icon}
+              </div>
+              <h4 className="font-bold">{service.header}</h4>
+            </header>
+            <p className="text-sm text-muted-foreground">{service.desc}</p>
+            <Button className="bg-purple-800 w-full h-12">{service.buttonText}</Button>
+          </li>
+        ))}
+      </ul>
     </section>
   )
 }

@@ -7,7 +7,7 @@ const Hero = () => {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover -z-10"
+        className="absolute inset-0 w-full h-full object-cover -z-10 brightness-50"
       >
         <source
           src="https://res.cloudinary.com/dudwjf2pu/video/upload/v1732805721/7020045_Abstract_Background_1920x1080_wfhrkz.mp4"
@@ -22,7 +22,7 @@ const Hero = () => {
             A Digital Product Studio <br /> that will work
           </span>
           <h1
-            className="relative top-0 w-fit h-auto py-4 justify-center flex bg-gradient-to-r items-center text-white bg-clip-text text-3xl font-extrabold text-center ">
+            className="relative top-0 w-fit h-auto py-4 justify-center flex items-center text-white bg-clip-text text-3xl font-extrabold text-center ">
             A Digital Product Studio <br /> that will work
           </h1>
           {/* <p className="p-5">For startups, enterprise leaders, media & publishers, and social good. </p> */}

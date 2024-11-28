@@ -20,7 +20,7 @@ const OurTechs = () => {
         {techs.map((tech) => (
           <li
             key={tech}
-            className='flex items-center justify-center h-[100px]'
+            className='flex items-center justify-center h-[100px] grayscale hover:grayscale-0 transition-all'
           >
             <Image
               src={`/techs/${tech}.svg`}

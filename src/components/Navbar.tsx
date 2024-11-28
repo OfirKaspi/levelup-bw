@@ -23,19 +23,19 @@ const Navbar = () => {
         <Sheet>
           <SheetTrigger>
             {/* <div className="w-10 h-10 bg-slate-400 flex items-center justify-center rounded-md"> */}
-            <Menu className="bg-slate-300 text-indigo-500 h-10 w-10 p-2 rounded-md" />
+            <Menu className="bg-slate-300 text-purple-800 h-10 w-10 p-2 rounded-md" />
             {/* </div> */}
           </SheetTrigger>
-          <SheetContent>
-            <SheetTitle className="text-indigo-500">
+          <SheetContent >
+            <SheetTitle className="text-purple-800">
               Welcome to LevelUp!
             </SheetTitle>
-            <Separator className="my-2" />
-            <SheetDescription asChild>
+            <Separator className="my-5" />
+            <SheetDescription asChild >
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="flex gap-2 items-center text-base">
+                    <Link href={link.href} className={`flex gap-2 items-center text-base ${pathname === link.href && 'text-purple-800'}`}>
                       {link.icon}
                       {link.text}
                     </Link>

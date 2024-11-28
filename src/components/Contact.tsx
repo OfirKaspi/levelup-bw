@@ -2,9 +2,9 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { Separator } from "./ui/separator";
 const Contact = () => {
   const contacts = [
-    { icon: <Mail className="text-indigo-500" />, text: "support@levelup.com" },
-    { icon: <Phone className="text-indigo-500" />, text: "+972 525252525" },
-    { icon: <MapPin className="text-indigo-500" />, text: "Moshe Dayan 33, Tel Aviv, Israel." },
+    { icon: <Mail className="text-purple-800" />, text: "support@levelup.com" },
+    { icon: <Phone className="text-purple-800" />, text: "+972 525252525" },
+    { icon: <MapPin className="text-purple-800" />, text: "Moshe Dayan 33, Tel Aviv, Israel." },
   ]
 
   return (

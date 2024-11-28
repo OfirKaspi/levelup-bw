@@ -8,7 +8,7 @@ type Props = {
 
 const Logo = ({ isTextWhite = false }: Props) => {
   return (
-    <Link href={logoLink.href} className={`flex items-center justify-center text-xl font-bold ${isTextWhite ? "text-white" : "text-indigo-500 dark:text-gray-100"} `}>
+    <Link href={logoLink.href} className={`flex items-center justify-center text-xl font-bold ${isTextWhite ? "text-white" : "text-purple-800 dark:text-gray-100"} `}>
       <Image
         src={logoLink.src}
         alt={logoLink.alt}
