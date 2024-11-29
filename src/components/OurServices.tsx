@@ -1,11 +1,12 @@
 import { Brush, Puzzle, SquareChartGantt } from "lucide-react"
 import { Button } from "./ui/button"
-import Image from "next/image"
+import ImageBg from "./ImageBg"
 
 const OurServices = () => {
   const data = {
     header: "Our Services",
     desc: "Transform your brand with our innovative digital solutions that captivate and engage your audience.",
+    src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1732822552/45176455_9151730_zok7cd.jpg",
     services: [
       {
         icon: <Brush />,
@@ -30,19 +31,7 @@ const OurServices = () => {
 
   return (
     <section>
-      <div className="relative -mx-5">
-        <Image
-          className="absolute inset-0 w-full h-full object-cover -z-10 brightness-50"
-          src="https://res.cloudinary.com/dudwjf2pu/image/upload/v1732822552/45176455_9151730_zok7cd.jpg"
-          alt="our services image"
-          width='300'
-          height='300'
-        />
-        <header className="relative text-center space-y-2 px-5 py-14">
-          <h2 className="text-2xl font-bold text-white">{data.header}</h2>
-          <p className="text-sm text-white">{data.desc}</p>
-        </header>
-      </div>
+      <ImageBg desc={data.desc} src={data.src} header={data.header} />
 
       <ul className="py-5 space-y-5">
         {data.services.map((service, index) => (
