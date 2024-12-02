@@ -41,9 +41,9 @@ const Questions = () => {
   return (
     <section>
       <ImageBg desc={data.desc} src={data.src} header={data.header} />
-      <Accordion type="multiple" className="py-5 space-y-5">
+      <Accordion type="multiple" className="grid grid-cols-1 md:grid-cols-2 py-5 gap-5 place-items-start">
         {data.questions.map((question, index) => (
-          <AccordionItem key={index} value={(index).toString()} className={`${index === lastQuestion && 'border-b-0'}`}>
+          <AccordionItem key={index} value={`question-[${index}]`} className={`w-full ${index === lastQuestion && 'border-b-0'}`}>
             <AccordionTrigger className="text-purple-800 font-bold">{question.header}</AccordionTrigger>
             <AccordionContent>{question.desc}</AccordionContent>
           </AccordionItem>

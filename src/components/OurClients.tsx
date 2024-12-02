@@ -1,5 +1,9 @@
+"use client"
+
 import Image from "next/image"
-import ImageBg from "./ImageBg"
+import useResponsive from "@/hooks/useResponsive"
+import ImageBg from "@/components/ImageBg"
+import { Button } from "@/components/ui/button"
 
 const OurClients = () => {
   const data = {
@@ -46,30 +50,38 @@ const OurClients = () => {
     ]
   }
 
+  const { isMobile } = useResponsive()
+
   return (
     <section>
       <ImageBg desc={data.desc} src={data.src} header={data.header} />
-      <ul className="py-5 space-y-5">
+      <ul className="grid grid-cols-1 lg:grid-cols-2 py-5 gap-5">
         {data.reviews.map((review, index) => (
           <li
             key={`[${review.image.header}]${index}`}
-            className="space-y-5 border-2 p-5 rounded-lg"
+            className="flex flex-col gap-5 justify-between border-2 p-5 rounded-lg"
           >
-            <header className="text-purple-800 font-bold">{review.header}</header>
-            <p>{review.desc}</p>
-            <footer className="flex gap-2 border-2 p-3 rounded-md">
-              <Image
-                src={review.image.src}
-                alt={`${review.image.header} Image`}
-                width={40}
-                height={40}
-                className="object-cover h-10 w-10 rounded-sm"
-              />
-              <div className="text-sm">
-                <header className="font-bold">{review.image.header}</header>
-                <p className="text-muted-foreground">{review.image.desc}</p>
+            <div className="space-y-2">
+              <h4 className="text-purple-800 font-bold">{review.header}</h4>
+              <p className="text-muted-foreground">{review.desc}</p>
+            </div>
+            <footer className="flex justify-between border-2 p-3 rounded-md">
+              <div className="flex gap-2">
+                <Image
+                  src={review.image.src}
+                  alt={`${review.image.header} Image`}
+                  width={40}
+                  height={40}
+                  className="object-cover h-10 w-10 rounded-sm"
+                />
+                <div className="text-sm">
+                  <header className="font-bold">{review.image.header}</header>
+                  <p className="text-muted-foreground">{review.image.desc}</p>
+                </div>
               </div>
+              {!isMobile && <Button className="bg-purple-800 h-10">Open Website</Button>}
             </footer>
+            {isMobile && <Button className="bg-purple-800 w-full h-10">Open Website</Button>}
           </li>
         ))}
       </ul>

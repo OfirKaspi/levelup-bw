@@ -16,7 +16,7 @@ const OurTechs = () => {
   return (
     <section className='relative'>
       <span className='absolute top-[-20px] left-1/2 text-sm transform -translate-x-1/2 border-2 rounded-full py-2 px-4 z-10 bg-white'>Our Technologies</span>
-      <ul className='grid grid-cols-3 pt-6 pb-3'>
+      <ul className="grid grid-cols-3 pt-6 pb-3 md:flex md:justify-between md:p-5">
         {techs.map((tech) => (
           <li
             key={tech}
@@ -32,7 +32,7 @@ const OurTechs = () => {
           </li>
         ))}
       </ul>
-    </section>
+    </section >
   )
 }
 

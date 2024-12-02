@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div className="relative -mx-5 -mt-[90px] pt-[90px]">
+    <div className="relative dynamic-mx -mt-[90px] pt-[90px] min-h-dvh">
       {/* Video Background */}
       <video
         autoPlay
@@ -16,7 +16,7 @@ const Hero = () => {
       </video>
 
       {/* Header Content */}
-      <section className=" relative px-5 py-10 flex flex-col items-center space-y-10 text-center h-[560px] pt-[80px]">
+      <section className="relative px-5 py-10 flex flex-col items-center space-y-10 text-center h-[560px] pt-[80px]">
         <div className="space-y-8">
           <span className="absolute mx-auto py-4 flex border w-fit bg-gradient-to-r blur-xl from-blue-500 via-teal-500 to-pink-500 bg-clip-text text-3xl box-content font-extrabold text-transparent text-center select-none">
             A Digital Product Studio <br /> that will work

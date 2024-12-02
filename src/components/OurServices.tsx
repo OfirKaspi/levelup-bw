@@ -1,6 +1,9 @@
+"use client"
+
 import { Brush, Puzzle, SquareChartGantt } from "lucide-react"
-import { Button } from "./ui/button"
-import ImageBg from "./ImageBg"
+import useResponsive from "@/hooks/useResponsive"
+import ImageBg from "@/components/ImageBg"
+import { Button } from "@/components/ui/button"
 
 const OurServices = () => {
   const data = {
@@ -29,21 +32,28 @@ const OurServices = () => {
     ]
   }
 
+  const { isTablet } = useResponsive()
+
   return (
     <section>
       <ImageBg desc={data.desc} src={data.src} header={data.header} />
 
-      <ul className="py-5 space-y-5">
-        {data.services.map((service, index) => (
-          <li key={service.header} className={`p-5 space-y-5 border-2 rounded-lg ${index > 0 && 'border-t-2'}`}>
-            <header className="flex items-center gap-2">
-              <div className="p-2 border-2 rounded-md text-purple-800">
-                {service.icon}
-              </div>
-              <h4 className="font-bold">{service.header}</h4>
-            </header>
-            <p className="text-sm text-muted-foreground">{service.desc}</p>
-            <Button className="bg-purple-800 w-full h-12">{service.buttonText}</Button>
+      <ul className="flex flex-col lg:flex-row gap-5 py-5">
+        {data.services.map((service) => (
+          <li key={service.header} className={`flex flex-col flex-1 p-5 space-y-5 border-2 justify-between rounded-lg`}>
+            <div className="space-y-2">
+              <header className="flex justify-between">
+                <div className="flex lg:flex-col items-center lg:items-start gap-2 lg:gap-5">
+                  <span className="p-2 border-2 rounded-md text-purple-800">
+                    {service.icon}
+                  </span>
+                  <h4 className="font-bold lg:text-lg">{service.header}</h4>
+                </div>
+                {isTablet && <Button className="bg-purple-800 h-10">{service.buttonText}</Button>}
+              </header>
+              <p className="text-sm lg:text-base text-muted-foreground">{service.desc}</p>
+            </div>
+            {!isTablet && <Button className="bg-purple-800 w-full h-10">{service.buttonText}</Button>}
           </li>
         ))}
       </ul>

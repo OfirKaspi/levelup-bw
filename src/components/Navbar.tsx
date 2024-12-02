@@ -1,13 +1,13 @@
 "use client"
 
 import Link from "next/link";
-import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Menu } from "lucide-react";
-import { Separator } from "./ui/separator";
-import Logo from "./Logo";
 import { usePathname } from "next/navigation";
 import { links } from "@/utils/links";
 import useResponsive from "@/hooks/useResponsive";
+import { Separator } from "@/components/ui/separator";
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "./ui/sheet";
+import Logo from "@/components/Logo";
 
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
   const { isMobile } = useResponsive()
 
   return (
-    <nav className="w-full p-5 z-10 flex items-center justify-between">
+    <nav className="w-full py-5 z-10 flex items-center justify-between">
       {/* Logo  */}
       <Logo isTextWhite={isHomePage} />
 

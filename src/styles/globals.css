@@ -34,6 +34,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -66,7 +67,23 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  .dynamic-mx {
+    margin-left: -20px;
+    margin-right: -20px;
+
+    @media (min-width: 768px) {
+      margin-left: calc((100vw - 768px + 20px) / -2);
+      margin-right: calc((100vw - 768px + 20px) / -2);
+    }
+
+    @media (min-width: 1024px) {
+      margin-left: calc((100vw - 1024px + 20px) / -2);
+      margin-right: calc((100vw - 1024px + 20px) / -2);
+    }
   }
 }
