@@ -38,7 +38,7 @@ const OurStory = () => {
             <div className="space-y-2">
               <header className="flex justify-between">
                 <div className="flex items-center gap-2 lg:gap-5 text-purple-800">
-                  <span className="font-bold text-5xl">{index < 10 ? `0${index + 1}` : index + 1}</span>
+                  <span className="font-bold text-5xl">{index < 9 ? `0${index + 1}` : index + 1}</span>
                   <h4 className="font-bold text-2xl lg:text-3xl">{service.header}</h4>
                 </div>
               </header>
