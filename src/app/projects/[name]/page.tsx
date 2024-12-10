@@ -1,9 +1,10 @@
 import { fetchProjectData } from "@/lib/api/projectsPage";
 import Image from "next/image";
 
-const ProjectPage = async ({ params }: { params: { name: string } }) => {
-  const { name } = await params
-  const project = await fetchProjectData(name);
+const ProjectPage = async ({ params }: { params: Promise<{ name: string }> }) => {
+  const resolvedParams = await params
+  const { name } = await resolvedParams
+  const project = await fetchProjectData(name)
 
   if (!project) {
     return <div>Project do not found</div>
