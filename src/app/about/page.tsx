@@ -1,13 +1,16 @@
-import AboutUs from "@/components/AboutUs";
-import AboutUsSummary from "@/components/AboutUsSummary";
-import OurStory from "@/components/OurStory";
+import AboutUs from "@/components/about/AboutUs";
+import AboutUsSummary from "@/components/about/AboutUsSummary";
+import OurStory from "@/components/about/OurStory";
+import { fetchAboutPageData } from "@/lib/api/aboutPage";
 
-export default function AboutPage() {
+const AboutPage = async () => {
+  const { aboutUs, ourStory, aboutUsSummary } = await fetchAboutPageData()
   return (
     <>
-      <AboutUs />
-      <OurStory />
-      <AboutUsSummary />
+      <AboutUs data={aboutUs} />
+      <OurStory data={ourStory} />
+      <AboutUsSummary data={aboutUsSummary} />
     </>
   )
 }
+export default AboutPage

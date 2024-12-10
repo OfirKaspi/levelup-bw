@@ -1,9 +1,17 @@
-import OurProjects from "@/components/OurWorks";
+import { fetchProjectsPageData } from '@/lib/api/projects';
+import ImageSection from '@/components/common/ImageSection';
+import OurProjects from '@/components/projects/OurProjects';
 
-export default function BlogPage() {
+const ProjectsPage = async () => {
+  const { projectsCta, projectsDesc, projectsImage, projectsList } = await fetchProjectsPageData()
+
   return (
     <>
-      <OurProjects />
+      <OurProjects projectsDesc={projectsDesc} projectsImage={projectsImage} projectsList={projectsList} />
+      {/* CHANGE LATER TO A LEAVE DETAILS */}
+      <ImageSection data={projectsCta} />
     </>
   );
 }
+
+export default ProjectsPage

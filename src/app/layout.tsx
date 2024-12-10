@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 
 export const metadata = {
   title: "Your Digital Agency",
@@ -10,14 +10,16 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className="antialiased flex flex-col min-h-screen px-5 md:max-w-3xl lg:max-w-5xl md:mx-auto">
+      <body className="antialiased flex flex-col min-h-screen overflow-x-hidden ">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 px-5 md:max-w-3xl lg:max-w-5xl md:mx-auto">{children}</main>
         <Footer />
       </body>
     </html>
   );
 }
+
+export default RootLayout
