@@ -1,7 +1,7 @@
-import { OurStoryData } from "@/types/types"
+import { OurStoryType } from "@/types/types"
 
 interface OurStoryProps {
-  data: OurStoryData
+  data: OurStoryType
 }
 
 const OurStory = ({ data }: OurStoryProps) => {

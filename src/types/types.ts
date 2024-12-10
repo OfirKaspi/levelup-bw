@@ -27,6 +27,14 @@ export interface OurServicesType extends BaseEntity {
   services: ImageSectionType[];
 }
 
+// Project
+export interface ProjectsPageType extends ImageSectionType {
+  projectsCta: ImageSectionType
+  projectsDesc: CtaParagraph
+  imageSection: ImageSectionType
+  projectsList: Project[]
+}
+
 export interface Project extends ImageSectionType {
   name: string;
   href: string;
@@ -63,7 +71,13 @@ export interface HeroType {
   buttonText2: string;
 }
 
-// About Us Data
+// About
+export interface AboutPageType extends BaseEntity {
+  aboutUs: AboutUsType
+  aboutUsSummary: AboutUsSummaryType
+  ourStory: OurStoryType
+}
+
 export interface AboutUsType extends BaseEntity {
   imageSection: ImageSectionType;
   paragraph: Paragraph;
@@ -75,7 +89,17 @@ export interface AboutUsSummaryType extends BaseEntity {
 }
 
 // Our Story Data
-export interface OurStoryData extends BaseEntity {
+export interface OurStoryType extends BaseEntity {
   header: string;
   paragraphs: Paragraph[];
+}
+
+// Home Page Type
+export interface HomePageType extends BaseEntity {
+  ourServices: OurServicesType
+  techs: Tech[]
+  clientReviews: ClientReviewsType
+  questions: QuestionsType
+  subscription: ImageSectionType
+  hero: HeroType
 }

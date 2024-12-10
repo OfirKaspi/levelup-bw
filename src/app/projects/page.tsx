@@ -1,13 +1,22 @@
-import { fetchProjectsPageData } from '@/lib/api/projects';
+import { fetchProjectsPageData } from '@/lib/api/projectsPage';
 import ImageSection from '@/components/common/ImageSection';
-import OurProjects from '@/components/projects/OurProjects';
+import ProjectsDesc from '@/components/projects/ProjectsDesc';
+import ProjectsList from '@/components/projects/ProjectsList';
 
 const ProjectsPage = async () => {
-  const { projectsCta, projectsDesc, projectsImage, projectsList } = await fetchProjectsPageData()
+  const data = await fetchProjectsPageData();
+
+  if (!data) {
+    return <div>Failed to load Projects Page content. Please try again later.</div>;
+  }
+
+  const { projectsCta, projectsDesc, imageSection, projectsList } = data
 
   return (
     <>
-      <OurProjects projectsDesc={projectsDesc} projectsImage={projectsImage} projectsList={projectsList} />
+      <ImageSection data={imageSection} />
+      <ProjectsDesc data={projectsDesc} />
+      <ProjectsList data={projectsList} />
       {/* CHANGE LATER TO A LEAVE DETAILS */}
       <ImageSection data={projectsCta} />
     </>

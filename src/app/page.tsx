@@ -7,13 +7,19 @@ import Questions from "@/components/home/Questions";
 import Subscription from "@/components/common/Subscription";
 
 const HomePage = async () => {
-  const { ourServices, techs, ourClients, questions, subscription, hero } = await fetchHomePageData()
+  const data = await fetchHomePageData();
+
+  if (!data) {
+    return <div>Failed to load Home Page content. Please try again later.</div>;
+  }
+
+  const { ourServices, techs, clientReviews, questions, subscription, hero } = data
   return (
     <>
       <Hero data={hero} />
       <OurTechs data={techs} />
       <OurServices data={ourServices} />
-      <ClientReviews data={ourClients} />
+      <ClientReviews data={clientReviews} />
       <Questions data={questions} />
       <Subscription data={subscription} />
     </>
