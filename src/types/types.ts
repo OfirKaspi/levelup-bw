@@ -38,6 +38,7 @@ export interface ProjectsPageType extends ImageSectionType {
 export interface Project extends ImageSectionType {
   name: string;
   href: string;
+  logo: Image
 }
 
 // Tech Data

@@ -28,8 +28,8 @@ const ProjectPreview = ({ project, index }: ProjectPreviewProps) => {
         <div className="flex flex-col gap-2">
           <h6 className="font-bold text-lg lg:text-2xl">{project.name}</h6>
           <div className="flex justify-between">
-            <Link href={project.href} className="bg-purple-100 p-2 w-fit rounded-lg">{project.href}</Link>
-            <Link href={project.href} className="bg-purple-100 p-2 w-fit rounded-lg">
+            <Link href={`/projects/${project.href}`} className="bg-purple-100 p-2 w-fit rounded-lg">{project.name}</Link>
+            <Link href={`/projects/${project.href}`} className="bg-purple-100 p-2 w-fit rounded-lg">
               <ExternalLink />
             </Link>
           </div>
