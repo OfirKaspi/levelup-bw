@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Review } from "@/types/types"
 import useResponsive from "@/hooks/useResponsive"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 interface ClientReviewPreviewProps {
   review: Review
@@ -32,9 +33,9 @@ const ClientReviewPreview = ({ review }: ClientReviewPreviewProps) => {
             <p className="text-muted-foreground">{review.role}</p>
           </div>
         </div>
-        {!isMobile && <Button className="bg-purple-800 h-10">Open Website</Button>}
+        {!isMobile && <Link href={review.link.href}><Button className="bg-purple-800 w-full h-10">{review.link.text}</Button></Link>}
       </footer>
-      {isMobile && <Button className="bg-purple-800 w-full h-10">Open Website</Button>}
+      {isMobile && <Link href={review.link.href}><Button className="bg-purple-800 w-full h-10">{review.link.text}</Button></Link>}
     </li>
   )
 }

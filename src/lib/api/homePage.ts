@@ -75,6 +75,11 @@ export const fetchHomePageData = async () => {
           role: "CEO of Chic Boutique",
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1732878000/896_vnoji2.jpg",
           alt: "Ashley Bennet Photo",
+          link: {
+            _id: "1",
+            text: "Show Project",
+            href: "/projects/shikli",
+          }
         },
         {
           _id: "2",
@@ -84,6 +89,11 @@ export const fetchHomePageData = async () => {
           role: "Founder of HungryBites",
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1732878000/7187_qwf50t.jpg",
           alt: "John Smith Photo",
+          link: {
+            _id: "2",
+            text: "Show Project",
+            href: "/projects/sitetech",
+          }
         },
         {
           _id: "3",
@@ -93,6 +103,11 @@ export const fetchHomePageData = async () => {
           role: "CEO of EventMaster",
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1732877999/15511_mrizjo.jpg",
           alt: "Sarah Cohen Photo",
+          link: {
+            _id: "3",
+            text: "Show Project",
+            href: "/projects/bride-boutique",
+          }
         },
         {
           _id: "4",
@@ -102,6 +117,11 @@ export const fetchHomePageData = async () => {
           role: "COO of ProTech Solutions",
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1732877998/12127_ryy3yp.jpg",
           alt: "Robert Hurry Photo",
+          link: {
+            _id: "4",
+            text: "Show Project",
+            href: "/projects/lets-garden",
+          }
         },
       ]
     },

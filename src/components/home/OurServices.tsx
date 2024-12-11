@@ -4,7 +4,7 @@ import Image from "next/image"
 import { OurServicesType } from "@/types/types"
 import useResponsive from "@/hooks/useResponsive"
 import ImageSection from "@/components/common/ImageSection"
-import { Button } from "@/components/ui/button"
+import LeaveDetailsButton from "@/components/common/LeaveDetails"
 
 interface OurServicesProps {
   data: OurServicesType
@@ -32,11 +32,15 @@ const OurServices = ({ data }: OurServicesProps) => {
                   </span>
                   <h4 className="font-bold lg:text-lg">{service.header}</h4>
                 </div>
-                {isTablet && <Button className="bg-purple-800 h-10">{service.buttonText}</Button>}
+                {isTablet &&
+                  <div className="sm:w-full md:w-fit lg:w-full ">
+                    <LeaveDetailsButton isFancyButton={false}>{service.buttonText}</LeaveDetailsButton>
+                  </div>
+                }
               </header>
               <p className="text-sm lg:text-base text-muted-foreground">{service.desc}</p>
             </div>
-            {!isTablet && <Button className="bg-purple-800 w-full h-10">{service.buttonText}</Button>}
+            {!isTablet && <LeaveDetailsButton isFancyButton={false}>{service.buttonText}</LeaveDetailsButton>}
           </li>
         ))}
       </ul>

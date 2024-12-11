@@ -1,6 +1,6 @@
 import Logo from "@/components/common/Logo"
-import { Button } from "@/components/ui/button"
 import { AboutUsSummaryType } from "@/types/types"
+import LeaveDetailsButton from "../common/LeaveDetails"
 
 interface AboutUsSummaryProps {
   data: AboutUsSummaryType
@@ -21,7 +21,10 @@ const AboutUsSummary = ({ data }: AboutUsSummaryProps) => {
         <h5 className="font-bold lg:text-lg">{ctaParagraph.header}</h5>
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center bg-purple-300 rounded-lg gap-5 p-5">
           <p className="text-sm lg:text-base">{ctaParagraph.desc}</p>
-          <Button className="h-10 w-full lg:w-fit bg-purple-800">{ctaParagraph.buttonText}</Button>
+          <div className="h-10 w-full lg:w-fit ">
+            <LeaveDetailsButton isFancyButton={false}>{ctaParagraph.buttonText}</LeaveDetailsButton>
+          </div>
+          {/* <Button bg-purple-800"></Button> */}
         </div>
       </div>
     </section>

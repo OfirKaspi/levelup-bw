@@ -1,4 +1,5 @@
 import { HeroType } from "@/types/types"
+import LeaveDetailsButton from "../common/LeaveDetails"
 
 interface HeroProps {
   data: HeroType
@@ -34,18 +35,8 @@ const Hero = ({ data }: HeroProps) => {
           {/* <p className="p-5">For startups, enterprise leaders, media & publishers, and social good. </p> */}
         </div>
         <div className="space-x-3">
-          <div className="relative inline-flex group">
-            <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt" />
-            <button className="relative h-10 px-4 text-white transition-all duration-200 bg-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
-              {data.buttonText1}
-            </button>
-          </div>
-          <div className="relative inline-flex group">
-            <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt" />
-            <button className="relative h-10 px-4 text-gray-900 transition-all duration-200 bg-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
-              {data.buttonText2}
-            </button>
-          </div>
+          <LeaveDetailsButton isDark={true}>{data.buttonText1}</LeaveDetailsButton>
+          <LeaveDetailsButton isDark={false}>{data.buttonText2}</LeaveDetailsButton>
         </div>
       </section>
     </div>

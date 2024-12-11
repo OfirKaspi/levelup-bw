@@ -13,6 +13,17 @@ interface Image extends BaseEntity {
   src: string;
 }
 
+interface Background extends BaseEntity {
+  image?: Image
+  images?: Image[]
+  color: string;
+}
+
+interface Link extends BaseEntity {
+  text: string
+  href: string
+}
+
 export interface ImageSectionType extends Image, Paragraph {
   buttonText?: string; // Optional field for button text
 }
@@ -35,10 +46,12 @@ export interface ProjectsPageType extends ImageSectionType {
   projectsList: Project[]
 }
 
-export interface Project extends ImageSectionType {
-  name: string;
-  href: string;
+export interface Project extends Paragraph {
+  name: string
+  href: string
+  background: Background
   logo: Image
+  image: Image
 }
 
 // Tech Data
@@ -55,6 +68,7 @@ export interface ClientReviewsType extends BaseEntity {
 export interface Review extends Paragraph, Image {
   name: string;
   role: string;
+  link: Link;
 }
 
 // FAQ Data

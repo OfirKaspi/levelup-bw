@@ -11,26 +11,26 @@ const ProjectPage = async ({ params }: { params: Promise<{ name: string }> }) =>
   }
 
   return (
-    <section>
-      <div className="space-y-5 pb-5">
+    <section className="relative w-screen screen left-1/2 -translate-x-1/2 -mt-[90px] pt-[90px]" style={{ backgroundColor: project.background.color }}>
+      <div className="space-y-5 p-5 ">
         <div className="relative flex justify-center">
           <Image
             src={project.logo.src}
             alt={project.logo.alt}
             width={200}
             height={200}
+            className="z-10 object-contain"
           />
         </div>
         <h6 className="font-bold text-lg lg:text-2xl">{project.name}</h6>
         <p className="text-sm lg:text-base text-muted-foreground">{project.desc}</p>
-        <div className="relative flex justify-center rounded-lg overflow-hidden">
+        <div className="relative w-full h-auto flex justify-center">
           <Image
-            src={project.src}
-            alt={project.alt}
-            layout="responsive"
-            width={1}
-            height={1}
-            className="rounded-lg object-cover max-w-[450px]"
+            src={project.image.src}
+            alt={project.image.alt}
+            width={400}
+            height={800}
+            className="rounded-lg object-cover"
           />
         </div>
       </div>

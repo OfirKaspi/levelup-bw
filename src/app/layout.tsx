@@ -15,7 +15,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body className="antialiased flex flex-col min-h-screen overflow-x-hidden ">
         <Navbar />
-        <main className="flex-1 px-5 md:max-w-3xl lg:max-w-5xl md:mx-auto">{children}</main>
+        <main className="relative flex-1 px-5 md:max-w-3xl lg:max-w-5xl md:mx-auto">{children}</main>
         <Footer />
       </body>
     </html>
