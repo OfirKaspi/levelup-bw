@@ -1,17 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-// import FancyButton from "@/components/common/FancyButton"
+import LeaveDetailsForm from "@/components/forms/LeaveDetailsForm"
 
 interface LeaveDetailsProps {
   children: React.ReactNode
@@ -25,8 +14,6 @@ const LeaveDetailsButton = ({ children, isFancyButton = true, isDark = true }: L
     <Dialog>
       <DialogTrigger asChild>
         {isFancyButton ? (
-          // CHECK WHY THE FANCY BUTTON BLOCK THE DIALOG CONTENT TO POP
-          // <FancyButton isDark={isDark}>{children}</FancyButton>
           <div className="relative inline-flex group">
             <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt" />
             <button className={`relative z-20 h-10 px-4 transition-all duration-200 rounded-md ${style}`}>
@@ -41,34 +28,10 @@ const LeaveDetailsButton = ({ children, isFancyButton = true, isDark = true }: L
         <DialogHeader>
           <DialogTitle>Leave Details</DialogTitle>
           <DialogDescription>
-            Place you details down below and we'll be in touch very soon!
+            Place you details down below and we&apos;ll be in touch very soon!
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Full name
-            </Label>
-            <Input
-              id="fullname"
-              placeholder="Pedro Duarte"
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Phone
-            </Label>
-            <Input
-              id="phone"
-              placeholder="050..."
-              className="col-span-3"
-            />
-          </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
+        <LeaveDetailsForm />
       </DialogContent>
     </Dialog>
   )
