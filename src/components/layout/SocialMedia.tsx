@@ -1,10 +1,15 @@
+import { CONFIG } from "@/lib/config";
 import Image from "next/image"
+import Link from "next/link";
 
 const SocialMedia = () => {
+  const phoneNumber = CONFIG.WHATSAPP_NUMBER
+  const whatsappUrl = `https://wa.me/${phoneNumber}`;
+
   const socials = [
-    "facebook",
-    "instagram",
-    "whatsapp",
+    { name: "facebook", href: "/" },
+    { name: "instagram", href: "/" },
+    { name: "whatsapp", href: whatsappUrl },
   ]
 
   return (
@@ -13,16 +18,18 @@ const SocialMedia = () => {
       <ul className="flex gap-2">
         {socials.map((social) => (
           <li
-            key={social}
+            key={social.name}
             className="border-2 p-2 rounded-md"
           >
-            <Image
-              src={`/socialMedia/${social}.svg`}
-              alt={`${social} logo`}
-              width={30}
-              height={30}
-              className='w-[30px] h-[30px]'
-            />
+            <Link href={social.href} target="_blank" rel="noopener noreferrer">
+              <Image
+                src={`/socialMedia/${social.name}.svg`}
+                alt={`${social} logo`}
+                width={30}
+                height={30}
+                className='w-[30px] h-[30px]'
+              />
+            </Link>
           </li>
         ))}
       </ul>

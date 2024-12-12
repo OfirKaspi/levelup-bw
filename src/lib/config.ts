@@ -1,3 +1,4 @@
 export const CONFIG = {
-  BASE_URL: process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000",
+  WHATSAPP_NUMBER: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER,
+  BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
 };
