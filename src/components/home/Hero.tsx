@@ -1,5 +1,7 @@
 import { HeroType } from "@/types/types"
 import LeaveDetailsButton from "../common/LeaveDetails"
+import FancyButton from "../common/FancyButton"
+import Link from "next/link"
 
 interface HeroProps {
   data: HeroType
@@ -36,7 +38,11 @@ const Hero = ({ data }: HeroProps) => {
         </div>
         <div className="space-x-3">
           <LeaveDetailsButton isDark={true}>{data.buttonText1}</LeaveDetailsButton>
-          <LeaveDetailsButton isDark={false}>{data.buttonText2}</LeaveDetailsButton>
+          <FancyButton isDark={false}>
+            <Link href={'/projects'}>
+              {data.buttonText2}
+            </Link>
+          </FancyButton>
         </div>
       </section>
     </div>

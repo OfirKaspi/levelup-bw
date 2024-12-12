@@ -8,6 +8,7 @@ import useResponsive from "@/hooks/useResponsive";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "../ui/sheet";
 import Logo from "@/components/common/Logo";
+import LeaveDetailsButton from "../common/LeaveDetails";
 
 
 const Navbar = () => {
@@ -41,12 +42,9 @@ const Navbar = () => {
                   ))}
                 </ul>
                 <Separator />
-                <div className="relative inline-flex group">
-                  <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt" />
-                  <button className="relative h-10 px-4 text-white transition-all duration-200 bg-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
-                    Contact Us
-                  </button>
-                </div>
+                <LeaveDetailsButton>
+                  Contact Us
+                </LeaveDetailsButton>
               </div>
             </SheetDescription>
           </SheetContent>
@@ -61,12 +59,9 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <div className="relative inline-flex group">
-            <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt" />
-            <button className="relative h-10 px-4 text-white transition-all duration-200 bg-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
-              Contact Us
-            </button>
-          </div>
+          <LeaveDetailsButton>
+            Contact Us
+          </LeaveDetailsButton>
         </>
       )}
     </nav>

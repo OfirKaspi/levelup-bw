@@ -4,11 +4,15 @@ import Link from "next/link";
 
 const SocialMedia = () => {
   const phoneNumber = CONFIG.WHATSAPP_NUMBER
+  const facebookUsername = CONFIG.FACEBOOK_USERNAME
+  const instagramUsername = CONFIG.INSTAGRAM_USERNAME
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
+  const facebookUrl = `https://www.facebook.com/${facebookUsername}`;
+  const instagramUrl = `https://www.instagram.com/${instagramUsername}`;
 
   const socials = [
-    { name: "facebook", href: "/" },
-    { name: "instagram", href: "/" },
+    { name: "facebook", href: facebookUrl },
+    { name: "instagram", href: instagramUrl },
     { name: "whatsapp", href: whatsappUrl },
   ]
 
