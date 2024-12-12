@@ -24,6 +24,13 @@ interface Link extends BaseEntity {
   href: string
 }
 
+interface Content extends BaseEntity {
+  image: Image
+  firstParagraph: string
+  secondParagraph: string
+}
+
+
 export interface ImageSectionType extends Image, Paragraph {
   buttonText?: string; // Optional field for button text
 }
@@ -118,3 +125,16 @@ export interface HomePageType extends BaseEntity {
   subscription: ImageSectionType
   hero: HeroType
 }
+
+// Blog
+export interface BlogPageType {
+  imageSection: ImageSectionType
+  articlesList: Article[]
+  blogDesc: CtaParagraph
+}
+
+export interface Article extends Paragraph {
+  image: Image
+  content: Content
+}
+
