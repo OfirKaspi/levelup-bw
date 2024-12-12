@@ -1,37 +1,57 @@
+import { z } from "zod";
 import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 import { CONFIG } from "@/lib/config";
 
-const uri = CONFIG.MONGODB_URI;
-const client = new MongoClient(uri || 'mongo uri');
-const dbName = CONFIG.MONGODB_NAME;
+// MongoDB setup
+const uri = CONFIG.MONGODB_URI || "";
+const client = new MongoClient(uri);
+const dbName = CONFIG.MONGODB_NAME
+
+// Validation schema
+const leadSchema = z.object({
+  fullname: z.string().nonempty("Full name is required."),
+  email: z.string().email("Invalid email address."),
+  phone: z.string().regex(/^05\d{8}$/, "Invalid Israeli phone number."),
+});
 
 export async function POST(req: Request) {
   try {
-    const { fullname, email, phone } = await req.json();
+    // Parse and validate the request body
+    const body = await req.json();
+    leadSchema.parse(body);
 
-    if (!fullname || !email || !phone) {
-      return NextResponse.json(
-        { error: "All fields are required." },
-        { status: 400 }
-      );
-    }
-
-    // Connect to MongoDB
+    // Connect to the MongoDB database
     await client.connect();
     const db = client.db(dbName);
     const collection = db.collection("leads");
 
-    // Save the lead
-    const result = await collection.insertOne({ fullname, email, phone, createdAt: new Date() });
+    // Insert the lead into the database
+    const result = await collection.insertOne({
+      ...body,
+      createdAt: new Date(),
+    });
 
     return NextResponse.json({ success: true, id: result.insertedId });
   } catch (error) {
-    console.error(error);
-    return NextResponse.json(
-      { error: "Failed to save lead. Please try again later." },
-      { status: 500 }
-    );
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: error.errors.map((e) => e.message) },
+        { status: 400 }
+      );
+    } else if (error instanceof Error) {
+      console.error("Unexpected error:", error.message);
+      return NextResponse.json(
+        { error: "Internal Server Error" },
+        { status: 500 }
+      );
+    } else {
+      console.error("Unknown error occurred");
+      return NextResponse.json(
+        { error: "An unexpected error occurred" },
+        { status: 500 }
+      );
+    }
   } finally {
     await client.close();
   }
