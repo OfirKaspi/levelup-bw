@@ -33,18 +33,11 @@ export const fetchProjectsPageData = async () => {
         background: {
           _id: "1",
           color: "#d3d3d3",
-          images: [
-            {
-              _id: "1",
-              src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733912189/freepik-export-202412111015457CJs_huyk7q.png",
-              alt: "Shikli first background image",
-            },
-            {
-              _id: "2",
-              src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733912189/freepik-export-20241211101353ghiu_pkyzqz.png",
-              alt: "Shikli second background image",
-            }
-          ]
+          image: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1734091474/freepik__create-a-minimalistic-luxurious-frame-with-a-sleek__5559_qdp2bv.png",
+            alt: "Shikli background image"
+          }
         },
         logo: {
           _id: "1",
@@ -68,7 +61,7 @@ export const fetchProjectsPageData = async () => {
           color: "#fadbdb",
           image: {
             _id: "1",
-            src: "",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1734089259/freepik__light-pink-frame-with-flowers-white-background-no-__83044_kcqh6g.png",
             alt: "Bride Boutique background image",
           }
         },
@@ -94,7 +87,7 @@ export const fetchProjectsPageData = async () => {
           color: "#cae3b7",
           image: {
             _id: "1",
-            src: "",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1734089259/freepik__create-a-transparent-background-with-a-decorative-__67369_tybzhb.png",
             alt: "Lets garden background image",
           }
         },
@@ -120,7 +113,7 @@ export const fetchProjectsPageData = async () => {
           color: "#a4ccd3",
           image: {
             _id: "1",
-            src: "",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1734091713/freepik__teal-background-image-with-screens-and-laptops__5560_wyuzex.png",
             alt: "SiteTech IL background image",
           }
         },

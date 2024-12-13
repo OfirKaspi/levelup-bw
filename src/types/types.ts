@@ -14,8 +14,7 @@ interface Image extends BaseEntity {
 }
 
 interface Background extends BaseEntity {
-  image?: Image
-  images?: Image[]
+  image: Image
   color: string;
 }
 
