@@ -1,4 +1,4 @@
-import { BlogPageType } from "@/types/types"
+import { Article, BlogPageType } from "@/types/types"
 
 export const fetchBlogPageData = () => {
   const data = {
@@ -20,6 +20,7 @@ export const fetchBlogPageData = () => {
         _id: "1",
         header: "The Future of Digital Marketing: Trends to Watch in 2024",
         desc: "Explore the cutting-edge trends shaping the digital marketing landscape and how you can stay ahead of the curve.",
+        href: "the-future-of-digital-marketing",
         image: {
           _id: "1",
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1734024021/2150169364_foctbd.jpg",
@@ -40,6 +41,7 @@ export const fetchBlogPageData = () => {
         _id: "2",
         header: "Mastering Social Media: Strategies for Maximum Engagement",
         desc: "Learn proven strategies to boost your social media engagement and grow your online presence.",
+        href: "mastering-social-skills",
         image: {
           _id: "2",
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/c_crop,ar_16:9/v1734024021/5453989_2805145_wdji8i.jpg",
@@ -60,6 +62,7 @@ export const fetchBlogPageData = () => {
         _id: "3",
         header: "SEO Secrets: How to Dominate Search Rankings in 2024",
         desc: "Uncover the latest SEO techniques to help your website rank higher and drive organic traffic.",
+        href: "seo-secrets",
         image: {
           _id: "3",
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1734024021/127578_jauppn.jpg",
@@ -80,6 +83,7 @@ export const fetchBlogPageData = () => {
         _id: "4",
         header: "Content Marketing Strategies That Actually Work",
         desc: "Learn how to craft content that drives traffic, generates leads, and builds brand loyalty.",
+        href: "content-marketing-strategy",
         image: {
           _id: "4",
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1734024020/133729_bhi8hk.jpg",
@@ -100,4 +104,10 @@ export const fetchBlogPageData = () => {
   }
 
   return data as BlogPageType
+}
+
+export const fetchArticleData = async (name: string) => {
+  const { articlesList } = await fetchBlogPageData()
+  const article = articlesList.find((a) => a.href === name)
+  return article as Article
 }

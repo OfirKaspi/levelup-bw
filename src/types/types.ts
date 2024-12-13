@@ -133,6 +133,7 @@ export interface BlogPageType {
 }
 
 export interface Article extends Paragraph {
+  href: string
   image: Image
   content: Content
 }
