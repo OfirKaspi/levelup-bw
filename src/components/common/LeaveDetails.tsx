@@ -9,7 +9,20 @@ interface LeaveDetailsProps {
 }
 
 const LeaveDetailsButton = ({ children, isFancyButton = true, isDark = true }: LeaveDetailsProps) => {
+  const data = {
+    _id: "1",
+    header: "נעים להכיר!",
+    desc: "השאירו פרטים לשיחת ייעוץ בחינם - תספרו לנו מה העסק שלכם צריך ותקבלו טיפים שתוכלו ליישם מיד",
+    buttonText: "לחץ כאן לשליחה",
+    loadingButtonText: "שולח...",
+    successText: "איזה כיף! אנחנו נחזור אליך ב 24 שעות הקרובות"
+  }
   const style = isDark ? "text-white bg-gray-900" : "text-gray-900 bg-white"
+
+  if (!data) {
+    return <div>Failed to load Leave details content. Please try again later.</div>;
+  }
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -25,13 +38,13 @@ const LeaveDetailsButton = ({ children, isFancyButton = true, isDark = true }: L
         )}
       </DialogTrigger>
       <DialogContent className="max-w-[350px] sm:max-w-[450px] rounded-lg">
-        <DialogHeader>
-          <DialogTitle>Leave Details</DialogTitle>
-          <DialogDescription>
-            Place you details down below and we&apos;ll be in touch very soon!
+        <DialogHeader className="relative">
+          <DialogTitle className="text-center">{data.header}</DialogTitle>
+          <DialogDescription className="text-right">
+            {data.desc}
           </DialogDescription>
         </DialogHeader>
-        <LeaveDetailsForm />
+        <LeaveDetailsForm buttonText={data.buttonText} loadingButtonText={data.loadingButtonText} successText={data.successText} />
       </DialogContent>
     </Dialog>
   )

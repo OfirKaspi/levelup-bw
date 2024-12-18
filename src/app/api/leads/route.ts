@@ -10,23 +10,24 @@ const dbName = CONFIG.MONGODB_NAME
 
 // Validation schema
 const leadSchema = z.object({
-  fullname: z.string().nonempty("Full name is required."),
-  email: z.string().email("Invalid email address."),
-  phone: z.string().regex(/^05\d{8}$/, "Invalid Israeli phone number."),
+  fullname: z.string().nonempty("נדרש שם מלא."),
+  email: z.string().email("כתובת אימייל שגויה."),
+  phone: z.string().regex(/^05\d{8}$/, "אנא מלא מספר טלפון תקין."),
+  option: z
+    .enum(["option1", "option2", "option3"])
+    .refine((val) => val !== undefined, { message: "אנא בחר אופציה מהרשימה." }),
 });
+
 
 export async function POST(req: Request) {
   try {
-    // Parse and validate the request body
     const body = await req.json();
     leadSchema.parse(body);
 
-    // Connect to the MongoDB database
     await client.connect();
     const db = client.db(dbName);
     const collection = db.collection("leads");
 
-    // Insert the lead into the database
     const result = await collection.insertOne({
       ...body,
       createdAt: new Date(),
@@ -36,19 +37,13 @@ export async function POST(req: Request) {
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: error.errors.map((e) => e.message) },
+        { error: "Validation failed", details: error.errors.map((e) => e.message) },
         { status: 400 }
       );
-    } else if (error instanceof Error) {
-      console.error("Unexpected error:", error.message);
+    } else {
+      console.error("Unexpected error:", error);
       return NextResponse.json(
         { error: "Internal Server Error" },
-        { status: 500 }
-      );
-    } else {
-      console.error("Unknown error occurred");
-      return NextResponse.json(
-        { error: "An unexpected error occurred" },
         { status: 500 }
       );
     }
