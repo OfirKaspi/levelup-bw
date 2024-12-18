@@ -11,10 +11,12 @@ interface ClientReviewsProps {
 const ClientReviews = ({ data }: ClientReviewsProps) => {
   const { imageSection, reviews } = data
   return (
-    <section>
+    <>
       <ImageSection data={imageSection} />
-      <ClientReviewsList reviews={reviews} />
-    </section>
+      <section className="max-w-screen-xl mx-auto">
+        <ClientReviewsList reviews={reviews} />
+      </section>
+    </>
   )
 }
 

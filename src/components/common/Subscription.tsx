@@ -7,9 +7,9 @@ interface SubscriptionProps {
 
 const Subscription = ({ data }: SubscriptionProps) => {
   return (
-    <section>
+    <>
       <ImageSection data={data} />
-    </section>
+    </>
   )
 }
 

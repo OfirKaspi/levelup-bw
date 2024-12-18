@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import "@/styles/globals.css";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
@@ -13,10 +14,16 @@ export const metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body className="antialiased flex flex-col min-h-screen overflow-x-hidden ">
+    <html lang="he" dir="rtl">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden ">
         <Navbar />
-        <main className="relative flex-1 px-5 md:max-w-3xl lg:max-w-5xl md:mx-auto">{children}</main>
+        <main className="flex-1 px-5">{children}</main>
         <WhatsAppButton />
         <Footer />
       </body>

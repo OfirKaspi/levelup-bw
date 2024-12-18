@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 import { links } from "@/utils/links";
 import useResponsive from "@/hooks/useResponsive";
 import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/common/Logo";
-import LeaveDetailsButton from "../common/LeaveDetails";
+import LeaveDetailsButton from "@/components/common/LeaveDetails";
 
 
 const Navbar = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
   const { isMobile } = useResponsive()
 
   return (
-    <nav className="w-full p-5 z-10 flex items-center justify-between">
+    <nav className="w-full p-5 z-10 flex flex-row-reverse items-center justify-between ">
       {/* Logo  */}
       <Logo isTextWhite={isHomePage} />
 
