@@ -26,12 +26,12 @@ const Navbar = () => {
           <SheetTrigger>
             <Menu className="bg-slate-300 text-purple-800 h-10 w-10 p-2 rounded-md" />
           </SheetTrigger>
-          <SheetContent >
+          <SheetContent side="left">
             <SheetTitle className="text-purple-800 pt-5">
-              Welcome to LevelUp!
+              ברוכים הבאים ל-LevelUp!
             </SheetTitle>
             <Separator className="my-5" />
-            <SheetDescription asChild >
+            <SheetDescription asChild  >
               <div className="space-y-5">
                 <ul className="space-y-5">
                   {links.map((link) => (
@@ -43,7 +43,7 @@ const Navbar = () => {
                 </ul>
                 <Separator />
                 <LeaveDetailsButton>
-                  Contact Us
+                  צור קשר
                 </LeaveDetailsButton>
               </div>
             </SheetDescription>
@@ -60,7 +60,7 @@ const Navbar = () => {
           </ul>
 
           <LeaveDetailsButton>
-            Contact Us
+            צור קשר
           </LeaveDetailsButton>
         </>
       )}
