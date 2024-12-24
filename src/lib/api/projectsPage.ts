@@ -4,22 +4,22 @@ export const fetchProjectsPageData = async () => {
   const data = {
     imageSection: {
       _id: "1",
-      header: "Our Works",
-      desc: "Discover a portfolio of visually stunning and strategically crafted digital projects that showcase our creativity and expertise.",
+      header: "הפרויקטים שלנו",
+      desc: "אנחנו משקיעים בפרויקטים שלנו כאילו העסק שלך הוא שלנו, החל משיחת האיפיון והגדרת הצרכים והמטרות, ממשיך בעדכונים מעת לעת, הצגת ביניים, תיקונים, שינויים וכל מה שצריך עד שתרגישו שהגעתם לנחלה. הנוסחה הזאת גורמת להכל לעבוד טוב יותר, לנו כסוכנות דיגיטל מקצועית ואיכותית, ובעיקר לכם שתהיו שלמים עם האתר והנוכחות הדיגיטלית שלכם.",
       src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1732822552/45176455_9151730_zok7cd.jpg",
       alt: "Our works image"
     },
     projectsDesc: {
       _id: "1",
-      header: "At LevelUp",
-      desc: "We have had the privilege of working with a diverse range of clients and delivering exceptional digital products that drive success.",
-      buttonText: "Here are four examples of our notable works:",
+      header: "תנו לנו להראות לכם איך עושים את זה",
+      desc: "הייתה לנו את הזכות לייצר מגוון אתרים מתחומים שונים ולספק מוצרים דיגיטליים יוצאי דופן שמביאים הצלחה.",
+      buttonText: "לפנייך מספר פרוייקטים לדוגמה:",
     },
     projectsCta: {
       _id: "1",
-      header: "Let us Bring your Ideas to Life in the Digital World.",
-      desc: "No matter which services you choose, we are committed to delivering exceptional results that exceed your expectations. Our multidisciplinary team works closely together to ensure seamless collaboration and a unified vision for your digital product.",
-      buttonText: "Start Project",
+      header: "תן לנו להפוך את החלום שלך למציאות בעולם הדיגיטלי",
+      desc: "אנחנו כאן כדי להקשיב, להבין ולהגשים את החזון שלך – בין אם מדובר באתר מרהיב עם חוויית משתמש יוצאת דופן, קמפיינים שיווקיים שיגיעו לכל אחד או כל מוצר נוסף שיעזור לך להשיג נוכחות מקוונת ומותאמת אישית לצרכים שלך, בדיוק כמו שאתה מדמיין.  השאר לנו פרטים עכשיו ונתכנן יחד את הצעד הבא בדרך להצלחה דיגיטלית שתעיף את העסק שלך קדימה!",
+      buttonText: "לשיחת ייעוץ ללא עלות לחץ כאן",
       src: "https://res.cloudinary.com/dudwjf2pu/image/upload/c_crop,ar_16:9/v1732877160/5513846_2862210_lntbom.jpg",
       alt: "Call to action image"
     },
