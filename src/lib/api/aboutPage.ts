@@ -4,50 +4,40 @@ export const fetchAboutPageData = async () => {
       _id: "1",
       imageSection: {
         _id: "1",
-        header: "About Us",
-        desc: "Welcome to SquareUp, where collaboration, expertise, and client-centricity intersect to shape the future of digital innovation.",
+        header: "מי אנחנו?",
+        desc: "LevelUp היא סוכנות דיגיטלית המתמחה במתן פתרונות דיגיטליים יצירתיים ומקצועיים לעסקים. אנו כאן כדי לעזור לך לקחת את העסק שלך לשלב הבא בעזרת כלים טכנולוגיים מתקדמים שיביאו תוצאות מיידיות וארוכות טווח.",
         alt: "About Us image",
         src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1732822552/45176455_9151730_zok7cd.jpg",
       },
       paragraph: {
         _id: "1",
-        header: "About LevelUp",
-        desc: "SquareUp is a digital product agency that is passionate about crafting exceptional digital experiences. We specialize in design, engineering, and project management, helping businesses thrive in the digital landscape. At SquareUp, we follow a structured and collaborative process to ensure the successful delivery of exceptional digital products. Our process combines industry best practices, creative thinking, and a client-centric approach.",
+        header: "החזון שלנו",
+        desc: "המטרה שלנו היא להיות אחת הסוכנויות המובילות בתחום הדיגיטל בישראל, ולהציע ללקוחותינו את הפתרונות הדיגיטליים המתקדמים ביותר בשוק. אנחנו לא רק בונים אתרים – אנחנו בונים את העתיד של העסק שלך.",
       },
     },
     ourStory: {
       _id: "1",
-      header: "Our Story",
+      header: "המחלקות שלנו",
       paragraphs: [
         {
           _id: "1",
-          header: "Design",
-          desc: "At LevelUp, our design team is passionate about creating stunning, user-centric designs that captivate your audience and elevate your brand. We believe that great design is not just about aesthetics; it's about creating seamless and intuitive user experiences.",
+          header: "פיתוח ובניית אתרים",
+          desc: "האתר שלך הוא הפנים של העסק – אנחנו ב-LevelUp יודעים איך ליצור אתר סוחף ומרשים שיגרום לגולשים שלך להתעניין ולהפוך ללקוחות. במחלקת הפיתוח שלנו, אנו מתמחים ביצירת אתרים מותאמים אישית בקוד, שמספקים גמישות מלאה ועונים על כל הצרכים של העסק שלך. אנחנו בונים אתרים שלא רק נראים מצוין, אלא גם פועלים בצורה מיטבית, תוך שמירה על חוויית משתמש מעולה, ביצועים מהירים ויכולת להתרחב בעת הצורך. אם אתה רוצה אתר שייצג אותך בצורה הטובה ביותר, אנחנו כאן כדי להגשים את זה.",
         },
         {
           _id: "2",
-          header: "Engineering",
-          desc: "Our engineering team combines technical expertise with a passion for innovation to build robust and scalable digital solutions. We leverage the latest technologies and best practices to deliver high-performance applications tailored to your specific needs.",
+          header: "עיצוב UI\UX",
+          desc: "העיצוב הוא יותר מאשר רק איך האתר נראה – הוא איך הוא מרגיש למשתמשים שלך. במחלקת העיצוב שלנו, אנחנו מתמקדים ביצירת חוויית משתמש יעילה שמניעה לפעולה. אנו נותנים דגש מהעיצוב הראשוני ועד לפרטים הקטנים ביותר, אנחנו יוצרים אתרים שמלאים בתשומת לב לצרכים של המשתמשים ומביאים את המיתוג שלך לידי ביטוי בצורה הטובה ביותר. כל החלטת עיצוב נעשית עם מחשבה על הדרך שבה הלקוח יגיב – אנחנו הופכים את החוויה המקוונת של העסק שלך לאינטואיטיבית, נוחה ויעילה.",
         },
         {
           _id: "3",
-          header: "Project Management",
-          desc: "Our experienced project management team ensures that your projects are delivered on time, within budget, and according to your specifications. We follow industry-standard methodologies and employ effective communication and collaboration tools to keep you informed throughout the development process.",
+          header: "שיווק ופרסום",
+          desc: "אתר מקצועי שנראה טוב זאת התחלה מעולה – אחנו רוצים שהאתר הזה גם יביא תוצאות. במחלקת השיווק והפרסום שלנו, אנחנו גם דואגים שהעסק שלך יגיע לקהל היעד הנכון. אנחנו מתמחים בשירותי SEO, קמפיינים ממומנים בגוגל, פייסבוק ואינסטגרם, ניהול תוכן ברשתות החברתיות ויצירת לידים חמים ואיכותיים שמחכים רק לך. אנחנו בונים משפכים ואסטרטגיות שיווקיות שמותאמות בדיוק לצרכים של העסק שלך ושיגרמו למתעניינים להגיע בלי הפסקה.",
         },
         {
           _id: "4",
-          header: "Collaboration",
-          desc: "At LevelUp, these three departments came together to form a cohesive and collaborative unit. They embraced the power of collaboration and recognized that their combined expertise would result in truly exceptional digital products. They believed that by working closely with their clients, understanding their needs, and involving them in the creative process, they could deliver solutions that surpassed expectations.",
-        },
-        {
-          _id: "5",
-          header: "Client-Centric Approach",
-          desc: "LevelUp's success was not solely measured by their technical prowess or design skills but by their unwavering commitment to their clients. They placed their clients at the center of everything they did. They took the time to listen, understand their unique challenges, and tailor their services to meet their specific requirements. Their mission was to become trusted partners, guiding businesses on their digital journey.",
-        },
-        {
-          _id: "6",
-          header: "Driving Success",
-          desc: "With each project, LevelUp's reputation grew. Their portfolio expanded to include a diverse range of industries and their impact was felt far and wide. From startups to established enterprises, businesses sought out LevelUp for their expertise in creating digital products that delivered tangible results. LevelUp's success was driven by their passion for innovation, their dedication to quality, and their commitment to helping their clients succeed in the digital world.",
+          header: "שירות ותמיכה לאורך הדרך",
+          desc: "ההצלחה שלך לא מסתיימת עם השקת האתר, אנחנו כאן כדי לוודא שהעסק שלך תמיד מוכן להמשיך לצמוח. עם השירות והתמיכה שלנו, אנחנו מספקים עזרה אישית ואנושית לאורך כל הדרך. אם יש לך שאלות, צריך עזרה בשדרוג האתר, או סתם רוצה לדעת איך לשפר את ביצועי האתר שלך, אנחנו כאן בשבילך. אנחנו לא רק בונים את האתר שלך – אנחנו תומכים בו, מייעצים, ומוודאים שהכל מתפקד בצורה מושלמת, כך שתוכל להמשיך להתמקד בהצלחת העסק שלך.",
         },
       ]
     },
@@ -55,14 +45,14 @@ export const fetchAboutPageData = async () => {
       _id: "1",
       paragraph: {
         _id: "1",
-        header: "Today, LevelUp Continues to Thrive as a Leading Digital Product Agency...",
-        desc: "Combining the power of design, engineering, and project management to create transformative digital experiences. They invite you to join them on their journey and discover how they can help bring your digital ideas to life.",
+        header: 'אנחנו כאן כדי לקחת אותך לשלב הבא, דבר המנכ"ל: ',
+        desc: '"ב-LevelUp אנחנו שמים את הלקוח במרכז, ומבינים שהעסק המקוון שלך הוא הרבה יותר מאתר אינטרנט – זה צינור משמעותי שיכול להשפיע על העתיד. לכן, כל פתרון שאנחנו מספקים מותאם במיוחד כדי להבטיח תוצאות אמיתיות לאורך זמן."',
       },
       ctaParagraph: {
         _id: "1",
-        header: "Welcome to LevelUp",
-        desc: "Where collaboration, Expertise, and Client-Centricity Intersect to Shape the Future of Digital Innovation.",
-        buttonText: "Start Project",
+        header: "מה עכשיו?",
+        desc: "אם אתה מוכן לקחת את העסק שלך לשלב הבא, השאר פרטים עכשיו ונשמח לתכנן יחד את הדרך להצלחה הדיגיטלית שלך!",
+        buttonText: "צור קשר",
       }
     }
   }

@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
 
 export const metadata = {
-  title: "Your Digital Agency",
+  title: "LevelUp",
   description: "Helping businesses thrive with websites, Meta marketing, and copywriting.",
   icons: {
     icon: "/favicon.svg",
