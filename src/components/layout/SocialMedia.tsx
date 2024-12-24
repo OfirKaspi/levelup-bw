@@ -18,7 +18,7 @@ const SocialMedia = () => {
 
   return (
     <div className="flex flex-col md:flex-row w-full md:mx-auto lg:mr-auto lg:ml-0 md:w-fit items-center justify-center gap-2 p-5 lg:p-2 border-2 rounded-md">
-      <span>Stay Connected</span>
+      <span>השאר מחובר</span>
       <ul className="flex gap-2">
         {socials.map((social) => (
           <li
