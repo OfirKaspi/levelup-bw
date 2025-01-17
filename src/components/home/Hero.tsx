@@ -9,7 +9,7 @@ interface HeroProps {
 
 const Hero = ({ data }: HeroProps) => {
   return (
-    <div className="relative w-screen min-h-dvh -mx-5 -mt-[90px] pt-[90px]">
+    <div className="relative w-screen min-h-lvh -mx-5 -mt-[90px] pt-[90px]">
       {/* Video Background */}
       <video
         autoPlay

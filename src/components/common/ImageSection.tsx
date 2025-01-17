@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Favicon from "@/assets/favicon.svg";
+import LevelUpLogo from "@/assets/levelup-logo.png";
 import { ImageSectionType } from "@/types/types";
 import LeaveDetailsButton from "@/components/common/LeaveDetails";
 
@@ -31,13 +31,13 @@ const ImageSection = ({ data }: ImageSectionProps) => {
       <div className="relative flex flex-col items-center justify-center text-center space-y-5 px-5 py-14  max-w-screen-sm md:max-w-screen-md mx-auto">
         {/* Optional Icon */}
         {buttonText && (
-          <div className="bg-white rounded-lg opacity-90 p-2">
+          <div className="bg-white rounded-lg opacity-90 p-4">
             <Image
-              src={Favicon}
+              src={LevelUpLogo}
               alt="Level Up image"
-              width={60}
-              height={60}
-              className="w-[60px] h-[60px]"
+              width={80}
+              height={1}
+              className="object-contain w-[80px] h-auto"
             />
           </div>
         )}

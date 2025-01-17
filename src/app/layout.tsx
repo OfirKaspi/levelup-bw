@@ -6,9 +6,9 @@ import WhatsAppButton from "@/components/common/WhatsAppButton";
 
 export const metadata = {
   title: "LevelUp",
-  description: "Helping businesses thrive with websites, Meta marketing, and copywriting.",
+  description: "LevelUp - סוכנות דיגיטלית מובילה המספקת פתרונות מקצועיים בבניית אתרים, שיווק וכתיבה שיווקית, המקדמים עסקים להצלחה.",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/levelup-logo-square.png",
   },
 };
 
