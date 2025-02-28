@@ -6,6 +6,7 @@ interface BaseEntity {
 interface Paragraph extends BaseEntity {
   header: string;
   desc: string;
+  image?: Image
 }
 
 interface Image extends BaseEntity {
@@ -22,13 +23,6 @@ interface Link extends BaseEntity {
   text: string
   href: string
 }
-
-interface Content extends BaseEntity {
-  image: Image
-  firstParagraph: string
-  secondParagraph: string
-}
-
 
 export interface ImageSectionType extends Image, Paragraph {
   buttonText?: string; // Optional field for button text
@@ -54,10 +48,11 @@ export interface ProjectsPageType extends ImageSectionType {
 
 export interface Project extends Paragraph {
   name: string
-  href: string
   background: Background
   logo: Image
   image: Image
+  externalLink: Link
+  internalLink: Link
 }
 
 // Tech Data
@@ -135,6 +130,6 @@ export interface BlogPageType {
 export interface Article extends Paragraph {
   href: string
   image: Image
-  content: Content
+  paragraphs: Paragraph[]
 }
 

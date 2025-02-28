@@ -7,7 +7,7 @@ interface QuestionsProps {
 }
 
 
-const Questions = ({ data }: QuestionsProps) => {
+const FAQ = ({ data }: QuestionsProps) => {
   const { imageSection, paragraphs: questions } = data
   return (
     <>
@@ -26,4 +26,4 @@ const Questions = ({ data }: QuestionsProps) => {
   )
 }
 
-export default Questions
+export default FAQ

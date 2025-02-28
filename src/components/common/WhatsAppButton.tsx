@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { CONFIG } from '@/lib/config';
 
 const WhatsAppButton = () => {
-  const phoneNumber = CONFIG.WHATSAPP_NUMBER
+  const phoneNumber = CONFIG.whatsappNumber
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
 
   return (

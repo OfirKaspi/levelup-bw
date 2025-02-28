@@ -11,9 +11,11 @@ const ArticlePage = async ({ params }: { params: Promise<{ name: string }> }) =>
   }
 
   return (
-    <div className="space-y-5 pb-5">
-      <h5 className="text-lg lg:text-2xl border-b-2 pb-2">{article.header}</h5>
-      <p className="text-sm lg:text-base text-muted-foreground">{article.desc}</p>
+    <div className="max-w-screen-sm mx-auto space-y-5 pt-5 pb-10">
+      <header className="space-y-2">
+        <h5 className="text-lg lg:text-2xl border-b-2 pb-2 font-bold">{article.header}</h5>
+        <p className="lg:text-lg">{article.desc}</p>
+      </header>
       <div className="relative aspect-video rounded-lg">
         <Image
           className="rounded-lg"
@@ -26,20 +28,30 @@ const ArticlePage = async ({ params }: { params: Promise<{ name: string }> }) =>
           }}
         />
       </div>
-      <p>{article.content.firstParagraph}</p>
-      <div className="relative aspect-video rounded-lg">
-        <Image
-          className="rounded-lg"
-          src={article.content.image.src}
-          alt={article.content.image.alt}
-          fill
-          style={{
-            objectFit: "cover",
-            objectPosition: "top",
-          }}
-        />
-      </div>
-      <p>{article.content.secondParagraph}</p>
+      <ul className="space-y-5">
+        {article.paragraphs.map((paragraph) => (
+          <li key={paragraph._id} className="space-y-5">
+            {paragraph.image &&
+              <div className="relative aspect-video rounded-lg">
+                <Image
+                  className="rounded-lg"
+                  src={paragraph.image.src}
+                  alt={paragraph.image.alt}
+                  fill
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "top",
+                  }}
+                />
+              </div>
+            }
+            <div className="space-y-2">
+              <h6 className="lg:text-lg font-bold">{paragraph.header}</h6>
+              <p className="text-sm lg:text-base">{paragraph.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

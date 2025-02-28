@@ -15,7 +15,7 @@ const ImageSection = ({ data }: ImageSectionProps) => {
   return (
     <section className="relative w-screen -mx-5">
       {/* Full-screen background image */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10">
+      <div className="absolute top-0 left-0 w-full h-full -z-10 ">
         <Image
           src={src}
           alt={alt || "background image"}
@@ -31,7 +31,6 @@ const ImageSection = ({ data }: ImageSectionProps) => {
       <div className="relative flex flex-col items-center justify-center text-center space-y-5 px-5 py-14  max-w-screen-sm md:max-w-screen-md mx-auto">
         {/* Optional Icon */}
         {buttonText && (
-          <div className="bg-white rounded-lg opacity-90 p-4">
             <Image
               src={LevelUpLogo}
               alt="Level Up image"
@@ -39,13 +38,12 @@ const ImageSection = ({ data }: ImageSectionProps) => {
               height={1}
               className="object-contain w-[80px] h-auto"
             />
-          </div>
         )}
 
         {/* Header and Description */}
-        <div className="space-y-2">
-          <h2 className="text-2xl lg:text-3xl font-bold text-white">{header}</h2>
-          <p className="text-sm lg:text-base text-white">{desc}</p>
+        <div className="space-y-3 text-white">
+          <h2 style={{ textShadow: '2px 6px 4px rgba(0, 0, 0, 1)' }} className="text-2xl lg:text-3xl font-bold">{header}</h2>
+          <p style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 1)' }} className="lg:text-lg">{desc}</p>
         </div>
 
         {/* Button */}

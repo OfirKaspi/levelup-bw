@@ -60,7 +60,7 @@ const Navbar = () => {
                   ))}
                 </ul>
                 <Separator />
-                <LeaveDetailsButton>{data.buttonText}</LeaveDetailsButton>
+                <LeaveDetailsButton >{data.buttonText}</LeaveDetailsButton>
               </div>
             </SheetDescription>
           </SheetContent>

@@ -7,9 +7,9 @@ interface ArticlesListProps {
 
 const ArticlesList = ({ data: articles }: ArticlesListProps) => {
   return (
-    <ul className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-5 pb-10">
-      {articles.map((article, index) => (
-        <ArticlePreview key={article._id} article={article} index={index} />
+    <ul className="grid grid-cols-1 md:grid-cols-2 gap-5 pb-10">
+      {articles.map((article) => (
+        <ArticlePreview key={article._id} article={article}/>
       ))}
     </ul>
   )

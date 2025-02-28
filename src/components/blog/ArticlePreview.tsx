@@ -4,15 +4,16 @@ import Link from "next/link"
 
 interface ArticlePreviewProps {
   article: Article
-  index: number
 }
 
-const ArticlePreview = ({ article, index }: ArticlePreviewProps) => {
+const ArticlePreview = ({ article}: ArticlePreviewProps) => {
   return (
     <li key={article._id}>
-      <Link href={`/blog/${article.href}`} className="flex flex-col gap-5 py-5">
-        <h5 className="text-lg lg:text-2xl border-b-2 pb-2">{index < 9 ? `0${index + 1}` : index + 1}: {article.header}</h5>
-        <p className="text-sm lg:text-base text-muted-foreground">{article.desc}</p>
+      <Link href={`/blog/${article.href}`} className="flex flex-col justify-between h-full gap-5 md:border-2 md:p-5 md:rounded-lg">
+        <header className="space-y-2">
+          <h5 className="text-lg lg:text-2xl border-b-2 pb-2 font-bold">{article.header}</h5>
+          <p className="text-sm lg:text-base text-muted-foreground">{article.desc}</p>
+        </header>
         <div className="relative aspect-video rounded-lg">
           <Image
             className="rounded-lg"

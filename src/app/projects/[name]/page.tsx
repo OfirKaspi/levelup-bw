@@ -11,7 +11,11 @@ const ProjectPage = async ({ params }: { params: Promise<{ name: string }> }) =>
   }
 
   return (
-    <section className="relative w-screen screen left-1/2 -translate-x-1/2 -mt-[90px] pt-[90px]" style={{ backgroundColor: project.background.color }}>
+    <section className="relative -mx-5" style={{ backgroundColor: project.background.color }}>
+      
+      {/* NEED TO CHANGE LATER - THE NAV BAR MUST CHANGE HES COLOR AND NOT THIS DIV */}
+      <div className="absolute w-screen left-1/2 -translate-x-1/2 -mt-[90px] pt-[90px]" style={{ backgroundColor: project.background.color }}/>
+      
       <div className="md:max-w-3xl lg:max-w-5xl md:mx-auto">
         <div className="space-y-5 p-5">
           <div className="relative aspect-video -mx-5 -mt-5">

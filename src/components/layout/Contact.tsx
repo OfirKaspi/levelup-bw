@@ -1,9 +1,10 @@
+import { CONFIG } from "@/lib/config";
 import { Mail, MapPin, Phone } from "lucide-react";
 const Contact = () => {
   const contacts = [
-    { icon: <Mail className="text-purple-800" />, text: "support@levelup.com" },
-    { icon: <Phone className="text-purple-800" />, text: "0525252525" },
-    { icon: <MapPin className="text-purple-800" />, text: "משה דיין 22, תל אביב, ישראל" },
+    { icon: <Mail className="text-purple-800" />, text: CONFIG.contactEmail },
+    { icon: <Phone className="text-purple-800" />, text: CONFIG.phoneNumber },
+    { icon: <MapPin className="text-purple-800" />, text: CONFIG.contactAddress },
   ]
 
   return (

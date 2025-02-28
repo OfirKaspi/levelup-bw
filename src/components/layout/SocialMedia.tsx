@@ -3,9 +3,9 @@ import Image from "next/image"
 import Link from "next/link";
 
 const SocialMedia = () => {
-  const phoneNumber = CONFIG.WHATSAPP_NUMBER
-  const facebookUsername = CONFIG.FACEBOOK_USERNAME
-  const instagramUsername = CONFIG.INSTAGRAM_USERNAME
+  const phoneNumber = CONFIG.whatsappNumber
+  const facebookUsername = CONFIG.facebookUsername
+  const instagramUsername = CONFIG.instagramUsername
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
   const facebookUrl = `https://www.facebook.com/${facebookUsername}`;
   const instagramUrl = `https://www.instagram.com/${instagramUsername}`;

@@ -9,7 +9,7 @@ interface HeroProps {
 
 const Hero = ({ data }: HeroProps) => {
   return (
-    <div className="relative w-screen min-h-lvh -mx-5 -mt-[90px] pt-[90px]">
+    <div className="relative w-screen h-svh -mx-5 -mt-[90px] pt-[90px]">
       {/* Video Background */}
       <video
         autoPlay
@@ -37,7 +37,7 @@ const Hero = ({ data }: HeroProps) => {
 
         {/* Buttons */}
         <div className="flex gap-3">
-          <LeaveDetailsButton isDark={true}>{data.buttonText1}</LeaveDetailsButton>
+          <LeaveDetailsButton isDark={false}>{data.buttonText1}</LeaveDetailsButton>
           <FancyButton isDark={false}>
             <Link href={"/projects"}>{data.buttonText2}</Link>
           </FancyButton>

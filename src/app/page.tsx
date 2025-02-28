@@ -3,7 +3,7 @@ import Hero from "@/components/home/Hero";
 import ClientReviews from "@/components/home/ClientReviews";
 import OurServices from "@/components/home/OurServices";
 import OurTechs from "@/components/home/OurTechs";
-import Questions from "@/components/home/Questions";
+import FAQ from "@/components/home/FAQ";
 import Subscription from "@/components/common/Subscription";
 
 const HomePage = async () => {
@@ -20,7 +20,7 @@ const HomePage = async () => {
       <OurTechs data={techs} />
       <OurServices data={ourServices} />
       <ClientReviews data={clientReviews} />
-      <Questions data={questions} />
+      <FAQ data={questions} />
       <Subscription data={subscription} />
     </>
   );
