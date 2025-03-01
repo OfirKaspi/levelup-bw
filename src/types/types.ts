@@ -14,11 +14,6 @@ interface Image extends BaseEntity {
   src: string;
 }
 
-interface Background extends BaseEntity {
-  image: Image
-  color: string;
-}
-
 interface Link extends BaseEntity {
   text: string
   href: string
@@ -48,12 +43,20 @@ export interface ProjectsPageType extends ImageSectionType {
 
 export interface Project extends Paragraph {
   name: string
-  background: Background
+  backgroundColor: string
+  images: Image
   logo: Image
-  image: Image
+  mockupImages: MockupImages
   externalLink: Link
   internalLink: Link
 }
+
+type MockupImages = {
+  rightLaptop: Image;
+  leftLaptop: Image;
+  instagram: Image;
+  phones: Image;
+};
 
 // Tech Data
 export interface Tech extends Image {

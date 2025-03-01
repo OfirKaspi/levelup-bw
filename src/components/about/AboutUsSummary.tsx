@@ -9,7 +9,7 @@ interface AboutUsSummaryProps {
 const AboutUsSummary = ({ data }: AboutUsSummaryProps) => {
   const { ctaParagraph, paragraph } = data
   return (
-    <section className="bg-purple-100 lg:bg-inherit text-center lg:text-start space-y-5 p-5 lg:p-0 my-5 lg:my-24 rounded-lg">
+    <section className="bg-purple-100 lg:bg-inherit text-center lg:text-start space-y-5 p-5 lg:p-0 my-5 lg:my-24 rounded-lg md:max-w-3xl lg:max-w-5xl md:mx-auto">
       <div className="grid lg:grid-cols-[100px_1fr] gap-5">
         <Logo isTextShow={false} size={100} />
         <div className="space-y-2">

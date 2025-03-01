@@ -7,7 +7,7 @@ interface OurStoryProps {
 const OurStory = ({ data }: OurStoryProps) => {
   const { header, paragraphs } = data
   return (
-    <section className="border-2 rounded-lg">
+    <section className="border-2 rounded-lg md:max-w-3xl lg:max-w-5xl md:mx-auto">
       <h2 className="text-2xl lg:text-3xl p-5 lg:p-10 border-b-2">{header}</h2>
       <ul className="lg:grid lg:grid-cols-2 lg:px-5">
         {paragraphs.map((paragraph, index) => (

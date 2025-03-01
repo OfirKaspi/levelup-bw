@@ -16,8 +16,8 @@ const ProjectPreview = ({ project, index }: ProjectPreviewProps) => {
         <div className="relative aspect-video rounded-lg">
           <Image
             className="rounded-lg"
-            src={project.image.src}
-            alt={project.image.alt}
+            src={project.mockupImages.instagram.src}
+            alt={project.mockupImages.instagram.alt}
             fill
             style={{
               objectFit: "cover",

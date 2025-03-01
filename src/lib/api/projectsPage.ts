@@ -39,25 +39,34 @@ export const fetchProjectsPageData = async () => {
           text: "לאתר",
         },
         desc: "שיקלי מביאה לכם חוויית עיצוב פנים מרהיבה בהתאמה אישית. אנו מתמחים ביצירת חללים ייחודיים ומעוצבים בקפידה, תוך שילוב סגנון מודרני עם אלמנטים חמים ואישיים. עם צוות מקצועי וקשוב, אנו נהפוך את הבית שלכם למקום חלומי שמרגיש בדיוק כמו שתמיד רציתם.",
-        background: {
-          _id: "1",
-          color: "#d3d3d3",
-          image: {
-            _id: "1",
-            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1734091474/freepik__create-a-minimalistic-luxurious-frame-with-a-sleek__5559_qdp2bv.png",
-            alt: "Shikli background image"
-          }
-        },
         logo: {
           _id: "1",
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733842719/Shikli_-_Logo_c8egtq.png",
           alt: "Shikli Logo image"
         },
-        image: {
-          _id: "1",
-          src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733326832/MOCKUP_-_PROFILE_PAGE_v7qj1n.png",
-          alt: "Shikli - Interior Design"
-        }
+        backgroundColor: "#d3d3d3",
+        mockupImages: {
+          rightLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740830716/LevelUp/laptop-mockup-right-shikli_sslrbh.png",
+            alt: "Shikli right laptop image"
+          },
+          leftLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740830508/LevelUp/laptop-mockup-left-shikli_r4a3lr.png",
+            alt: "Shikli left laptop image"
+          },
+          instagram: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733326832/MOCKUP_-_PROFILE_PAGE_v7qj1n.png",
+            alt: "Shikli instagram image"
+          },
+          phones: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/t_mockup-crop/v1740824444/LevelUp/phones-mockup-shikli_lomdrj.png",
+            alt: "Shikli phones image"
+          }
+        },
       },
       {
         _id: "2",
@@ -74,25 +83,34 @@ export const fetchProjectsPageData = async () => {
           text: "לאתר",
         },
         desc: "Bride Boutique הוא המקום שבו כל כלה מוצאת את השמלה המושלמת. עם מבחר רחב של שמלות כלה יוקרתיות, עיצובים מרהיבים ושירות אישי וחם, אנו מלווים כל כלה בדרך ליום הגדול שלה. אצלנו תמצאי את השילוב המושלם בין סטייל, נוחות ואלגנטיות - כי מגיע לך להרגיש כמו נסיכה ביום החתונה שלך.",
-        background: {
-          _id: "1",
-          color: "#fadbdb",
-          image: {
-            _id: "1",
-            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1734089259/freepik__light-pink-frame-with-flowers-white-background-no-__83044_kcqh6g.png",
-            alt: "Bride Boutique background image",
-          }
-        },
         logo: {
           _id: "1",
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733842719/Bride_Boutique_-_logo_pkvdh1.png",
           alt: "Bride Boutique image"
         },
-        image: {
-          _id: "1",
-          src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733326830/MOCKUP_-_BRIDE_BOUTIQUE_yjagtn.png",
-          alt: "Bride Boutique"
-        }
+        backgroundColor: "#fadbdb",
+        mockupImages: {
+          rightLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740830716/LevelUp/laptop-mockup-left-shikli_sslrbh.png",
+            alt: "Bride Boutique right laptop image"
+          },
+          leftLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740834845/LevelUp/laptop-mockup-left-bride_nkoubt.png",
+            alt: "Bride Boutique left laptop image"
+          },
+          instagram: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733326830/MOCKUP_-_BRIDE_BOUTIQUE_yjagtn.png",
+            alt: "Bride Boutique instagram image"
+          },  
+          phones: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/t_mockup-crop/v1740824444/LevelUp/phones-mockup-bride-boutique_wyi5lq.png",
+            alt: "Bride Boutique phones image"
+          }
+        },
       },
       {
         _id: "3",
@@ -109,25 +127,34 @@ export const fetchProjectsPageData = async () => {
           text: "לאתר",
         },
         desc: "Let's Garden הופכת כל גינה לפנינת טבע קסומה. אנו מציעים פתרונות גינון יצירתיים, התאמה אישית לכל חלל חיצוני ושירות מקצועי מהלב. בין אם מדובר בעיצוב גינות פרטיות, מרפסות פורחות או שטחים ירוקים לעסקים, אנו כאן כדי להפוך כל חלום ירוק למציאות פורחת.",
-        background: {
-          _id: "1",
-          color: "#cae3b7",
-          image: {
-            _id: "1",
-            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1734089259/freepik__create-a-transparent-background-with-a-decorative-__67369_tybzhb.png",
-            alt: "Lets garden background image",
-          }
-        },
         logo: {
           _id: "1",
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733842719/Let_s_Garden_-_Logo_nmnfk1.png",
           alt: "Let's Garden image"
         },
-        image: {
-          _id: "1",
-          src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733326831/MOCKUP_-_LETS_GARDEN_qcdgki.png",
-          alt: "Let's Garden website image"
-        }
+        backgroundColor: "#cae3b7",
+        mockupImages:{
+          rightLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740830716/LevelUp/laptop-mockup-left-shikli_sslrbh.png",
+            alt: "Let's Garden right laptop image"
+          },
+          leftLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740834845/LevelUp/laptop-mockup-left-lets_bpsybf.png",
+            alt: "Let's Garden left laptop image"
+          },
+          instagram: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733326831/MOCKUP_-_LETS_GARDEN_qcdgki.png",
+            alt: "Let's Garden instagram image"
+          },
+          phones: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/t_mockup-crop/v1740824444/LevelUp/phones-mockup-lets-garden_twe18a.png",
+            alt: "Let's Garden phones image"
+          }
+        },
       },
       {
         _id: "4",
@@ -144,25 +171,34 @@ export const fetchProjectsPageData = async () => {
           text: "לאתר",
         },
         desc: "SiteTech IL מתמחה ביצירת אתרים מודרניים וחדשניים שמביאים תוצאות. אנו מספקים פתרונות דיגיטליים מתקדמים, תוך דגש על עיצוב מרשים, חוויית משתמש איכותית וקידום אפקטיבי. עם ניסיון עשיר וצוות מקצועי, נבנה עבורכם אתר שמייצג אתכם בצורה מושלמת ומקדם את העסק שלכם קדימה.",
-        background: {
-          _id: "1",
-          color: "#a4ccd3",
-          image: {
-            _id: "1",
-            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1734091713/freepik__teal-background-image-with-screens-and-laptops__5560_wyuzex.png",
-            alt: "SiteTech IL background image",
-          }
-        },
+        backgroundColor: "#a4ccd3",
         logo: {
           _id: "1",
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733842719/SiteTech_-_Logo_h9jmvr.png",
           alt: "SiteTech IL image"
         },
-        image: {
-          _id: "1",
-          src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733326830/MOCKUP_-_SITETECH_xeiygk.png",
-          alt: "SiteTech IL website image"
-        }
+        mockupImages:{
+          rightLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740830716/LevelUp/laptop-mockup-left-shikli_sslrbh.png",
+            alt: "Sitetech right laptop image"
+          },
+          leftLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740834845/LevelUp/laptop-mockup-left-sitetech_fsjneq.png",
+            alt: "Sitetech left laptop image"
+          },
+          instagram: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733326830/MOCKUP_-_SITETECH_xeiygk.png",
+            alt: "Sitetech instagram image"
+          },
+          phones: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/t_mockup-crop/v1740824444/LevelUp/phones-mockup-sitetech_mwp8mz.png",
+            alt: "Sitetech phones image"
+          }
+        },
       },
     ],
   };
