@@ -1,11 +1,9 @@
 /* eslint-disable @next/next/no-page-custom-font */
-"use client";
-
-import { useEffect } from "react";
 import "@/styles/globals.css";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
+import ClientRedirect from "@/components/common/ClientRedirect";
 
 export const metadata = {
   title: "LevelUp",
@@ -17,15 +15,6 @@ export const metadata = {
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
-  useEffect(() => {
-    const userAgent = navigator.userAgent || navigator.vendor;
-
-    if (userAgent.includes("Instagram")) {
-      const url = window.location.href;
-      window.location.replace(`https://openinbrowser.net/?url=${encodeURIComponent(url)}`);
-    }
-  }, []);
-
   return (
     <html lang="he" dir="rtl">
       <head>
@@ -35,6 +24,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         />
       </head>
       <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden">
+        <ClientRedirect />
         <Navbar />
         <main className="flex-1 px-5">{children}</main>
         <WhatsAppButton />
