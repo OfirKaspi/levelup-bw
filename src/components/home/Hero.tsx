@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import { HeroType } from "@/types/types";
 import LeaveDetailsButton from "@/components/common/LeaveDetails";
