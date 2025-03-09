@@ -3,7 +3,6 @@ import "@/styles/globals.css";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
-import ClientRedirect from "@/components/common/ClientRedirect";
 
 export const metadata = {
   title: "LevelUp",
@@ -24,7 +23,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         />
       </head>
       <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden">
-        <ClientRedirect />
         <Navbar />
         <main className="flex-1 px-5">{children}</main>
         <WhatsAppButton />

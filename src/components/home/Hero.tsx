@@ -2,14 +2,16 @@ import Link from "next/link";
 import { HeroType } from "@/types/types";
 import LeaveDetailsButton from "@/components/common/LeaveDetails";
 import FancyButton from "@/components/common/FancyButton";
+import { useInstagramFix } from "@/hooks/useInstagramFix";
 
 interface HeroProps {
   data: HeroType;
 }
 
 const Hero = ({ data }: HeroProps) => {
+  const heroHeight = useInstagramFix()
   return (
-    <div className="relative w-screen h-screen -mx-5 -mt-[90px] pt-[90px]">
+    <div className={`relative w-screen ${heroHeight} -mx-5 -mt-[90px] pt-[90px]`}>
       {/* Video Background */}
       <video
         autoPlay
