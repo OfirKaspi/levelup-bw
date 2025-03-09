@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
+"use client";
+
+import { useEffect } from "react";
 import "@/styles/globals.css";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
@@ -6,13 +9,23 @@ import WhatsAppButton from "@/components/common/WhatsAppButton";
 
 export const metadata = {
   title: "LevelUp",
-  description: "LevelUp - סוכנות דיגיטלית מובילה המספקת פתרונות מקצועיים בבניית אתרים, שיווק וכתיבה שיווקית, המקדמים עסקים להצלחה.",
+  description:
+    "LevelUp - סוכנות דיגיטלית מובילה המספקת פתרונות מקצועיים בבניית אתרים, שיווק וכתיבה שיווקית, המקדמים עסקים להצלחה.",
   icons: {
     icon: "/levelup-logo-square.png",
   },
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
+  useEffect(() => {
+    const userAgent = navigator.userAgent || navigator.vendor;
+
+    if (userAgent.includes("Instagram")) {
+      const url = window.location.href;
+      window.location.replace(`https://openinbrowser.net/?url=${encodeURIComponent(url)}`);
+    }
+  }, []);
+
   return (
     <html lang="he" dir="rtl">
       <head>
@@ -21,7 +34,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden ">
+      <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden">
         <Navbar />
         <main className="flex-1 px-5">{children}</main>
         <WhatsAppButton />
@@ -29,6 +42,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       </body>
     </html>
   );
-}
+};
 
-export default RootLayout
+export default RootLayout;
