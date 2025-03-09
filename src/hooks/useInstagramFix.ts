@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export function useInstagramFix() {
-  const [heroHeight, setHeroHeight] = useState("h-svh"); // Default Tailwind class
+  const [heroHeight, setHeroHeight] = useState("h-website"); // Default Tailwind class
 
   useEffect(() => {
     const userAgent = navigator.userAgent || navigator.vendor;
