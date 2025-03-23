@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface LeaveDetailsFormProps {
   buttonText: string;
@@ -22,11 +23,15 @@ const LeaveDetailsForm = ({
     phone: "",
     email: "",
     option: "",
+    newsletter: true,
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [responseMessage, setResponseMessage] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
@@ -49,6 +54,7 @@ const LeaveDetailsForm = ({
     if (Object.keys(validationErrors).length > 0) return;
 
     setLoading(true);
+    setResponseMessage(null);
     try {
       const response = await fetch("/api/leads", {
         method: "POST",
@@ -56,13 +62,15 @@ const LeaveDetailsForm = ({
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error("Failed to submit form.");
+      const result = await response.json();
 
-      setSuccess(true);
-      setFormData({ fullname: "", phone: "", email: "", option: "" });
+      if (!response.ok) throw new Error(result?.message || "Unknown error");
+
+      setResponseMessage({ success: true, message: successText });
+      setFormData({ fullname: "", phone: "", email: "", option: "", newsletter: true });
     } catch (error) {
       console.error(error);
-      alert("Something went wrong. Please try again later.");
+      setResponseMessage({ success: false, message: "אופס, משהו קרה. אנא נסה שנית." });
     } finally {
       setLoading(false);
     }
@@ -70,7 +78,10 @@ const LeaveDetailsForm = ({
 
   return (
     <form className="grid gap-4 py-4" onSubmit={handleSubmit}>
-      {success && <p className="text-green-600">{successText}</p>}
+      {responseMessage && (
+        <p className={responseMessage.success ? "text-green-600" : "text-red-600"}>{responseMessage.message}</p>
+      )}
+
       <div className="grid grid-cols-4 items-center gap-2">
         <Label htmlFor="fullname">שם מלא</Label>
         <Input
@@ -120,12 +131,25 @@ const LeaveDetailsForm = ({
             <SelectValue placeholder="בחר שירות" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="option1">מחלקת פיתוח אתרים</SelectItem>
-            <SelectItem value="option2">מחלקת עיצוב</SelectItem>
-            <SelectItem value="option3">מחלקת שיווק</SelectItem>
+            <SelectItem value="פיתוח אתרים">מחלקת פיתוח אתרים</SelectItem>
+            <SelectItem value="עיצוב">מחלקת עיצוב</SelectItem>
+            <SelectItem value="שיווק">מחלקת שיווק</SelectItem>
           </SelectContent>
         </Select>
         {errors.option && <p className="col-span-4 text-red-600">{errors.option}</p>}
+      </div>
+
+      <div className="flex items-center space-x-2 rtl:space-x-reverse">
+        <Checkbox
+          id="newsletter"
+          checked={formData.newsletter}
+          onChange={(e) =>
+            setFormData({ ...formData, newsletter: e.target.checked })
+          }
+        />
+        <Label htmlFor="newsletter">
+          קבל עדכונים והצעות מהסוכנות שלנו ישירות למייל
+        </Label>
       </div>
 
       <Button type="submit" className="w-full" disabled={loading}>
