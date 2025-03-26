@@ -49,7 +49,7 @@ const ImageSection = ({ data }: ImageSectionProps) => {
         {/* Button */}
         {buttonText && (
           <div >
-            <LeaveDetailsButton isDark={false}>{buttonText}</LeaveDetailsButton>
+            <LeaveDetailsButton text={buttonText} isDark={false}/>
           </div>
         )}
       </div>

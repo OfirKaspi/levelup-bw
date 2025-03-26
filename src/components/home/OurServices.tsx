@@ -13,6 +13,7 @@ interface OurServicesProps {
 const OurServices = ({ data }: OurServicesProps) => {
   const { imageSection, services } = data
   const { isTablet } = useResponsive()
+
   return (
     <>
       <ImageSection data={imageSection} />
@@ -25,23 +26,25 @@ const OurServices = ({ data }: OurServicesProps) => {
                   <div className="flex lg:flex-col items-center lg:items-start gap-2 lg:gap-5">
                     <span className="p-2 border-2 rounded-md text-purple-800">
                       <Image
-                        src={service.src}
+                        src={`/our-services/${service.src}.svg`}
                         alt={service.alt}
                         width={20}
                         height={20}
                       />
                     </span>
-                    <h4 className="font-bold lg:text-lg">{service.header}</h4>
+                    <h3 className="font-bold lg:text-lg">{service.header}</h3>
                   </div>
-                  {isTablet &&
+                  {isTablet && service.buttonText &&
                     <div className="sm:w-full md:w-fit lg:w-full ">
-                      <LeaveDetailsButton isFancyButton={false}>{service.buttonText}</LeaveDetailsButton>
+                      <LeaveDetailsButton text={service.buttonText} isFancyWrapper={false} />
                     </div>
                   }
                 </header>
                 <p className="text-sm lg:text-base text-muted-foreground">{service.desc}</p>
               </div>
-              {!isTablet && <LeaveDetailsButton isFancyButton={false}>{service.buttonText}</LeaveDetailsButton>}
+              {!isTablet && service.buttonText &&
+                <LeaveDetailsButton text={service.buttonText} isFancyWrapper={false} />
+              }
             </li>
           ))}
         </ul>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { HeroType } from "@/types/types";
 import LeaveDetailsButton from "@/components/common/LeaveDetails";
-import FancyButton from "@/components/common/FancyButton";
+import FancyWrapper from "@/components/common/FancyWrapper";
 import { useInstagramFix } from "@/hooks/useInstagramFix";
 
 interface HeroProps {
@@ -41,10 +41,10 @@ const Hero = ({ data }: HeroProps) => {
 
         {/* Buttons */}
         <div className="flex gap-3">
-          <LeaveDetailsButton isDark={false}>{data.buttonText1}</LeaveDetailsButton>
-          <FancyButton isDark={false}>
-            <Link href={"/projects"}>{data.buttonText2}</Link>
-          </FancyButton>
+          <LeaveDetailsButton text={data.buttonText1} isDark={false} />
+          <FancyWrapper isDark={false}>
+            <Link href={"/projects"} aria-label={data.buttonText2} >{data.buttonText2}</Link>
+          </FancyWrapper>
         </div>
       </section>
     </div>

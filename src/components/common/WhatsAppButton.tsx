@@ -10,7 +10,7 @@ const WhatsAppButton = () => {
     <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
       <div className="fixed bottom-4 right-4 bg-green-500 rounded-full p-3 shadow-lg hover:bg-green-600 transition">
         <Image
-          src={`/socialMedia/whatsapp.svg`}
+          src={`/social-media/whatsapp.svg`}
           alt={`whatsapp logo`}
           width={30}
           height={30}

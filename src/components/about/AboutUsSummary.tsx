@@ -22,7 +22,7 @@ const AboutUsSummary = ({ data }: AboutUsSummaryProps) => {
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center bg-purple-300 rounded-lg gap-5 p-5">
           <p className="text-sm lg:text-base">{ctaParagraph.desc}</p>
           <div className="h-10 w-full lg:w-fit ">
-            <LeaveDetailsButton isFancyButton={false}>{ctaParagraph.buttonText}</LeaveDetailsButton>
+            <LeaveDetailsButton text={ctaParagraph.buttonText} isFancyWrapper={false}/>
           </div>
           {/* <Button bg-purple-800"></Button> */}
         </div>

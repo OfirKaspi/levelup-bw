@@ -16,7 +16,7 @@ const ClientReviewPreview = ({ review }: ClientReviewPreviewProps) => {
       className="flex flex-col gap-5 justify-between border-2 p-5 rounded-lg"
     >
       <div className="space-y-2">
-        <h4 className="text-purple-800 font-bold">{review.header}</h4>
+        <h3 className="text-purple-800 font-bold">{review.header}</h3>
         <p className="text-muted-foreground">{review.desc}</p>
       </div>
       <footer className="flex justify-between border-2 p-3 rounded-md">

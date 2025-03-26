@@ -27,7 +27,7 @@ const SocialMedia = () => {
           >
             <Link href={social.href} target="_blank" rel="noopener noreferrer">
               <Image
-                src={`/socialMedia/${social.name}.svg`}
+                src={`/social-media/${social.name}.svg`}
                 alt={`${social} logo`}
                 width={30}
                 height={30}

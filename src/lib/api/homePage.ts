@@ -134,56 +134,56 @@ export const fetchHomePageData = async () => {
       {
         _id: "1",
         name: "Figma",
+        src: "figma",
         alt: "Figma Image",
-        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733757870/figma_ihd6ko.svg"
       },
       {
         _id: "2",
         name: "Google Analytics",
+        src: "google-analytics",
         alt: "Google Analytics Image",
-        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733757870/google-analytics_ecg3yw.svg"
       },
       {
         _id: "3",
         name: "Mailchimp",
+        src: "mailchimp",
         alt: "Mailchimp Image",
-        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733757870/mailchimp_ekhmce.svg"
       },
       {
         _id: "4",
         name: "Monday",
+        src: "monday",
         alt: "Monday Image",
-        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733757870/monday_ppefry.svg"
       },
       {
         _id: "5",
         name: "Motion",
+        src: "motion",
         alt: "Motion Image",
-        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733757872/motion_xuxkqu.svg"
       },
       {
         _id: "6",
         name: "NextJS",
+        src: "next",
         alt: "NextJS Image",
-        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733757870/next_mf9asa.svg"
       },
       {
         _id: "7",
         name: "Strapi",
+        src: "strapi",
         alt: "Strapi Image",
-        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733757870/strapi_hjhv5t.svg"
       },
       {
         _id: "8",
         name: "Tailwind",
+        src: "tailwind",
         alt: "Tailwind Image",
-        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733757872/tailwind_ho2k5z.svg"
       },
       {
         _id: "9",
         name: "Zapier",
+        src: "zapier",
         alt: "Zapier Image",
-        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733757872/zapier_ochkxu.svg"
       },
     ],
     ourServices: {
@@ -201,7 +201,7 @@ export const fetchHomePageData = async () => {
           header: "בנייה ועיצוב אתרים",
           desc: "ב-לבל אפ, אנו מתמחים בבניית אתרים מודרניים וידידותיים למשתמש שמשדרים מקצועיות ומדגישים את הייחודיות של המותג שלך. עם דגש על עיצוב חווייתי ותהליך פיתוח מתקדם, אנו מוודאים שהאתר שלך יבלוט במרחב הדיגיטלי",
           buttonText: "לעוד מידע לחץ כאן",
-          src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733766524/brush_1_tcsr8v.svg",
+          src: "brush",
           alt: "אייקון בנייה ועיצוב אתרים",
         },
         {
@@ -209,7 +209,7 @@ export const fetchHomePageData = async () => {
           header: "שירותי שיווק ופרסום",
           desc: "אנחנו מספקים שירותי שיווק ופרסום מותאמים אישית שיעזרו לך להגיע לקהל היעד שלך בצורה מדויקת. עם אסטרטגיות חדשניות וקמפיינים ממוקדים, נהפוך את החזון שלך להצלחה מדידה",
           buttonText: "לעוד מידע לחץ כאן",
-          src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733766525/puzzle_1_t5nv0s.svg",
+          src: "puzzle",
           alt: "אייקון שירותי שיווק ופרסום",
         },
         {
@@ -217,7 +217,7 @@ export const fetchHomePageData = async () => {
           header: "אוטומציות ומוצרים דיגיטליים חדשניים",
           desc: "הפתרונות שלנו כוללים אוטומציות חכמות ומוצרים דיגיטליים מתקדמים שמייעלים תהליכים עסקיים וחוסכים לך זמן. אנחנו עוזרים לך להתמקד בצמיחה תוך שימוש בטכנולוגיות חדשניות",
           buttonText: "לעוד מידע לחץ כאן",
-          src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733766525/square-chart-gantt_1_jml7ug.svg",
+          src: "square-chart-gantt",
           alt: "אייקון אוטומציות ומוצרים דיגיטליים חדשניים",
         },
       ]

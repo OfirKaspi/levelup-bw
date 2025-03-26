@@ -40,7 +40,7 @@ const LeaveDetailsForm = () => {
     loadingButtonText: "שולח...",
     success: {
       header: "הפרטים התקבלו בהצלחה!",
-      desc: "תודה על הפנייה 🙌 אחד מאנשי הצוות שלנו יצור איתך קשר תוך 24 שעות ויעזור לך להתקדם לשלב הבא.",
+      desc: "תודה על הפנייה 🙌 אחד מאנשי הצוות שלנו יצור איתך קשר תוך 24 שעות.",
     }    
   };
 
