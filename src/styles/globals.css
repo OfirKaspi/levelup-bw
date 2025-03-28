@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  overflow-x: hidden;
+}
+
+
 body {
   @apply font-sans text-gray-900 leading-relaxed;
 }

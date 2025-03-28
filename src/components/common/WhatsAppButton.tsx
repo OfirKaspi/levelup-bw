@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useDraggable } from "@/hooks/useDraggable";
 import { MessageCircle } from "lucide-react";
 import { CONFIG } from "@/lib/config";
+import useResponsive from "@/hooks/useResponsive";
 
 /**
  * WhatsAppButton
@@ -16,22 +17,25 @@ import { CONFIG } from "@/lib/config";
  */
 const WhatsAppButton = () => {
   const size = 48;
-
+  
   // WhatsApp phone number from config
   const phoneNumber = CONFIG.whatsappNumber;
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
-
+  
   /**
    * Initial position of the button (bottom-right corner).
    * Set only on client after layout is ready.
-   */
-  const [initialPosition, setInitialPosition] = useState<{ x: number; y: number } | null>(null);
-
+  */
+ const [initialPosition, setInitialPosition] = useState<{ x: number; y: number } | null>(null);
+ 
+ const { isDesktop } = useResponsive()
+ 
   useEffect(() => {
-    const x = window.innerWidth - size - 16;
+    const padding = isDesktop ? 16 : 8;
+    const x = window.innerWidth - size - padding;
     const y = window.innerHeight - size - 8;
     setInitialPosition({ x, y });
-  }, []);
+  }, [isDesktop]);
 
   /**
    * useDraggable handles all dragging logic:
@@ -87,9 +91,8 @@ const WhatsAppButton = () => {
       onTouchStart={handleTouchStart}
       onMouseDown={handleMouseDownWithPrevent}
       onMouseUp={handleMouseUp}
-      className={`fixed z-50 ${
-        isDragging ? "" : "transition-all duration-500 ease-out"
-      } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+      className={`fixed z-50 ${isDragging ? "" : "transition-all duration-500 ease-out"
+        } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
       style={{
         left: position.x,
         top: position.y,

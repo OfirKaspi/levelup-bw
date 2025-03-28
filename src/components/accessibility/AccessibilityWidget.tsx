@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Accessibility, Minus, Plus, RefreshCw } from "lucide-react";
+import { Accessibility, Minus, Plus, RefreshCw, X } from "lucide-react";
 import { useDraggable } from "@/hooks/useDraggable";
 import { createPortal } from "react-dom";
 
@@ -65,6 +65,19 @@ export default function AccessibilityWidget() {
 		initialPosition,
 	});
 
+	const handleMouseDownWithPrevent = (e: React.MouseEvent<HTMLElement>) => {
+		if (isOpen) return; // prevent dragging when modal is open
+		document.body.style.overflow = "hidden";
+		document.body.style.userSelect = "none";
+		handleMouseDown(e);
+	};
+
+	const handleMouseUp = () => {
+		document.body.style.overflow = "auto";
+		document.body.style.userSelect = "auto";
+	};
+
+
 	// Trigger animation once position is available
 	useEffect(() => {
 		if (position) setIsVisible(true);
@@ -110,12 +123,14 @@ export default function AccessibilityWidget() {
 
 	return (
 		<div
-			onMouseDown={handleMouseDown}
-			onTouchStart={handleTouchStart}
+			onMouseDown={handleMouseDownWithPrevent}
+			onMouseUp={handleMouseUp}
+			onTouchStart={isOpen ? undefined : handleTouchStart}
 			className={`fixed z-50 ${isDragging ? "" : "transition-all duration-500 ease-out"
 				} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
 			style={{ left: position.x, top: position.y }}
 		>
+
 			<button
 				onClick={() => {
 					if (!wasDragged.current) setIsOpen(!isOpen);
@@ -135,11 +150,20 @@ export default function AccessibilityWidget() {
 					<div
 						ref={overlayRef}
 						onClick={handleOverlayClick}
-						className="fixed inset-0 z-40 bg-black/50 flex items-center justify-center"
+						className="fixed inset-0 z-[100] bg-black/50 flex items-center justify-center"
 					>
 
 						<div className="bg-white border shadow-lg rounded-[12px] p-[20px] w-[340px] min-h-[380px] rtl:text-right text-right space-y-[16px] z-50 text-[18px] leading-[1.6] font-sans">
-							<h2 className="text-[20px] font-bold">כלי נגישות</h2>
+							<header className="flex justify-between items-center">
+								<h2 className="text-[20px] font-bold">כלי נגישות</h2>
+								<button
+									onClick={() => setIsOpen(false)}
+									aria-label="סגור את החלון"
+									className="text-gray-500 hover:text-black transition rounded-full border border-gray-500 hover:border-black p-1"
+								>
+									<X size={20} />
+								</button>
+							</header>
 
 							<div className="space-y-[12px]">
 								{/* Font size controls */}
