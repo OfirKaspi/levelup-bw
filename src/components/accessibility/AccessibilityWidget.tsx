@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Accessibility, Minus, Plus, RefreshCw, X } from "lucide-react";
 import { useDraggable } from "@/hooks/useDraggable";
 import { createPortal } from "react-dom";
+import { useDragPrevention } from "@/hooks/useDragPrevention";
 
 const localStorageKey = "accessibility-settings";
 
@@ -65,19 +66,6 @@ export default function AccessibilityWidget() {
 		initialPosition,
 	});
 
-	const handleMouseDownWithPrevent = (e: React.MouseEvent<HTMLElement>) => {
-		if (isOpen) return; // prevent dragging when modal is open
-		document.body.style.overflow = "hidden";
-		document.body.style.userSelect = "none";
-		handleMouseDown(e);
-	};
-
-	const handleMouseUp = () => {
-		document.body.style.overflow = "auto";
-		document.body.style.userSelect = "auto";
-	};
-
-
 	// Trigger animation once position is available
 	useEffect(() => {
 		if (position) setIsVisible(true);
@@ -107,6 +95,12 @@ export default function AccessibilityWidget() {
 		localStorage.setItem(localStorageKey, JSON.stringify(settings));
 	}, [settings]);
 
+	const {
+		handleMouseDownWithPrevent,
+		handleTouchStartWithPrevent,
+		handleDragEnd,
+	} = useDragPrevention(handleMouseDown, handleTouchStart, isOpen);
+
 	if (!position) return null;
 
 	const updateSetting = (key: keyof AccessibilitySettings, value: boolean | number) => {
@@ -124,8 +118,10 @@ export default function AccessibilityWidget() {
 	return (
 		<div
 			onMouseDown={handleMouseDownWithPrevent}
-			onMouseUp={handleMouseUp}
-			onTouchStart={isOpen ? undefined : handleTouchStart}
+			// onMouseDown={handleMouseDownWithPrevent}
+			onMouseUp={handleDragEnd}
+			onTouchStart={handleTouchStartWithPrevent}
+			// onTouchStart={isOpen ? undefined : handleTouchStart}
 			className={`fixed z-50 ${isDragging ? "" : "transition-all duration-500 ease-out"
 				} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
 			style={{ left: position.x, top: position.y }}

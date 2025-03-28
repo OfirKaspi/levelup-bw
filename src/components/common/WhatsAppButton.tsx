@@ -5,6 +5,7 @@ import { useDraggable } from "@/hooks/useDraggable";
 import { MessageCircle } from "lucide-react";
 import { CONFIG } from "@/lib/config";
 import useResponsive from "@/hooks/useResponsive";
+import { useDragPrevention } from "@/hooks/useDragPrevention";
 
 /**
  * WhatsAppButton
@@ -17,19 +18,19 @@ import useResponsive from "@/hooks/useResponsive";
  */
 const WhatsAppButton = () => {
   const size = 48;
-  
+
   // WhatsApp phone number from config
   const phoneNumber = CONFIG.whatsappNumber;
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
-  
+
   /**
    * Initial position of the button (bottom-right corner).
    * Set only on client after layout is ready.
   */
- const [initialPosition, setInitialPosition] = useState<{ x: number; y: number } | null>(null);
- 
- const { isDesktop } = useResponsive()
- 
+  const [initialPosition, setInitialPosition] = useState<{ x: number; y: number } | null>(null);
+
+  const { isDesktop } = useResponsive()
+
   useEffect(() => {
     const padding = isDesktop ? 16 : 8;
     const x = window.innerWidth - size - padding;
@@ -48,6 +49,12 @@ const WhatsAppButton = () => {
     size,
     initialPosition,
   });
+
+  const {
+    handleMouseDownWithPrevent,
+    handleTouchStartWithPrevent,
+    handleDragEnd,
+  } = useDragPrevention(handleMouseDown, handleTouchStart);
 
   // Track if component has entered for animation purposes
   const [isVisible, setIsVisible] = useState(false);
@@ -77,20 +84,14 @@ const WhatsAppButton = () => {
     }
   };
 
-  const handleMouseDownWithPrevent = (e: React.MouseEvent<HTMLElement>) => {
-    document.body.style.userSelect = "none";
-    handleMouseDown(e);
-  };
-
-  const handleMouseUp = () => {
-    document.body.style.userSelect = "auto";
-  };
-
   return (
     <div
-      onTouchStart={handleTouchStart}
+      // onTouchStart={handleTouchStart}
+      // onMouseDown={handleMouseDownWithPrevent}
       onMouseDown={handleMouseDownWithPrevent}
-      onMouseUp={handleMouseUp}
+      onMouseUp={handleDragEnd}
+      onTouchStart={handleTouchStartWithPrevent}
+      // onMouseUp={handleMouseUp}
       className={`fixed z-50 ${isDragging ? "" : "transition-all duration-500 ease-out"
         } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
       style={{

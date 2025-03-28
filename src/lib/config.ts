@@ -5,7 +5,7 @@ export const CONFIG = {
   ZOHO_CLIENT_SECRET: process.env.ZOHO_CLIENT_SECRET,
   ZOHO_REFRESH_TOKEN: process.env.ZOHO_REFRESH_TOKEN,
   ZOHO_REDIRECT_URI: process.env.ZOHO_REDIRECT_URI,
-  facebookUsername: "ofirkaspi",
+  facebookUsername: "the.levelup.agency",
   instagramUsername: "the.levelup.agency",
   whatsappNumber: "972552528601",
   phoneNumber: "0552528601",
