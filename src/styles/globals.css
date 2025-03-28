@@ -73,23 +73,86 @@ body {
   }
 }
 
+/* ACCESSIBILITY */
+
+.accessibility-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+html.accessibility-readable-font,
+html.accessibility-readable-font * {
+  font-family: 'Arial', 'Open Sans', sans-serif !important;
+}
+
+
+.accessibility-underline-links a {
+  text-decoration: underline !important;
+}
+
+.accessibility-reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+/* Global high-contrast mode (WCAG 2.0 AA / תקן 5568) */
+.contrast-mode * {
+  background: none !important;
+  background-color: #fff !important;
+  color: #000 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  border-color: #000 !important;
+  outline-color: #000 !important;
+}
+
+/* Links should remain obvious */
+.contrast-mode a {
+  text-decoration: underline !important;
+  color: #0000EE !important; /* classic accessible link color */
+}
+
+/* Inputs and buttons should still be usable */
+.contrast-mode button,
+.contrast-mode input,
+.contrast-mode select,
+.contrast-mode textarea {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
+  box-shadow: none !important;
+}
+
+/* Remove background images (safe for decorative only) */
+.contrast-mode img,
+.contrast-mode video {
+  filter: grayscale(1) contrast(1.2);
+  opacity: 1;
+}
+
+/* OPTIONAL: hide purely decorative images */
+.contrast-mode .decorative,
+.contrast-mode [aria-hidden=\"true\"] {
+  display: none !important;
+}
+
+
+/* SCROLL BAR */
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
+::-webkit-scrollbar-track { /* Track */
   background: lightgray;
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb { /* Handle */
   background: purple;
   border-radius: 5px;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover { /* Handle on hover */
   background: #555;
 }

@@ -4,6 +4,7 @@ import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
 import { Analytics } from '@vercel/analytics/react';
+import AccessibilityWidget from "@/components/accessibility/AccessibilityWidget";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -45,9 +46,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden font-[Assistant]">
         <Navbar />
         <main className="flex-1 px-5">{children}</main>
+        <AccessibilityWidget/>
         <WhatsAppButton />
         <Footer />
         <Analytics />
+        
       </body>
     </html>
   );
