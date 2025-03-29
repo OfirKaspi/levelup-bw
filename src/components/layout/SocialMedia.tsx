@@ -1,12 +1,13 @@
+"use client";
+
 import { CONFIG } from "@/lib/config";
-import Image from "next/image"
-import Link from "next/link";
+import { redirectToPlatform } from "@/utils/redirectToPlatform";
+import Image from "next/image";
 
 const SocialMedia = () => {
-  const phoneNumber = CONFIG.whatsappNumber
-  const facebookUsername = CONFIG.facebookUsername
-  const instagramUsername = CONFIG.instagramUsername
-  const whatsappUrl = `https://wa.me/${phoneNumber}`;
+  const { whatsappNumber, facebookUsername, instagramUsername } = CONFIG
+
+  const whatsappUrl = `https://wa.me/${whatsappNumber}`;
   const facebookUrl = `https://www.facebook.com/${facebookUsername}`;
   const instagramUrl = `https://www.instagram.com/${instagramUsername}`;
 
@@ -16,24 +17,32 @@ const SocialMedia = () => {
     { name: "whatsapp", href: whatsappUrl },
   ]
 
+  const handleClick = (href: string) => {
+    redirectToPlatform(href)
+  }
+
   return (
-    <div className="flex flex-col md:flex-row w-full md:mx-auto lg:mr-auto lg:ml-0 md:w-fit items-center justify-center gap-2 p-5 lg:p-2 border-2 rounded-md">
+    <div className="flex w-full flex-col items-center justify-center gap-2 rounded-md border-2 p-5 md:mx-auto md:w-fit md:flex-row lg:ml-0 lg:mr-auto lg:p-2">
       <span>השאר מחובר</span>
-      <ul className="flex gap-2">
+      <ul className="flex gap-2" role="list">
         {socials.map((social) => (
           <li
             key={social.name}
-            className="border-2 p-2 rounded-md"
+            className="rounded-md border-2"
+            role="listitem"
           >
-            <Link href={social.href} target="_blank" rel="noopener noreferrer">
+            <button
+              type="button"
+              className="relative m-2 h-8 w-8"
+              onClick={() => handleClick(social.href)}
+              aria-label={social.name}
+            >
               <Image
                 src={`/social-media/${social.name}.svg`}
-                alt={`${social} logo`}
-                width={30}
-                height={30}
-                className='w-[30px] h-[30px]'
+                alt={`${social.name} logo`}
+                fill
               />
-            </Link>
+            </button>
           </li>
         ))}
       </ul>

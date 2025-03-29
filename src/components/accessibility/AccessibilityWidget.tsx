@@ -118,11 +118,10 @@ export default function AccessibilityWidget() {
 	return (
 		<div
 			onMouseDown={handleMouseDownWithPrevent}
-			// onMouseDown={handleMouseDownWithPrevent}
 			onMouseUp={handleDragEnd}
 			onTouchStart={handleTouchStartWithPrevent}
-			// onTouchStart={isOpen ? undefined : handleTouchStart}
-			className={`fixed z-50 ${isDragging ? "" : "transition-all duration-500 ease-out"
+			className={`fixed z-50 rounded-full
+				${isDragging ? "" : "transition-all duration-500 ease-out"
 				} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
 			style={{ left: position.x, top: position.y }}
 		>
@@ -131,7 +130,7 @@ export default function AccessibilityWidget() {
 				onClick={() => {
 					if (!wasDragged.current) setIsOpen(!isOpen);
 				}}
-				className="rounded-full bg-blue-300 hover:bg-blue-400 transition ease-in shadow-md border border-black flex items-center justify-center"
+				className="rounded-full bg-blue-300 hover:bg-blue-400 shadow-lg border border-black flex items-center justify-center"
 				aria-label="כלי נגישות"
 				style={{
 					width: `${size}px`,
@@ -155,7 +154,7 @@ export default function AccessibilityWidget() {
 								<button
 									onClick={() => setIsOpen(false)}
 									aria-label="סגור את החלון"
-									className="text-gray-500 hover:text-black transition rounded-full border border-gray-500 hover:border-black p-1"
+									className="text-gray-500 hover:text-black transition rounded-full border border-gray-500 hover:border-black p-[4px]"
 								>
 									<X size={20} />
 								</button>
@@ -169,6 +168,7 @@ export default function AccessibilityWidget() {
 										<button
 											className="px-[16px] bg-gray-200 rounded text-[16px]"
 											onClick={() => updateSetting("fontSize", Math.max(80, settings.fontSize - 10))}
+											aria-label="כפתור הקטנת גודל המלל"
 										>
 											<Minus size={12} />
 										</button>
@@ -178,6 +178,7 @@ export default function AccessibilityWidget() {
 										<button
 											className="px-[16px] bg-gray-200 rounded text-[16px]"
 											onClick={() => updateSetting("fontSize", Math.min(200, settings.fontSize + 10))}
+											aria-label="כפתור הגדלת גודל המלל"
 										>
 											<Plus size={12} />
 										</button>
@@ -191,6 +192,7 @@ export default function AccessibilityWidget() {
 											type="checkbox"
 											checked={settings[key]}
 											onChange={(e) => updateSetting(key, e.target.checked)}
+											aria-label={`${label}`}
 										/>
 										<span className="text-[18px]">{label}</span>
 									</label>
@@ -199,7 +201,8 @@ export default function AccessibilityWidget() {
 								{/* Reset + Close buttons */}
 								<button
 									onClick={resetSettings}
-									className="text-[18px] py-[8px] flex items-center gap-[8px] text-gray-700 underline"
+									className="text-[18px] py-[8px] flex items-center gap-[8px]"
+									aria-label="כפתור איפוס הגדרות"
 								>
 									<RefreshCw size={20} /> אפס הגדרות
 								</button>
@@ -207,6 +210,7 @@ export default function AccessibilityWidget() {
 								<button
 									onClick={() => setIsOpen(false)}
 									className="w-full mt-[8px] text-[18px] py-[8px] border rounded-[6px] text-center bg-gray-100 hover:bg-gray-200"
+									aria-label="סגור את החלון"
 								>
 									סגור
 								</button>
