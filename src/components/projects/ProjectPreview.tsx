@@ -5,13 +5,12 @@ import Link from "next/link"
 
 interface ProjectPreviewProps {
   project: Project
-  index: number
 }
 
-const ProjectPreview = ({ project, index }: ProjectPreviewProps) => {
+const ProjectPreview = ({ project }: ProjectPreviewProps) => {
   return (
     <li key={project._id} className="md:p-5 md:border-2 md:rounded-lg">
-      <h5 className="text-lg lg:text-2xl text-muted-foreground border-b-2 pb-2">{index < 9 ? `0${index + 1}` : index + 1}: {project.header}</h5>
+      <h6 className="font-bold text-lg lg:text-2xl border-b-2 pb-2">{project.name}</h6>
       <div className="flex flex-col gap-5 py-5">
         <div className="relative aspect-video rounded-lg">
           <Image
@@ -26,9 +25,11 @@ const ProjectPreview = ({ project, index }: ProjectPreviewProps) => {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <h6 className="font-bold text-lg lg:text-2xl">{project.name}</h6>
           <div className="flex justify-between">
-            <Link href={`/projects/${project.internalLink.href}`} className="flex items-center justify-center gap-1 bg-purple-100 p-2 w-fit rounded-lg">
+            <Link
+              href={`/projects/${project.internalLink.href}`}
+              className="flex items-center justify-center gap-1 bg-rose-300 hover:bg-rose-400 transition ease-out py-2 px-4 w-fit rounded-lg"
+            >
               {project.internalLink.text}
               <StickyNote size={20} />
             </Link>
@@ -36,7 +37,7 @@ const ProjectPreview = ({ project, index }: ProjectPreviewProps) => {
               href={project.externalLink.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1 bg-purple-100 p-2 w-fit rounded-lg"
+              className="flex items-center justify-center gap-1 bg-purple-300 hover:bg-purple-400 transition ease-out py-2 px-4 w-fit rounded-lg"
             >
               {project.externalLink.text}
               <ExternalLink size={20} />
