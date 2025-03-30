@@ -25,6 +25,94 @@ export const fetchProjectsPageData = async () => {
     },
     projectsList: [
       {
+        _id: "200",
+        header: "Landing page",
+        name: "LevelUp - Web Development",
+        internalLink: {
+          _id: "1",
+          href: "levelup-wdlp",
+          text: "לדף תדמית",
+        },
+        externalLink: {
+          _id: "2",
+          href: "https://websites.thelevelupagency.com/",
+          text: "צפו באתר",
+        },
+        desc: "פיתוח דף נחיתה עבור LevelUp, כחלק ממערך השיווק הדיגיטלי של החברה. מטרת הדף היא הצגת שירותי פיתוח האתרים של הסוכנות, תוך שילוב עיצוב נקי וחדשני עם טפסי יצירת קשר לצורך איסוף לידים. הדף פותח בהתאמה אישית לצרכים הפנימיים של החברה, עם דגש על חוויית משתמש, נגישות, והתאמה למובייל.",
+        logo: {
+          _id: "1",
+          src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1742731808/LevelUp/levelup-logo_bwqjf3.png",
+          alt: "LevelUp Logo image"
+        },
+        backgroundColor: "#E6DAF5",
+        mockupImages: {
+          rightLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743349576/laptop-mockup-left-levelup-wdlp.png",
+            alt: "LevelUp right laptop image"
+          },
+          leftLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743349576/laptop-mockup-left-levelup-wdlp.png",
+            alt: "LevelUp left laptop image"
+          },
+          instagram: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743352168/iPhone_15_Mockup_Poster_rf4k4x.png",
+            alt: "LevelUp instagram image"
+          },
+          phones: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743349576/phones-mockup-levelup-wdlp.png",
+            alt: "LevelUp phones image"
+          }
+        },
+      },
+      {
+        _id: "201",
+        header: "Landing page",
+        name: "Yummy - Food Ordering Platform",
+        internalLink: {
+          _id: "1",
+          href: "yummy",
+          text: "לדף תדמית",
+        },
+        externalLink: {
+          _id: "2",
+          href: "https://www.yummy-app.website/",
+          text: "צפו באתר",
+        },
+        desc: "פיתוח פלטפורמת Yummy – מערכת להזמנת אוכל אונליין בשפה האנגלית, המאפשרת למשתמשים לרכוש מזון ממגוון מסעדות בצורה נוחה ומאובטחת. המערכת כוללת אפשרות לתשלום מקוון, יצירת חשבון אישי, והוספת כתובות למשלוח. בנוסף, מסעדות יכולות להירשם ולפרסם את התפריט שלהן ישירות דרך האתר. הפלטפורמה תוכננה עם דגש על ממשק משתמש נגיש, תהליך הזמנה פשוט, ומבנה מותאם למובייל ודסקטופ.",
+        logo: {
+          _id: "1",
+          src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743350514/yummy-full-logo.png",
+          alt: "Yummy Logo image"
+        },
+        backgroundColor: "#FFE5B4",
+        mockupImages: {
+          rightLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743349085/laptop-mockup-left-yummy.png",
+            alt: "Yummy right laptop image"
+          },
+          leftLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743349085/laptop-mockup-left-yummy.png",
+            alt: "Yummy left laptop image"
+          },
+          instagram: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743352168/instagram_Home_screen_Preview_Smartphone_Mockup_Premium_psd_ozqnt4.png",
+            alt: "Yummy instagram image"
+          },
+          phones: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743349085/phones-mockup-yummy.png",
+            alt: "Yummy phones image"
+          }
+        },
+      },
+      {
         _id: "1",
         header: "Landing page",
         name: "Shikli - Interior Design",
