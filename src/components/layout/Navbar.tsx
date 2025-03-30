@@ -9,9 +9,10 @@ import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/common/Logo";
 import LeaveDetailsButton from "@/components/common/LeaveDetails";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+
   const data = {
     _id: "1",
     header: "ברוכים הבאים ל-LevelUp!",
@@ -20,19 +21,36 @@ const Navbar = () => {
 
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-  const { isMobile } = useResponsive();
+  const { isMobile, isTablet, isDesktop } = useResponsive();
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10); // trigger after scrolling 10px
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   const closeSheet = () => {
     setIsOpen(false);
   };
 
   return (
-    <nav className="w-full p-5 z-10 flex flex-row-reverse items-center justify-between">
+    <nav
+      className={`sticky top-0 w-full min-h-20 p-5 z-50 flex flex-row-reverse items-center justify-between transition-all duration-300 
+        ${isScrolled
+          ? "bg-white/80 backdrop-blur shadow-sm"
+          : "bg-transparent"
+        }`}
+    >
       {/* Logo */}
-      <Logo isTextWhite={isHomePage} />
+      <Logo isTextWhite={isHomePage && !isScrolled} />
 
-      {isMobile ? (
+      {(isMobile || isTablet) && (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <button
@@ -70,7 +88,8 @@ const Navbar = () => {
             </SheetDescription>
           </SheetContent>
         </Sheet>
-      ) : (
+      )}
+      {isDesktop && (
         <>
           <ul className="flex gap-2">
             {links.map((link) => (
@@ -78,7 +97,7 @@ const Navbar = () => {
                 <Link
                   href={link.href}
                   aria-label={link.text}
-                  className={`flex items-center justify-center h-10 px-4 rounded-md transition-all ${isHomePage && "text-white"
+                  className={`flex items-center justify-center h-10 px-4 rounded-md transition-all duration-300 ${isHomePage && !isScrolled && "text-white"
                     } ${pathname === link.href
                       ? "bg-gray-900 text-white"
                       : "hover:bg-purple-800 hover:text-white"

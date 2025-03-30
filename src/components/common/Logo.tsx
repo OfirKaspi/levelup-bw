@@ -10,7 +10,7 @@ type Props = {
 
 const Logo = ({ isTextWhite = false, isTextShow = true, size = 50 }: Props) => {
   return (
-    <Link href={logoLink.href} className={`flex items-center justify-center text-xl font-bold gap-2 ${isTextWhite ? "text-white" : "text-purple-800 dark:text-gray-100"} `}>
+    <Link href={logoLink.href} className={`flex items-center justify-center text-xl font-bold gap-2 transition-all duration-300 ${isTextWhite ? "text-white" : "text-purple-800 dark:text-gray-100"} `}>
       {isTextShow && <span>{logoLink.title}</span>}
       <Image
         src={logoLink.src}
