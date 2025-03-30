@@ -1,6 +1,6 @@
 import { fetchProjectData } from "@/lib/api/projectsPage";
-import { ExternalLink } from "lucide-react";
 import Image from "next/image";
+import WebsiteRedirection from "@/components/common/WebsiteRedirection";
 
 const ProjectPage = async ({ params }: { params: Promise<{ name: string }> }) => {
   const resolvedParams = await params
@@ -37,21 +37,17 @@ const ProjectPage = async ({ params }: { params: Promise<{ name: string }> }) =>
           />
         </div>
       </section>
-      <section className="p-5 md:grid md:grid-cols-2 md:items-center md:text-center md:max-w-3xl lg:max-w-5xl md:mx-auto">
+      <section className="p-5 grid gap-5 md:grid-cols-2 md:items-center md:text-center md:max-w-3xl lg:max-w-5xl md:mx-auto">
         <div className="flex flex-col items-center space-y-5">
           <header className="space-y-2">
             <h6 className="font-bold text-lg md:text-2xl">{project.name}</h6>
             <p className="md:text-lg">{project.desc}</p>
           </header>
-          <a
+          <WebsiteRedirection
+            text={project.externalLink.text}
             href={project.externalLink.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1 text-white border-2 border-black bg-gray-700 hover:bg-gray-800 transition ease-out py-2 px-4 w-fit rounded-lg"
-          >
-            {project.externalLink.text}
-            <ExternalLink size={20} />
-          </a>
+            isDark={true}
+          />
         </div>
         <div className="relative max-w-[500px] mx-auto">
           <Image

@@ -1,7 +1,8 @@
 import { Project } from "@/types/types"
-import { ExternalLink, StickyNote } from "lucide-react"
+import { StickyNote } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import WebsiteRedirection from "@/components/common/WebsiteRedirection"
 
 interface ProjectPreviewProps {
   project: Project
@@ -33,15 +34,10 @@ const ProjectPreview = ({ project }: ProjectPreviewProps) => {
               {project.internalLink.text}
               <StickyNote size={20} />
             </Link>
-            <a
+            <WebsiteRedirection
+              text={project.externalLink.text}
               href={project.externalLink.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-1 bg-purple-300 hover:bg-purple-400 transition ease-out py-2 px-4 w-fit rounded-lg"
-            >
-              {project.externalLink.text}
-              <ExternalLink size={20} />
-            </a>
+            />
           </div>
         </div>
         <p className="text-sm lg:text-base text-muted-foreground">{project.desc}</p>
