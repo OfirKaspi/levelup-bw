@@ -149,8 +149,7 @@ html.accessibility-readable-font * {
 }
 
 ::-webkit-scrollbar-thumb { /* Handle */
-  background: purple;
-  border-radius: 5px;
+  background: #6A1B9A;
 }
 
 ::-webkit-scrollbar-thumb:hover { /* Handle on hover */

@@ -1,3 +1,4 @@
+import ScrollProgressBar from "@/components/common/ScrollProgressBar"
 import { fetchArticleData } from "@/lib/api/blogPage"
 import Image from "next/image"
 
@@ -11,7 +12,8 @@ const ArticlePage = async ({ params }: { params: Promise<{ name: string }> }) =>
   }
 
   return (
-    <div className="max-w-screen-sm mx-auto space-y-5 pt-5 pb-10">
+    <div className="relative max-w-screen-sm mx-auto space-y-5 pt-5 pb-10">
+      <ScrollProgressBar />
       <header className="space-y-2">
         <h5 className="text-lg lg:text-2xl border-b-2 pb-2 font-bold">{article.header}</h5>
         <p className="lg:text-lg">{article.desc}</p>
