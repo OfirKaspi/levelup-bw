@@ -1,7 +1,7 @@
 import { fetchProjectsPageData } from '@/lib/api/projectsPage';
 import ImageSection from '@/components/common/ImageSection';
-import ProjectsDesc from '@/components/projects/ProjectsDesc';
 import ProjectsList from '@/components/projects/ProjectsList';
+import PageDesc from '@/components/common/PageDesc';
 
 const ProjectsPage = async () => {
   const data = await fetchProjectsPageData();
@@ -15,7 +15,7 @@ const ProjectsPage = async () => {
   return (
     <>
       <ImageSection data={imageSection} />
-      <ProjectsDesc data={projectsDesc} />
+      <PageDesc data={projectsDesc} />
       <ProjectsList data={projectsList} />
       {/* CHANGE LATER TO A LEAVE DETAILS */}
       <ImageSection data={projectsCta} />
