@@ -69,6 +69,7 @@ export function useDraggable({
   const handleMouseDown = (e: React.MouseEvent<HTMLElement>) => {
     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
     isDragging.current = true;
+    document.documentElement.style.overflowX = 'hidden';
     wasDragged.current = false;
     dragOffset.current = {
       x: e.clientX - rect.left,
@@ -96,6 +97,7 @@ export function useDraggable({
 
   const handleMouseUp = () => {
     isDragging.current = false;
+    document.documentElement.style.overflowX = '';
     window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("mouseup", handleMouseUp);
   };
