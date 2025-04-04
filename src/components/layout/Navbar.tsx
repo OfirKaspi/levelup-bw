@@ -55,7 +55,7 @@ const Navbar = () => {
           <SheetTrigger asChild>
             <button
               onClick={() => setIsOpen(true)}
-              className="bg-slate-300 text-purple-800 h-10 w-10 p-2 rounded-md"
+              className="bg-purple-800 text-slate-100 h-10 w-10 p-2 rounded-md"
               aria-label="תפריט ניווט"
             >
               <Menu />

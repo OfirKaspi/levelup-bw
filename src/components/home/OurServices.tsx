@@ -24,12 +24,12 @@ const OurServices = ({ data }: OurServicesProps) => {
               <div className="space-y-2">
                 <header className="flex justify-between">
                   <div className="flex lg:flex-col items-center lg:items-start gap-2 lg:gap-5">
-                    <span className="p-2 border-2 rounded-md text-purple-800">
+                    <span className="relative border-2 rounded-md h-10 w-10 text-purple-800">
                       <Image
+                        className="p-2"
                         src={`/our-services/${service.src}.svg`}
                         alt={service.alt}
-                        width={20}
-                        height={20}
+                        fill
                       />
                     </span>
                     <h3 className="font-bold lg:text-lg">{service.header}</h3>
