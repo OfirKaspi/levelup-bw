@@ -27,10 +27,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           content="LevelUp - סוכנות דיגיטלית מובילה המספקת פתרונות מקצועיים בבניית אתרים, שיווק וכתיבה שיווקית, המקדמים עסקים להצלחה."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/levelup-logo-square.png" />
+        <meta property="og:image" content="https://res.cloudinary.com/dudwjf2pu/image/upload/v1743785680/LevelUp/levelup_og_image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="he_IL" />
         <meta property="og:url" content="https://thelevelupagency.com" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="https://res.cloudinary.com/dudwjf2pu/image/upload/v1743785680/LevelUp/levelup_og_image.png" />
         <link rel="canonical" href="https://thelevelupagency.com" />
         <link
           rel="icon"
@@ -46,11 +48,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden font-[Assistant]">
         <Navbar />
         <main className="flex-1 px-5">{children}</main>
-        <AccessibilityWidget/>
+        <AccessibilityWidget />
         <WhatsAppButton />
         <Footer />
         <Analytics />
-        
+
       </body>
     </html>
   );
