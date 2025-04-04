@@ -63,6 +63,7 @@ export default function AccessibilityWidget() {
 	const { position, handleMouseDown, handleTouchStart, wasDragged, isDragging } = useDraggable({
 		size,
 		initialPosition,
+		disabled: isOpen,
 	});
 
 	// Trigger animation once position is available

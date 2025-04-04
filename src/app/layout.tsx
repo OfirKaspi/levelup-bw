@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import "@/styles/globals.css";
+import { Analytics } from '@vercel/analytics/react';
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
-import { Analytics } from '@vercel/analytics/react';
-import AccessibilityWidget from "@/components/accessibility/AccessibilityWidget";
+import AccessibilityWidget from "@/components/legal/AccessibilityWidget";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
