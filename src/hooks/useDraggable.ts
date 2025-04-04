@@ -2,51 +2,13 @@
 import { useState, useRef, useEffect } from "react";
 
 interface DraggableOptions {
-  /**
-   * Size of the draggable element in pixels.
-   * Used to ensure it doesn't move off-screen.
-   */
   size: number;
-
-  /**
-   * Optional initial position of the element (x, y).
-   * Should be calculated on the client (after mount).
-   */
   initialPosition?: { x: number; y: number } | null;
-
-  /**
-   * Optional padding from the viewport edges to prevent overflow.
-   * Default: 8px
-   */
   padding?: number;
 }
 
-/**
- * useDraggable
- *
- * A custom hook to make any element draggable across the screen,
- * supporting both mouse and touch (desktop + mobile).
- *
- * @param {DraggableOptions} options - Configuration for size, initial position, and padding
- * @returns {{
- *   position: { x: number; y: number } | null;
- *   handleMouseDown: (e: React.MouseEvent<HTMLElement>) => void;
- *   handleTouchStart: (e: React.TouchEvent<HTMLElement>) => void;
- *   wasDragged: React.MutableRefObject<boolean>;
- *   isDragging: boolean;
- * }}
- *
- * Usage:
- * ```tsx
- * const {
- *   position,
- *   handleMouseDown,
- *   handleTouchStart,
- *   wasDragged,
- *   isDragging
- * } = useDraggable({ size: 48, initialPosition });
- * ```
- */
+const passiveFalse: AddEventListenerOptions = { passive: false };
+
 export function useDraggable({
   size,
   initialPosition,
@@ -58,23 +20,24 @@ export function useDraggable({
   const wasDragged = useRef(false);
   const dragOffset = useRef({ x: 0, y: 0 });
 
-  // Set initial position once available
   useEffect(() => {
     if (!initialPosition) return;
     const safeY = window.innerHeight - size - padding;
     setPosition({ x: initialPosition.x, y: safeY });
   }, [initialPosition, size, padding]);
 
-  // MOUSE EVENTS
   const handleMouseDown = (e: React.MouseEvent<HTMLElement>) => {
     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
     isDragging.current = true;
-    document.documentElement.style.overflowX = 'hidden';
     wasDragged.current = false;
+
+    document.body.style.userSelect = "none"; // allow scrollbar to stay
+
     dragOffset.current = {
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
     };
+
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseup", handleMouseUp);
   };
@@ -97,29 +60,32 @@ export function useDraggable({
 
   const handleMouseUp = () => {
     isDragging.current = false;
-    document.documentElement.style.overflowX = '';
+    document.body.style.userSelect = "";
     window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("mouseup", handleMouseUp);
   };
 
-  // TOUCH EVENTS
   const handleTouchStart = (e: React.TouchEvent<HTMLElement>) => {
     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
     const touch = e.touches[0];
     isDragging.current = true;
     wasDragged.current = false;
+
+    document.body.style.userSelect = "none";
+
     dragOffset.current = {
       x: touch.clientX - rect.left,
       y: touch.clientY - rect.top,
     };
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+
+    window.addEventListener("touchmove", handleTouchMove, passiveFalse);
     window.addEventListener("touchend", handleTouchEnd);
   };
 
   const handleTouchMove = (e: TouchEvent) => {
     if (!isDragging.current) return;
     wasDragged.current = true;
-    e.preventDefault(); // Prevent scrolling during drag
+    e.preventDefault(); // ✅ block scroll during drag only
 
     const touch = e.touches[0];
     const newX = Math.max(
@@ -136,17 +102,18 @@ export function useDraggable({
 
   const handleTouchEnd = () => {
     isDragging.current = false;
-    window.removeEventListener("touchmove", handleTouchMove);
+    document.body.style.userSelect = "";
+    window.removeEventListener("touchmove", handleTouchMove, passiveFalse);
     window.removeEventListener("touchend", handleTouchEnd);
   };
 
-  // Clean up all listeners on unmount
   useEffect(() => {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchmove", handleTouchMove, passiveFalse);
       window.removeEventListener("touchend", handleTouchEnd);
+      document.body.style.userSelect = "";
     };
   }, []);
 

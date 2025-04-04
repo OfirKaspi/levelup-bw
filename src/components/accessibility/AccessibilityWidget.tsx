@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { Accessibility, Minus, Plus, RefreshCw, X } from "lucide-react";
 import { useDraggable } from "@/hooks/useDraggable";
 import { createPortal } from "react-dom";
-import { useDragPrevention } from "@/hooks/useDragPrevention";
 
 const localStorageKey = "accessibility-settings";
 
@@ -95,12 +94,6 @@ export default function AccessibilityWidget() {
 		localStorage.setItem(localStorageKey, JSON.stringify(settings));
 	}, [settings]);
 
-	const {
-		handleMouseDownWithPrevent,
-		handleTouchStartWithPrevent,
-		handleDragEnd,
-	} = useDragPrevention(handleMouseDown, handleTouchStart, isOpen);
-
 	if (!position) return null;
 
 	const updateSetting = (key: keyof AccessibilitySettings, value: boolean | number) => {
@@ -117,9 +110,8 @@ export default function AccessibilityWidget() {
 
 	return (
 		<div
-			onMouseDown={handleMouseDownWithPrevent}
-			onMouseUp={handleDragEnd}
-			onTouchStart={handleTouchStartWithPrevent}
+			onMouseDown={handleMouseDown}
+			onTouchStart={handleTouchStart}
 			className={`fixed z-50 rounded-full
 				${isDragging ? "" : "transition-all duration-500 ease-out"
 				} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
