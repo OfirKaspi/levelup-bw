@@ -20,7 +20,7 @@ import {
 
 const LeaveDetailsForm = () => {
   const [formData, setFormData] = useState({
-    fullname: "",
+    fullName: "",
     phone: "",
     email: "",
     option: "",
@@ -49,7 +49,7 @@ const LeaveDetailsForm = () => {
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
 
-    if (!formData.fullname.trim()) newErrors.fullname = "נדרש שם מלא";
+    if (!formData.fullName.trim()) newErrors.fullName = "נדרש שם מלא";
     if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))
       newErrors.email = "אנא מלא כתובת אימייל תקינה";
     if (!formData.phone.match(/^05\d{8}$/))
@@ -82,7 +82,7 @@ const LeaveDetailsForm = () => {
 
       setIsSuccess(true);
       setFormData({
-        fullname: "",
+        fullName: "",
         phone: "",
         email: "",
         option: "",
@@ -122,18 +122,18 @@ const LeaveDetailsForm = () => {
         {responseError && <p className="text-red-600">{responseError}</p>}
 
         <div className="grid grid-cols-4 items-center gap-2">
-          <Label htmlFor="fullname">שם מלא</Label>
+          <Label htmlFor="fullName">שם מלא</Label>
           <Input
-            id="fullname"
+            id="fullName"
             placeholder="ישראל ישראלי"
             className="col-span-3"
-            value={formData.fullname}
+            value={formData.fullName}
             onChange={(e) =>
-              setFormData({ ...formData, fullname: e.target.value })
+              setFormData({ ...formData, fullName: e.target.value })
             }
           />
-          {errors.fullname && (
-            <p className="col-span-4 text-red-600">{errors.fullname}</p>
+          {errors.fullName && (
+            <p className="col-span-4 text-red-600">{errors.fullName}</p>
           )}
         </div>
 

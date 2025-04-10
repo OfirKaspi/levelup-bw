@@ -6,14 +6,15 @@ import { z } from "zod"
 import { CONFIG } from "@/lib/config"
 import https from "https"
 
-if (process.env.NODE_ENV !== "production") {
-  // Allow self-signed certificates in dev
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
-}
+// if (process.env.NODE_ENV !== "production") {
+// Allow self-signed certificates in dev
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+// }
 
 // ✅ ENV config
 const {
   MONGODB_URI,
+  MONGODB_DB_NAME,
   ZOHO_CLIENT_ID,
   ZOHO_CLIENT_SECRET,
   ZOHO_REFRESH_TOKEN,
@@ -24,7 +25,7 @@ const client = new MongoClient(MONGODB_URI || "")
 
 // ✅ Zod validation schema for incoming lead data
 const leadSchema = z.object({
-  fullname: z.string().nonempty("נדרש שם מלא."),
+  fullName: z.string().nonempty("נדרש שם מלא."),
   email: z.string().email("כתובת אימייל שגויה."),
   phone: z.string().regex(/^05\d{8}$/, "אנא מלא מספר טלפון תקין."),
   option: z.enum(["פיתוח אתרים", "עיצוב", "שיווק"]),
@@ -59,15 +60,15 @@ async function sendToZoho(accessToken: string, lead: any, db: any) {
   const formattedLead = {
     data: [
       {
-        Last_Name: lead.fullname,
+        Last_Name: lead.fullName,
         Email: lead.email,
         Phone: lead.phone,
         Lead_Source: lead.option,
-        Newsletter: lead.newsletter, 
+        Newsletter: lead.newsletter,
       },
     ],
     trigger: ["workflow"],
-  }  
+  }
 
   try {
     const response = await axios.post("https://www.zohoapis.com/crm/v2/Leads", formattedLead, {
@@ -77,7 +78,14 @@ async function sendToZoho(accessToken: string, lead: any, db: any) {
       },
     })
 
-    const zohoId = response.data?.data?.[0]?.details?.id
+    const zohoResponse = response.data?.data?.[0]
+
+    if (zohoResponse?.code !== "SUCCESS") {
+      console.error("❌ Zoho CRM rejected the lead:", zohoResponse)
+      throw new Error("Zoho CRM rejected the lead")
+    }
+
+    const zohoId = zohoResponse.details?.id
     console.log("✅ Zoho Lead Created:", zohoId)
 
     // ✅ Update the MongoDB lead record with Zoho ID and sync status
@@ -101,19 +109,25 @@ export async function POST(req: Request) {
     // ✅ Validate body with Zod schema
     const validatedLead = leadSchema.parse(body)
 
+    // ✅ Add timestamp
+    const leadWithTimestamp = {
+      ...validatedLead,
+      createdAt: new Date().toLocaleString("en-US", { timeZone: "Asia/Jerusalem" }),
+    }
+
     // ✅ Connect to MongoDB
     await client.connect()
-    const db = client.db()
+    const db = client.db(MONGODB_DB_NAME)
     const leadsCollection = db.collection("leads")
 
     // ✅ Save lead to MongoDB
-    await leadsCollection.insertOne(validatedLead)
+    await leadsCollection.insertOne(leadWithTimestamp)
 
     // ✅ Get Zoho access token
     const accessToken = await getAccessToken()
 
     // ✅ Send lead to Zoho CRM
-    const zohoId = await sendToZoho(accessToken, validatedLead, db)
+    const zohoId = await sendToZoho(accessToken, leadWithTimestamp, db)
 
     // ✅ Success response (shown as green on frontend)
     return NextResponse.json(
