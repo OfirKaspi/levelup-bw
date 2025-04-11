@@ -1,6 +1,10 @@
+"use client"
+
+import { useState } from "react"
 import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import LeaveDetailsForm from "@/components/forms/LeaveDetailsForm"
+import LeaveDetailsFormHeader from "./LeaveDetailsFormHeader"
 
 interface LeaveDetailsProps {
   text: string
@@ -8,11 +12,19 @@ interface LeaveDetailsProps {
   isDark?: boolean
 }
 
-const LeaveDetailsButton = ({ text, isFancyWrapper = true, isDark = true }: LeaveDetailsProps) => {
+const LeaveDetailsDialog = ({ text, isFancyWrapper = true, isDark = true }: LeaveDetailsProps) => {
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+
   const style = isDark ? "text-white bg-gray-900" : "text-gray-900 bg-white"
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={(open) => {
+      setIsOpen(open);
+      if (!open) {
+        setIsSuccess(false);
+      }
+    }}>
       <DialogTrigger asChild>
         {isFancyWrapper ? (
           <button
@@ -36,10 +48,11 @@ const LeaveDetailsButton = ({ text, isFancyWrapper = true, isDark = true }: Leav
         )}
       </DialogTrigger>
       <DialogContent className="max-w-[350px] sm:max-w-[450px] rounded-lg">
-        <LeaveDetailsForm />
+        <LeaveDetailsFormHeader isSuccess={isSuccess} />
+        <LeaveDetailsForm isSuccess={isSuccess} setIsSuccess={setIsSuccess} />
       </DialogContent>
-    </Dialog>
+    </Dialog >
   )
 }
 
-export default LeaveDetailsButton
+export default LeaveDetailsDialog

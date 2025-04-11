@@ -8,7 +8,7 @@ import useResponsive from "@/hooks/useResponsive";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/common/Logo";
-import LeaveDetailsButton from "@/components/common/LeaveDetails";
+import LeaveDetailsDialog from "@/components/forms/LeaveDetailsDialog";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
@@ -83,7 +83,7 @@ const Navbar = () => {
                   ))}
                 </ul>
                 <Separator />
-                <LeaveDetailsButton text={data.buttonText} />
+                <LeaveDetailsDialog text={data.buttonText} />
               </div>
             </SheetDescription>
           </SheetContent>
@@ -110,7 +110,7 @@ const Navbar = () => {
           </ul>
 
 
-          <LeaveDetailsButton text={data.buttonText} />
+          <LeaveDetailsDialog text={data.buttonText} />
         </>
       )}
     </nav>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { HeroType } from "@/types/types";
-import LeaveDetailsButton from "@/components/common/LeaveDetails";
+import LeaveDetailsDialog from "@/components/forms/LeaveDetailsDialog";
 import FancyWrapper from "@/components/common/FancyWrapper";
 import { useInstagramFix } from "@/hooks/useInstagramFix";
 
@@ -41,7 +41,7 @@ const Hero = ({ data }: HeroProps) => {
 
         {/* Buttons */}
         <div className="flex gap-3">
-          <LeaveDetailsButton text={data.buttonText1} isDark={false} />
+          <LeaveDetailsDialog text={data.buttonText1} isDark={false} />
           <FancyWrapper isDark={false}>
             <Link href={"/projects"} aria-label={data.buttonText2} >{data.buttonText2}</Link>
           </FancyWrapper>

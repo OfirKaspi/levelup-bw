@@ -12,13 +12,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import LeaveDetailsFormSuccessMessage from "./LeaveDetailsFormSuccessMessage";
 
-const LeaveDetailsForm = () => {
+interface LeaveDetailsFormProps {
+  isSuccess: boolean,
+  setIsSuccess: (value: boolean) => void
+}
+
+const LeaveDetailsForm = ({ isSuccess, setIsSuccess }: LeaveDetailsFormProps) => {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
@@ -29,22 +30,12 @@ const LeaveDetailsForm = () => {
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [loading, setLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const [responseError, setResponseError] = useState<string | null>(null);
 
-  const data = {
-    _id: "1",
-    header: "נעים להכיר!",
-    desc: "השאירו פרטים לשיחת ייעוץ בחינם - תספרו לנו מה העסק שלכם צריך ותקבלו טיפים שתוכלו ליישם מיד",
+  const { buttonText, loadingButtonText } = {
     buttonText: "לחץ כאן לשליחה",
     loadingButtonText: "שולח...",
-    success: {
-      header: "הפרטים התקבלו בהצלחה!",
-      desc: "תודה על הפנייה 🙌 אחד מאנשי הצוות שלנו יצור איתך קשר תוך 24 שעות.",
-    }    
-  };
-
-  const { buttonText, desc, header, loadingButtonText, success } = data;
+  }
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
@@ -97,27 +88,11 @@ const LeaveDetailsForm = () => {
   };
 
   if (isSuccess) {
-    return (
-      <div className="text-center py-12">
-        <DialogHeader>
-          <DialogTitle className="text-green-700 text-2xl">
-            {success.header}
-          </DialogTitle>
-          <DialogDescription className="text-gray-700 text-lg">
-            {success.desc}
-          </DialogDescription>
-        </DialogHeader>
-      </div>
-    );
+    return <LeaveDetailsFormSuccessMessage />
   }
 
   return (
     <>
-      <DialogHeader className="relative">
-        <DialogTitle>{header}</DialogTitle>
-        <DialogDescription>{desc}</DialogDescription>
-      </DialogHeader>
-
       <form className="grid gap-4 py-4" onSubmit={handleSubmit}>
         {responseError && <p className="text-red-600">{responseError}</p>}
 

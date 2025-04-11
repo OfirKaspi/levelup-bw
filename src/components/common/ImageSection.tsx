@@ -3,7 +3,7 @@
 import Image from "next/image";
 import LevelUpLogo from "@/assets/levelup-logo.png";
 import { ImageSectionType } from "@/types/types";
-import LeaveDetailsButton from "@/components/common/LeaveDetails";
+import LeaveDetailsDialog from "@/components/forms/LeaveDetailsDialog";
 
 interface ImageSectionProps {
   data: ImageSectionType;
@@ -49,7 +49,7 @@ const ImageSection = ({ data }: ImageSectionProps) => {
         {/* Button */}
         {buttonText && (
           <div >
-            <LeaveDetailsButton text={buttonText} isDark={false}/>
+            <LeaveDetailsDialog text={buttonText} isDark={false}/>
           </div>
         )}
       </div>

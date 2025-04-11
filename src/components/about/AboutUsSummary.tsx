@@ -1,6 +1,6 @@
 import Logo from "@/components/common/Logo"
 import { AboutUsSummaryType } from "@/types/types"
-import LeaveDetailsButton from "../common/LeaveDetails"
+import LeaveDetailsButton from "../forms/LeaveDetailsDialog"
 
 interface AboutUsSummaryProps {
   data: AboutUsSummaryType

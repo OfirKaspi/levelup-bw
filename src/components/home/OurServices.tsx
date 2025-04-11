@@ -4,7 +4,7 @@ import Image from "next/image"
 import { OurServicesType } from "@/types/types"
 import useResponsive from "@/hooks/useResponsive"
 import ImageSection from "@/components/common/ImageSection"
-import LeaveDetailsButton from "@/components/common/LeaveDetails"
+import LeaveDetailsDialog from "@/components/forms/LeaveDetailsDialog"
 
 interface OurServicesProps {
   data: OurServicesType
@@ -36,14 +36,14 @@ const OurServices = ({ data }: OurServicesProps) => {
                   </div>
                   {isTablet && service.buttonText &&
                     <div className="sm:w-full md:w-fit lg:w-full ">
-                      <LeaveDetailsButton text={service.buttonText} isFancyWrapper={false} />
+                      <LeaveDetailsDialog text={service.buttonText} isFancyWrapper={false} />
                     </div>
                   }
                 </header>
                 <p className="text-sm lg:text-base text-muted-foreground">{service.desc}</p>
               </div>
               {!isTablet && service.buttonText &&
-                <LeaveDetailsButton text={service.buttonText} isFancyWrapper={false} />
+                <LeaveDetailsDialog text={service.buttonText} isFancyWrapper={false} />
               }
             </li>
           ))}
