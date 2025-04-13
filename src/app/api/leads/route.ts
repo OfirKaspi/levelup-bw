@@ -1,39 +1,30 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from "next/server"
-import { MongoClient } from "mongodb"
-import axios from "axios"
 import { z } from "zod"
+import axios from "axios"
 import { CONFIG } from "@/lib/config"
 import https from "https"
 
-// if (process.env.NODE_ENV !== "production") {
-// Allow self-signed certificates in dev
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
-// }
-
-// ✅ ENV config
 const {
-  MONGODB_URI,
-  MONGODB_DB_NAME,
   ZOHO_CLIENT_ID,
   ZOHO_CLIENT_SECRET,
   ZOHO_REFRESH_TOKEN,
   ZOHO_REDIRECT_URI,
+  UPSTASH_REDIS_REST_URL,
+  UPSTASH_REDIS_REST_TOKEN,
 } = CONFIG
 
-const client = new MongoClient(MONGODB_URI || "")
-
-// ✅ Zod validation schema for incoming lead data
+// ✅ Zod validation schema
 const leadSchema = z.object({
   fullName: z.string().nonempty("נדרש שם מלא."),
   email: z.string().email("כתובת אימייל שגויה."),
   phone: z.string().regex(/^05\d{8}$/, "אנא מלא מספר טלפון תקין."),
   option: z.enum(["פיתוח אתרים", "עיצוב", "שיווק"]),
-  newsletter: z.boolean().optional().default(true), // Newsletter opt-in
+  newsletter: z.boolean().optional().default(true),
 })
 
 // ✅ Get a new Zoho access token using refresh token
-async function getAccessToken() {
+async function getZohoAccessToken() {
   const isDev = process.env.NODE_ENV !== "production"
 
   try {
@@ -55,8 +46,9 @@ async function getAccessToken() {
   }
 }
 
-// ✅ Send the lead data to Zoho CRM and mark synced in MongoDB
-async function sendToZoho(accessToken: string, lead: any, db: any) {
+// ✅ Send the lead data to Zoho CRM and update lead with sync status
+async function sendToZoho(accessToken: string, lead: any, key: string) {
+  const syncSource = "Zoho CRM"
   const formattedLead = {
     data: [
       {
@@ -81,23 +73,36 @@ async function sendToZoho(accessToken: string, lead: any, db: any) {
     const zohoResponse = response.data?.data?.[0]
 
     if (zohoResponse?.code !== "SUCCESS") {
-      console.error("❌ Zoho CRM rejected the lead:", zohoResponse)
       throw new Error("Zoho CRM rejected the lead")
     }
 
     const zohoId = zohoResponse.details?.id
-    console.log("✅ Zoho Lead Created:", zohoId)
 
-    // ✅ Update the MongoDB lead record with Zoho ID and sync status
-    await db.collection("leads").updateOne(
-      { email: lead.email },
-      { $set: { zohoSynced: true, zohoId } }
-    )
-
-    return zohoId
+    await axios.post(`${UPSTASH_REDIS_REST_URL}/set/${key}`, {
+      ...lead,
+      zohoSynced: true,
+      zohoId,
+      syncedAt: new Date().toLocaleString("en-IL", { timeZone: "Asia/Jerusalem" }),
+      syncSource,
+    }, {
+      headers: {
+        Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    })
   } catch (error: any) {
-    console.error("❌ Zoho API Error:", error.response?.data || error.message)
-    throw new Error("Failed to sync lead with Zoho CRM")
+    console.error("❌ Zoho API Error for key", key, ":", error.message)
+
+    await axios.post(`${UPSTASH_REDIS_REST_URL}/set/${key}:sync_error`, {
+      error: error.message,
+      time: new Date().toLocaleString("en-IL", { timeZone: "Asia/Jerusalem" }),
+      syncSource,
+    }, {
+      headers: {
+        Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    })
   }
 }
 
@@ -106,52 +111,48 @@ export async function POST(req: Request) {
   try {
     const body = await req.json()
 
-    // ✅ Validate body with Zod schema
     const validatedLead = leadSchema.parse(body)
 
-    // ✅ Add timestamp
     const leadWithTimestamp = {
       ...validatedLead,
-      createdAt: new Date().toLocaleString("en-US", { timeZone: "Asia/Jerusalem" }),
+      createdAt: new Date().toLocaleString("en-IL", { timeZone: "Asia/Jerusalem" }),
     }
 
-    // ✅ Connect to MongoDB
-    await client.connect()
-    const db = client.db(MONGODB_DB_NAME)
-    const leadsCollection = db.collection("leads")
+    const id = crypto.randomUUID()
+    const key = `lead:${id}`
 
-    // ✅ Save lead to MongoDB
-    await leadsCollection.insertOne(leadWithTimestamp)
+    await axios.post(`${UPSTASH_REDIS_REST_URL}/set/${key}`, leadWithTimestamp, {
+      headers: {
+        Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    })
 
-    // ✅ Get Zoho access token
-    const accessToken = await getAccessToken()
-
-    // ✅ Send lead to Zoho CRM
-    const zohoId = await sendToZoho(accessToken, leadWithTimestamp, db)
-
-    // ✅ Success response (shown as green on frontend)
-    return NextResponse.json(
+    // ✅ Respond immediately for great UX
+    const response = NextResponse.json(
       {
         success: true,
         message: "הפרטים נשלחו בהצלחה, ניצור איתך קשר בהקדם",
-        zohoId,
       },
       { status: 201 }
     )
+
+    // ✅ Continue sync in background
+    getZohoAccessToken()
+      .then((token) => sendToZoho(token, leadWithTimestamp, key))
+      .catch((err) => console.error("❌ Zoho sync setup failed:", err.message))
+
+    return response
   } catch (error: any) {
     console.error("❌ API Error:", error.message)
 
-    // ⚠️ If form validation fails
     if (error instanceof z.ZodError) {
       return NextResponse.json({ success: false, error: error.format() }, { status: 400 })
     }
 
-    // ⚠️ Generic server-side error
     return NextResponse.json(
       { success: false, message: "אירעה שגיאה, אנא נסה שוב מאוחר יותר" },
       { status: 500 }
     )
-  } finally {
-    await client.close()
   }
 }
