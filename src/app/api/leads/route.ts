@@ -137,10 +137,12 @@ export async function POST(req: Request) {
       { status: 201 }
     )
 
-    // ✅ Continue sync in background
-    getZohoAccessToken()
-      .then((token) => sendToZoho(token, leadWithTimestamp, key))
-      .catch((err) => console.error("❌ Zoho sync setup failed:", err.message))
+    // ✅ Continue sync in background (wrapped in set timeout to work in prod)
+    setTimeout(() => {
+      getZohoAccessToken()
+        .then((token) => sendToZoho(token, leadWithTimestamp, key))
+        .catch((err) => console.error("❌ Zoho sync setup failed:", err.message))
+    }, 0)
 
     return response
   } catch (error: any) {
