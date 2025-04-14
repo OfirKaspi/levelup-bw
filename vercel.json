@@ -1,9 +1,0 @@
-{
-    "crons": [
-      {
-        "path": "/api/crm-sync-job",
-        "schedule": "*/5 * * * *"
-      }
-    ]
-  }
-  

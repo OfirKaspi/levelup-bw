@@ -9,7 +9,7 @@ export const CONFIG = {
   ZOHO_REFRESH_TOKEN: process.env.ZOHO_REFRESH_TOKEN,
   ZOHO_REDIRECT_URI: process.env.ZOHO_REDIRECT_URI,
 
-  // VERCEL CRON JOB
+  // CRON JOB
   CRON_SECRET: process.env.CRON_SECRET,
 
   // GENERAL CONFIGS
