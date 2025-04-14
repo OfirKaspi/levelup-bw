@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Level Up – Digital Agency Website
 
-## Getting Started
+![Level Up Banner](https://res.cloudinary.com/dudwjf2pu/image/upload/v1743785680/LevelUp/levelup_og_image.png)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Welcome to the official website of **Level Up**, a Tel Aviv–based digital agency focused on creating high-impact websites with amazing user experience, top-tier performance, and real business results.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🌐 Live site: [https://thelevelupagency.com](https://thelevelupagency.com)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 About Level Up
 
-## Learn More
+Level Up builds modern, SEO-optimized, and accessible websites that help businesses grow. We combine clean design, sharp performance, and automated backend processes to deliver more than just a pretty website — we deliver results.
 
-To learn more about Next.js, take a look at the following resources:
+We specialize in:
+- Business landing pages
+- Full websites for entrepreneurs
+- Lead generation funnels
+- Marketing-ready site setups
+- Newsletter & CRM integrations
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠 Tech Stack
 
-## Deploy on Vercel
+- **Framework**: [Next.js 14](https://nextjs.org)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com), [Shadcn UI](https://ui.shadcn.com)
+- **Database**: [Upstash Redis](https://upstash.com)
+- **Hosting**: [Vercel](https://vercel.com)
+- **CRM Integration & Email Automation**: Zoho CRM (via API)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ✨ Features
+
+- **Custom-built UI** with Shadcn components
+- **Newsletter** opt-in flow with CRM sync
+- **Lead capture form** connected to Redis and Zoho
+- **Accessibility widget** built in-house (WCAG 2.0 AA compliant)
+- **Meta + WhatsApp CTA** for fast lead conversion
+- Fully **responsive design** for mobile, tablet, and desktop
+- **SEO-friendly** structure with Open Graph support
+
+---
+
+## 🧠 For Customers
+
+Want a site like this for your business?
+
+📩 [Contact us](https://thelevelupagency.com#contact) or reach out via WhatsApp — we're ready to **Level Up** your business.
