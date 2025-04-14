@@ -46,7 +46,9 @@ export async function POST(req: Request) {
     })
 
     // ✅ Add key to unsynced:list for background sync
-    await axios.post(`${UPSTASH_REDIS_REST_URL}/lpush/crm:unsynced:list`, key, {
+    await axios.post(`${UPSTASH_REDIS_REST_URL}/lpush/crm:unsynced:list`, {
+      value: key,
+    }, {
       headers: {
         Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
         "Content-Type": "application/json",
