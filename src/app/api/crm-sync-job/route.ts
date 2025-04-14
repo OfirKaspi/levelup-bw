@@ -88,7 +88,7 @@ export async function GET(req: Request) {
 		})
 
 		const keys = listRes.data.result || []
-		
+
 		if (keys.length === 0) return NextResponse.json({ message: "No unsynced leads" })
 
 		const accessToken = await getZohoAccessToken()
@@ -101,8 +101,10 @@ export async function GET(req: Request) {
 					headers: { Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}` },
 				})
 
-				const lead = JSON.parse(leadRes.data.result)
-				if (lead.zohoSynced) continue
+				const raw = leadRes.data.result
+				if (!raw) throw new Error("Lead not found in Redis")
+
+				const lead = JSON.parse(raw)
 
 				// ✅ Send to Zoho
 				const zohoId = await sendToZoho(accessToken, lead)
