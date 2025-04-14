@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+// ✅ This API route receives new leads from the frontend.
+// It stores the lead in Redis and pushes the key to `crm:unsynced:list`,
+// so it can be synced to Zoho CRM later by the cron job.
+
 import { NextResponse } from "next/server"
 import { z } from "zod"
 import axios from "axios"
 import { CONFIG } from "@/lib/config"
-import https from "https"
 
 const {
-  ZOHO_CLIENT_ID,
-  ZOHO_CLIENT_SECRET,
-  ZOHO_REFRESH_TOKEN,
-  ZOHO_REDIRECT_URI,
   UPSTASH_REDIS_REST_URL,
   UPSTASH_REDIS_REST_TOKEN,
 } = CONFIG
@@ -23,104 +23,21 @@ const leadSchema = z.object({
   newsletter: z.boolean().optional().default(true),
 })
 
-// ✅ Get a new Zoho access token using refresh token
-async function getZohoAccessToken() {
-  const isDev = process.env.NODE_ENV !== "production"
-
-  try {
-    const response = await axios.post("https://accounts.zoho.com/oauth/v2/token", null, {
-      params: {
-        refresh_token: ZOHO_REFRESH_TOKEN,
-        client_id: ZOHO_CLIENT_ID,
-        client_secret: ZOHO_CLIENT_SECRET,
-        redirect_uri: ZOHO_REDIRECT_URI,
-        grant_type: "refresh_token",
-      },
-      httpsAgent: isDev ? new https.Agent({ rejectUnauthorized: false }) : undefined,
-    })
-
-    return response.data.access_token
-  } catch (error: any) {
-    console.error("❌ Error fetching Zoho Access Token:", error.response?.data || error.message)
-    throw new Error("Failed to get Zoho access token")
-  }
-}
-
-// ✅ Send the lead data to Zoho CRM and update lead with sync status
-async function sendToZoho(accessToken: string, lead: any, key: string) {
-  const syncSource = "Zoho CRM"
-  const formattedLead = {
-    data: [
-      {
-        Last_Name: lead.fullName,
-        Email: lead.email,
-        Phone: lead.phone,
-        Lead_Source: lead.option,
-        Newsletter: lead.newsletter,
-      },
-    ],
-    trigger: ["workflow"],
-  }
-
-  try {
-    const response = await axios.post("https://www.zohoapis.com/crm/v2/Leads", formattedLead, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-    })
-
-    const zohoResponse = response.data?.data?.[0]
-
-    if (zohoResponse?.code !== "SUCCESS") {
-      throw new Error("Zoho CRM rejected the lead")
-    }
-
-    const zohoId = zohoResponse.details?.id
-
-    await axios.post(`${UPSTASH_REDIS_REST_URL}/set/${key}`, {
-      ...lead,
-      zohoSynced: true,
-      zohoId,
-      syncedAt: new Date().toLocaleString("en-IL", { timeZone: "Asia/Jerusalem" }),
-      syncSource,
-    }, {
-      headers: {
-        Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-    })
-  } catch (error: any) {
-    console.error("❌ Zoho API Error for key", key, ":", error.message)
-
-    await axios.post(`${UPSTASH_REDIS_REST_URL}/set/${key}:sync_error`, {
-      error: error.message,
-      time: new Date().toLocaleString("en-IL", { timeZone: "Asia/Jerusalem" }),
-      syncSource,
-    }, {
-      headers: {
-        Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-    })
-  }
-}
-
-// ✅ Main POST handler
 export async function POST(req: Request) {
   try {
     const body = await req.json()
-
     const validatedLead = leadSchema.parse(body)
 
     const leadWithTimestamp = {
       ...validatedLead,
       createdAt: new Date().toLocaleString("en-IL", { timeZone: "Asia/Jerusalem" }),
+      zohoSynced: false,
     }
 
     const id = crypto.randomUUID()
     const key = `lead:${id}`
 
+    // ✅ Save the lead
     await axios.post(`${UPSTASH_REDIS_REST_URL}/set/${key}`, leadWithTimestamp, {
       headers: {
         Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
@@ -128,21 +45,21 @@ export async function POST(req: Request) {
       },
     })
 
-    // ✅ Continue sync in background
-    getZohoAccessToken()
-      .then((token) => sendToZoho(token, leadWithTimestamp, key))
-      .catch((err) => console.error("❌ Zoho sync setup failed:", err.message))
+    // ✅ Add key to unsynced:list for background sync
+    await axios.post(`${UPSTASH_REDIS_REST_URL}/lpush/crm:unsynced:list`, key, {
+      headers: {
+        Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    })
 
-    // ✅ Respond immediately for great UX
-    const response = NextResponse.json(
+    return NextResponse.json(
       {
         success: true,
         message: "הפרטים נשלחו בהצלחה, ניצור איתך קשר בהקדם",
       },
       { status: 201 }
     )
-
-    return response
   } catch (error: any) {
     console.error("❌ API Error:", error.message)
 
