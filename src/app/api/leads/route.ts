@@ -16,10 +16,10 @@ const {
 
 // ✅ Zod validation schema
 const leadSchema = z.object({
-  fullName: z.string().nonempty("נדרש שם מלא."),
+  full_name: z.string().nonempty("נדרש שם מלא."),
   email: z.string().email("כתובת אימייל שגויה."),
   phone: z.string().regex(/^05\d{8}$/, "אנא מלא מספר טלפון תקין."),
-  option: z.enum(["פיתוח אתרים", "עיצוב", "שיווק"]),
+  requested_service: z.enum(["פיתוח אתרים", "עיצוב", "שיווק"]),
   newsletter: z.boolean().optional().default(true),
 })
 
@@ -30,8 +30,9 @@ export async function POST(req: Request) {
 
     const leadWithTimestamp = {
       ...validatedLead,
-      createdAt: new Date().toLocaleString("en-IL", { timeZone: "Asia/Jerusalem" }),
-      zohoSynced: false,
+      created_at: new Date().toLocaleString("en-IL", { timeZone: "Asia/Jerusalem" }),
+      crm_synced: false,
+      lead_source: "אתר מרכזי",
     }
 
     const id = crypto.randomUUID()

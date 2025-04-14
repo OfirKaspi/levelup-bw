@@ -46,11 +46,16 @@ async function sendToZoho(accessToken: string, lead: any) {
 	const payload = {
 		data: [
 			{
-				Last_Name: lead.fullName,
+				Last_Name: lead.full_name,
 				Email: lead.email,
 				Phone: lead.phone,
-				Lead_Source: lead.option,
-				Newsletter: lead.newsletter,
+				Lead_Source: lead.lead_source,
+				// OPTIONAL FIELDS
+				...(lead.newsletter && { Newsletter: lead.newsletter }),
+				...(lead.company && { Company: lead.company }),
+				...(lead.industry && { Industry: lead.industry }),
+				...(lead.requested_service && { Requested_Service: lead.requested_service }),
+				...(lead.lead_message && { Lead_Message: lead.lead_message }),
 			},
 		],
 		trigger: ["workflow"],
@@ -105,17 +110,17 @@ export async function GET(req: Request) {
 				if (!raw) throw new Error("Lead not found in Redis")
 
 				const lead = JSON.parse(raw)
-				if (lead.zohoSynced) continue
+				if (lead.crm_synced) continue
 
 				// ✅ Send to Zoho
-				const zohoId = await sendToZoho(accessToken, lead)
+				const zoho_id = await sendToZoho(accessToken, lead)
 
 				// ✅ Update lead with Zoho ID
 				await axios.post(`${UPSTASH_REDIS_REST_URL}/set/${key}`, JSON.stringify({
 					...lead,
-					zohoSynced: true,
-					zohoId,
-					syncedAt: new Date().toLocaleString("en-IL", { timeZone: "Asia/Jerusalem" }),
+					crm_synced: true,
+					zoho_id,
+					synced_at: new Date().toLocaleString("en-IL", { timeZone: "Asia/Jerusalem" }),
 				}), {
 					headers: {
 						Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
@@ -128,7 +133,7 @@ export async function GET(req: Request) {
 					headers: { Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}` },
 				})
 
-				results.push({ key, status: "synced", zohoId })
+				results.push({ key, status: "synced", zoho_id })
 			} catch (err: any) {
 				results.push({ key, error: err.message })
 			}

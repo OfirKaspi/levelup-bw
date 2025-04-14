@@ -21,10 +21,10 @@ interface LeaveDetailsFormProps {
 
 const LeaveDetailsForm = ({ isSuccess, setIsSuccess }: LeaveDetailsFormProps) => {
   const [formData, setFormData] = useState({
-    fullName: "",
+    full_name: "",
     phone: "",
     email: "",
-    option: "",
+    requested_service: "",
     newsletter: true,
   });
 
@@ -40,12 +40,12 @@ const LeaveDetailsForm = ({ isSuccess, setIsSuccess }: LeaveDetailsFormProps) =>
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
 
-    if (!formData.fullName.trim()) newErrors.fullName = "נדרש שם מלא";
+    if (!formData.full_name.trim()) newErrors.full_name = "נדרש שם מלא";
     if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/))
       newErrors.email = "אנא מלא כתובת אימייל תקינה";
     if (!formData.phone.match(/^05\d{8}$/))
       newErrors.phone = "אנא מלא מספר טלפון תקין";
-    if (!formData.option) newErrors.option = "אנא בחר סוג שירות";
+    if (!formData.requested_service) newErrors.requested_service = "אנא בחר סוג שירות";
 
     return newErrors;
   };
@@ -73,10 +73,10 @@ const LeaveDetailsForm = ({ isSuccess, setIsSuccess }: LeaveDetailsFormProps) =>
 
       setIsSuccess(true);
       setFormData({
-        fullName: "",
+        full_name: "",
         phone: "",
         email: "",
-        option: "",
+        requested_service: "",
         newsletter: true,
       });
     } catch (error) {
@@ -97,18 +97,18 @@ const LeaveDetailsForm = ({ isSuccess, setIsSuccess }: LeaveDetailsFormProps) =>
         {responseError && <p className="text-red-600">{responseError}</p>}
 
         <div className="grid grid-cols-4 items-center gap-2">
-          <Label htmlFor="fullName">שם מלא</Label>
+          <Label htmlFor="full_name">שם מלא</Label>
           <Input
-            id="fullName"
+            id="full_name"
             placeholder="ישראל ישראלי"
             className="col-span-3"
-            value={formData.fullName}
+            value={formData.full_name}
             onChange={(e) =>
-              setFormData({ ...formData, fullName: e.target.value })
+              setFormData({ ...formData, full_name: e.target.value })
             }
           />
-          {errors.fullName && (
-            <p className="col-span-4 text-red-600">{errors.fullName}</p>
+          {errors.full_name && (
+            <p className="col-span-4 text-red-600">{errors.full_name}</p>
           )}
         </div>
 
@@ -147,12 +147,12 @@ const LeaveDetailsForm = ({ isSuccess, setIsSuccess }: LeaveDetailsFormProps) =>
         </div>
 
         <div className="grid grid-cols-4 items-center gap-2">
-          <Label htmlFor="option">סוג שירות</Label>
+          <Label htmlFor="requested_service">סוג שירות</Label>
           <Select
             onValueChange={(value) =>
-              setFormData({ ...formData, option: value })
+              setFormData({ ...formData, requested_service: value })
             }
-            value={formData.option}
+            value={formData.requested_service}
             dir="rtl"
           >
             <SelectTrigger className="col-span-3">
@@ -164,8 +164,8 @@ const LeaveDetailsForm = ({ isSuccess, setIsSuccess }: LeaveDetailsFormProps) =>
               <SelectItem value="שיווק">מחלקת שיווק</SelectItem>
             </SelectContent>
           </Select>
-          {errors.option && (
-            <p className="col-span-4 text-red-600">{errors.option}</p>
+          {errors.requested_service && (
+            <p className="col-span-4 text-red-600">{errors.requested_service}</p>
           )}
         </div>
 
