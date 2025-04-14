@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     const key = `lead:${id}`
 
     // ✅ Save the lead
-    await axios.post(`${UPSTASH_REDIS_REST_URL}/set/${key}`, leadWithTimestamp, {
+    await axios.post(`${UPSTASH_REDIS_REST_URL}/set/${key}`, JSON.stringify(leadWithTimestamp), {
       headers: {
         Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
         "Content-Type": "application/json",
