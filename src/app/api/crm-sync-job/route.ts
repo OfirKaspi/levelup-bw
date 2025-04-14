@@ -80,16 +80,16 @@ export async function GET(req: Request) {
 
 	try {
 		const listKey = "crm:unsynced:list"
-		const syncSource = "Zoho CRM"
 
 		// ✅ Fetch all unsynced lead keys
 		const listRes = await axios.get(`${UPSTASH_REDIS_REST_URL}/lrange/${listKey}/0/-1`, {
 			headers: { Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}` },
 		})
 
-		const keys = listRes.data.result || []
+		const rawKeys: string[] = listRes.data.result || []
+		const keys = rawKeys.map((k) => k.replace(/^"|"$/g, ""))
 
-		if (keys.length === 0) return NextResponse.json({ message: "No unsynced leads" })
+		if (!keys.length) return NextResponse.json({ message: "No unsynced leads" })
 
 		const accessToken = await getZohoAccessToken()
 		const results: any[] = []
@@ -105,6 +105,7 @@ export async function GET(req: Request) {
 				if (!raw) throw new Error("Lead not found in Redis")
 
 				const lead = JSON.parse(raw)
+				if (lead.zohoSynced) continue
 
 				// ✅ Send to Zoho
 				const zohoId = await sendToZoho(accessToken, lead)
@@ -115,7 +116,6 @@ export async function GET(req: Request) {
 					zohoSynced: true,
 					zohoId,
 					syncedAt: new Date().toLocaleString("en-IL", { timeZone: "Asia/Jerusalem" }),
-					syncSource,
 				}), {
 					headers: {
 						Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
@@ -124,7 +124,7 @@ export async function GET(req: Request) {
 				})
 
 				// ✅ Remove from unsynced list
-				await axios.post(`${UPSTASH_REDIS_REST_URL}/lrem/${listKey}/0/${key}`, null, {
+				await axios.post(`${UPSTASH_REDIS_REST_URL}/lrem/${listKey}/0/${JSON.stringify(key)}`, null, {
 					headers: { Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}` },
 				})
 
