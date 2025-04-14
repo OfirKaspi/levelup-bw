@@ -101,20 +101,20 @@ export async function GET(req: Request) {
 					headers: { Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}` },
 				})
 
-				const lead = JSON.parse(leadRes.data)
+				const lead = JSON.parse(leadRes.data.result)
 				if (lead.zohoSynced) continue
 
 				// ✅ Send to Zoho
 				const zohoId = await sendToZoho(accessToken, lead)
 
 				// ✅ Update lead with Zoho ID
-				await axios.post(`${UPSTASH_REDIS_REST_URL}/set/${key}`, {
+				await axios.post(`${UPSTASH_REDIS_REST_URL}/set/${key}`, JSON.stringify({
 					...lead,
 					zohoSynced: true,
 					zohoId,
 					syncedAt: new Date().toLocaleString("en-IL", { timeZone: "Asia/Jerusalem" }),
 					syncSource,
-				}, {
+				}), {
 					headers: {
 						Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}`,
 						"Content-Type": "application/json",
