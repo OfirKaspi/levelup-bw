@@ -17,6 +17,7 @@ const {
 	ZOHO_REDIRECT_URI,
 	UPSTASH_REDIS_REST_URL,
 	UPSTASH_REDIS_REST_TOKEN,
+	CRON_SECRET,
 } = CONFIG
 
 // ✅ Get a Zoho access token
@@ -68,7 +69,15 @@ async function sendToZoho(accessToken: string, lead: any) {
 }
 
 // ✅ Main GET handler (cron job)
-export async function GET() {
+export async function GET(req: Request) {
+
+	// ✅ Protect cron job with a secret token
+	if (
+		CRON_SECRET && req.headers.get("Authorization") !== `Bearer ${CRON_SECRET}`
+	) {
+		return new Response("Unauthorized", { status: 401 })
+	}
+
 	try {
 		const listKey = "crm:unsynced:list"
 		const syncSource = "Zoho CRM"
