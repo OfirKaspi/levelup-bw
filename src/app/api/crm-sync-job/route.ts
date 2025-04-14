@@ -87,7 +87,8 @@ export async function GET(req: Request) {
 			headers: { Authorization: `Bearer ${UPSTASH_REDIS_REST_TOKEN}` },
 		})
 
-		const keys = listRes.data || []
+		const keys = listRes.data.result || []
+		
 		if (keys.length === 0) return NextResponse.json({ message: "No unsynced leads" })
 
 		const accessToken = await getZohoAccessToken()
