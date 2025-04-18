@@ -1,6 +1,7 @@
 import AboutUs from "@/components/about/AboutUs";
 import AboutUsSummary from "@/components/about/AboutUsSummary";
 import OurStory from "@/components/about/OurStory";
+import MapEmbedWrapper from "@/components/common/MapEmbedWrapper";
 import { fetchAboutPageData } from "@/lib/api/aboutPage";
 
 const AboutPage = async () => {
@@ -17,6 +18,7 @@ const AboutPage = async () => {
       <AboutUs data={aboutUs} />
       <OurStory data={ourStory} />
       <AboutUsSummary data={aboutUsSummary} />
+      <MapEmbedWrapper/>
     </>
   );
 };

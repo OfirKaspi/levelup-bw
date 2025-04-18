@@ -11,6 +11,9 @@ export const CONFIG = {
 
   // CRON JOB
   CRON_SECRET: process.env.CRON_SECRET,
+  
+  // GOOGLE MAPS
+  GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
 
   // GENERAL CONFIGS
   facebookUsername: "the.levelup.agency",
@@ -18,7 +21,9 @@ export const CONFIG = {
   whatsappNumber: "972552528601",
   phoneNumber: "0552528601",
   contactEmail: "contact@thelevelupagency.com",
-  contactAddress: "משה דיין 33, תל אביב, ישראל.",
+  contactAddress: "משה דיין 33, תל אביב, ישראל",
+  lat: 32.05066446929389,
+  lng: 34.79935393068719,
   year: 2025,
 };
 
