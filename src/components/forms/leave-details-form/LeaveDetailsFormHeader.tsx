@@ -1,4 +1,4 @@
-import { DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog"
+import { DialogDescription, DialogHeader, DialogTitle } from "../../ui/dialog"
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden"
 
 interface LeaveDetailsFormDialogHeaderProps {

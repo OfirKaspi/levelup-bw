@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { HeroType } from "@/types/types";
-import LeaveDetailsDialog from "@/components/forms/LeaveDetailsDialog";
+import LeaveDetailsDialog from "@/components/forms/leave-details-form/LeaveDetailsFormDialog";
 import FancyWrapper from "@/components/common/FancyWrapper";
 import { useInstagramFix } from "@/hooks/useInstagramFix";
 

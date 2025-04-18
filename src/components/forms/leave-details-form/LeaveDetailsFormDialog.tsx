@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import LeaveDetailsForm from "@/components/forms/LeaveDetailsForm"
-import LeaveDetailsFormHeader from "./LeaveDetailsFormHeader"
+import LeaveDetailsForm from "@/components/forms/leave-details-form/LeaveDetailsForm"
+import LeaveDetailsFormHeader from "@/components/forms/leave-details-form/LeaveDetailsFormHeader"
 
 interface LeaveDetailsProps {
   text: string
@@ -18,13 +18,18 @@ const LeaveDetailsDialog = ({ text, isFancyWrapper = true, isDark = true }: Leav
 
   const style = isDark ? "text-white bg-gray-900" : "text-gray-900 bg-white"
 
-  return (
-    <Dialog open={isOpen} onOpenChange={(open) => {
-      setIsOpen(open);
-      if (!open) {
+  const onOpenChange = (open: boolean) => {
+    setIsOpen(open);
+
+    if (!open) {
+      setTimeout(() => {
         setIsSuccess(false);
-      }
-    }}>
+      }, 500); // fixed: 500 instead of [500]
+    }
+  };
+
+  return (
+    <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>
         {isFancyWrapper ? (
           <button

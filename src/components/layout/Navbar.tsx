@@ -8,7 +8,7 @@ import useResponsive from "@/hooks/useResponsive";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/common/Logo";
-import LeaveDetailsDialog from "@/components/forms/LeaveDetailsDialog";
+import LeaveDetailsDialog from "@/components/forms/leave-details-form/LeaveDetailsFormDialog";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {

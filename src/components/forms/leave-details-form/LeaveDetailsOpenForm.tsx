@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import LeaveDetailsForm from "./LeaveDetailsForm"
+import LeaveDetailsForm from "@/components/forms/leave-details-form/LeaveDetailsForm"
 
 const LeaveDetailsOpenForm = () => {
 	const [isSuccess, setIsSuccess] = useState(false)

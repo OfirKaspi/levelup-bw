@@ -3,7 +3,7 @@
 import Image from "next/image";
 import LevelUpLogo from "@/assets/levelup-logo.png";
 import { ImageSectionType } from "@/types/types";
-import LeaveDetailsDialog from "@/components/forms/LeaveDetailsDialog";
+import LeaveDetailsDialog from "@/components/forms/leave-details-form/LeaveDetailsFormDialog";
 
 interface ImageSectionProps {
   data: ImageSectionType;

@@ -4,7 +4,7 @@ import Image from "next/image"
 import { OurServicesType } from "@/types/types"
 import useResponsive from "@/hooks/useResponsive"
 import ImageSection from "@/components/common/ImageSection"
-import LeaveDetailsDialog from "@/components/forms/LeaveDetailsDialog"
+import LeaveDetailsDialog from "@/components/forms/leave-details-form/LeaveDetailsFormDialog"
 
 interface OurServicesProps {
   data: OurServicesType
