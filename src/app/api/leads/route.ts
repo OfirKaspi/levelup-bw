@@ -7,7 +7,7 @@
 import { NextResponse } from "next/server"
 import { z } from "zod"
 import axios from "axios"
-import { CONFIG } from "@/lib/config"
+import { CONFIG } from "@/config/config"
 
 const {
   UPSTASH_REDIS_REST_URL,

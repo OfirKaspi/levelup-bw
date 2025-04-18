@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { links } from "@/utils/links";
+import { links } from "@/components/common/links";
 import useResponsive from "@/hooks/useResponsive";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useDraggable } from "@/hooks/useDraggable";
 import { MessageCircle, Phone } from "lucide-react";
-import { CONFIG } from "@/lib/config";
+import { CONFIG } from "@/config/config";
 import useResponsive from "@/hooks/useResponsive";
 import { redirectToPlatform } from "@/utils/redirectToPlatform";
 

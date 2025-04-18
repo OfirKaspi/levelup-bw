@@ -1,4 +1,4 @@
-import { logoLink } from "@/utils/links"
+import { logoLink } from "@/components/common/links"
 import Image from "next/image"
 import Link from "next/link"
 

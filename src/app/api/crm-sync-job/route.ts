@@ -6,7 +6,7 @@
 
 import { NextResponse } from "next/server"
 import axios from "axios"
-import { CONFIG } from "@/lib/config"
+import { CONFIG } from "@/config/config"
 import https from "https"
 
 // ✅ Load environment variables

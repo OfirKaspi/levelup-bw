@@ -1,4 +1,4 @@
-import { CONFIG } from "@/lib/config";
+import { CONFIG } from "@/config/config";
 import { Mail, MapPin, Phone } from "lucide-react";
 const Contact = () => {
   const contacts = [

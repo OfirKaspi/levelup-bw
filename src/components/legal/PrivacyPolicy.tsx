@@ -1,4 +1,4 @@
-import { CONFIG } from "@/lib/config"
+import { CONFIG } from "@/config/config"
 
 const PrivacyPolicy = () => {
   const { contactEmail } = CONFIG

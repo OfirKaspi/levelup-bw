@@ -3,7 +3,7 @@ import FooterNavigation from "@/components/layout/FooterNavigation";
 import Logo from "@/components/common/Logo";
 import SocialMedia from "@/components/layout/SocialMedia";
 import { Separator } from "@/components/ui/separator";
-import { CONFIG } from "@/lib/config";
+import { CONFIG } from "@/config/config";
 import LegalInfo from "../legal/LegalInfo";
 
 export default function Footer() {

@@ -1,4 +1,4 @@
-import { CONFIG } from "@/lib/config";
+import { CONFIG } from "@/config/config";
 
 const TermsOfService = () => {
   const { contactEmail } = CONFIG

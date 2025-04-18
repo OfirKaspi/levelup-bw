@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { links } from "@/utils/links"
+import { links } from "@/components/common/links"
 
 const FooterNavigation = () => {
   return (

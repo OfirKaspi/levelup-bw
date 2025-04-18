@@ -1,6 +1,6 @@
 "use client";
 
-import { CONFIG } from "@/lib/config";
+import { CONFIG } from "@/config/config";
 import { redirectToPlatform } from "@/utils/redirectToPlatform";
 import Image from "next/image";
 
