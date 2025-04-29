@@ -6,7 +6,7 @@ export const fetchBlogPageData = () => {
       _id: "1",
       header: "תובנות והשראה",
       desc: "צללו לאוסף הבלוגים שלנו שבו יצירתיות פוגשת אסטרטגיה. מחדשות בעולם הפיתוח ועד טיפים לשיווק ועיצוב, גלו תובנות שיתנו לכם השראה במסע שלכם בעולם הדיגיטלי. הישארו מעודכנים ומלאי השראה!",
-      src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740676115/LevelUp/31641175_c15_jhtvlh.jpg",
+      src: "https://res.cloudinary.com/dudwjf2pu/image/upload/f_auto,q_auto,c_limit/v1740676115/LevelUp/31641175_c15_jhtvlh.jpg",
       alt: "תמונה לבלוג"
     },
     blogDesc: {

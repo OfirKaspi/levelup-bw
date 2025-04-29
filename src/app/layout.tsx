@@ -44,6 +44,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap"
           rel="stylesheet"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden font-[Assistant]">
         <Navbar />
@@ -52,7 +54,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <WhatsAppButton />
         <Footer />
         <Analytics />
-
       </body>
     </html>
   );

@@ -11,7 +11,7 @@ interface ProjectPreviewProps {
 const ProjectPreview = ({ project }: ProjectPreviewProps) => {
   return (
     <li key={project._id} className="md:p-5 md:border-2 md:rounded-lg">
-      <h6 className="font-bold text-lg lg:text-2xl border-b-2 pb-2">{project.name}</h6>
+      <h4 className="font-bold text-lg lg:text-2xl border-b-2 pb-2">{project.name}</h4>
       <div className="flex flex-col gap-5 py-5">
         <div className="relative aspect-video rounded-lg">
           <Image

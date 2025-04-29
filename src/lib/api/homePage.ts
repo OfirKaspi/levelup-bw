@@ -26,7 +26,7 @@ export const fetchHomePageData = async () => {
         _id: "1",
         header: "שאלות נפוצות",
         desc: "לכל שאלה או עזרה נוספת, הרגישו חופשי לפנות אלינו ונעזור באהבה ללא עלות",
-        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740676115/LevelUp/31641175_c15_jhtvlh.jpg",
+        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/f_auto,q_auto,c_limit/v1740676115/LevelUp/31641175_c15_jhtvlh.jpg",
         alt: "תמונה - שאלות נפוצות",
       },
       paragraphs: [

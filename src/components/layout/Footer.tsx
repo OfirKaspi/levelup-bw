@@ -22,7 +22,7 @@ export default function Footer() {
         <Contact />
         <LegalInfo />
       </div>
-      <p className="text-sm text-muted-foreground text-center">All Rights Reserved &copy; {year} LevelUp</p>
+      <p className="text-sm text-center">All Rights Reserved &copy; {year} LevelUp</p>
     </footer>
   );
 }

@@ -16,7 +16,7 @@ const AboutUs = ({ data }: AboutUsProps) => {
           <Logo isTextShow={false} size={150} />
         </div>
         <header className="text-center md:text-start space-y-2 max-w-[400px]">
-          <h4 className="font-bold text-2xl lg:text-3xl">{paragraph.header}</h4>
+          <h3 className="font-bold text-2xl lg:text-3xl">{paragraph.header}</h3>
           <p className="text-sm lg:text-base text-muted-foreground">{paragraph.desc}</p>
         </header>
       </div>

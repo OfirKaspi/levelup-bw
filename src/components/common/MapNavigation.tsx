@@ -33,6 +33,7 @@ const MapNavigation = () => {
 					key={button._id}
 					onClick={() => redirectToPlatform(button.link)}
 					className="relative w-10 h-10"
+					aria-label={button.image.alt}
 				>
 					<Image
 						src={`/maps/${button.image.src}`}
@@ -42,7 +43,6 @@ const MapNavigation = () => {
 					/>
 				</button>
 			))}
-			<button></button>
 		</div>
 	)
 }

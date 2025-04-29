@@ -13,12 +13,12 @@ const AboutUsSummary = ({ data }: AboutUsSummaryProps) => {
       <div className="grid lg:grid-cols-[100px_1fr] gap-5">
         <Logo isTextShow={false} size={100} />
         <div className="space-y-2">
-          <h4 className="font-bold lg:text-lg">{paragraph.header}</h4>
-          <p className="text-sm lg:text-base text-muted-foreground">{paragraph.desc}</p>
+          <h3 className="font-bold lg:text-lg">{paragraph.header}</h3>
+          <p className="text-sm lg:text-base">{paragraph.desc}</p>
         </div>
       </div>
       <div className="flex flex-col gap-5 bg-purple-200 rounded-lg p-5">
-        <h5 className="font-bold lg:text-lg">{ctaParagraph.header}</h5>
+        <h4 className="font-bold lg:text-lg">{ctaParagraph.header}</h4>
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center bg-purple-300 rounded-lg gap-5 p-5">
           <p className="text-sm lg:text-base">{ctaParagraph.desc}</p>
           <div className="h-10 w-full lg:w-fit ">

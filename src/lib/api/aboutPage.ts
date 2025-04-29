@@ -7,7 +7,7 @@ export const fetchAboutPageData = async () => {
         header: "מי אנחנו?",
         desc: "LevelUp היא סוכנות דיגיטלית המתמחה במתן פתרונות דיגיטליים יצירתיים ומקצועיים לעסקים. אנו כאן כדי לעזור לך לקחת את העסק שלך לשלב הבא בעזרת כלים טכנולוגיים מתקדמים שיביאו תוצאות מיידיות וארוכות טווח.",
         alt: "About Us image",
-        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740676115/LevelUp/31641175_c15_jhtvlh.jpg",
+        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/f_auto,q_auto,c_limit/v1740676115/LevelUp/31641175_c15_jhtvlh.jpg",
       },
       paragraph: {
         _id: "1",

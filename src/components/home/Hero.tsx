@@ -20,6 +20,7 @@ const Hero = ({ data }: HeroProps) => {
         loop
         muted
         playsInline
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover -z-10 brightness-50"
       >
         <source src={data.image.src} type="video/mp4" />
