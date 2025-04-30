@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogTrigger, } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import LeaveDetailsForm from "@/components/forms/leave-details-form/LeaveDetailsForm"
 import LeaveDetailsFormHeader from "@/components/forms/leave-details-form/LeaveDetailsFormHeader"
+import { trackEvent } from "@/lib/gtag"
 
 interface LeaveDetailsProps {
   text: string
@@ -20,11 +21,19 @@ const LeaveDetailsDialog = ({ text, isFancyWrapper = true, isDark = true }: Leav
 
   const onOpenChange = (open: boolean) => {
     setIsOpen(open);
+    
+    if (open) {
+      trackEvent({
+        action: "click",
+        category: "Dialog",
+        label: "Leave Details Form Opened",
+      });
+    }
 
     if (!open) {
       setTimeout(() => {
         setIsSuccess(false);
-      }, 500); // fixed: 500 instead of [500]
+      }, 500);
     }
   };
 

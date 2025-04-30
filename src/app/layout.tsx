@@ -5,6 +5,9 @@ import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import WhatsAppButton from "@/components/common/WhatsAppButton";
 import AccessibilityWidget from "@/components/legal/AccessibilityWidget";
+import Script from "next/script";
+import { CONFIG } from "@/config/config";
+import GAListener from "@/components/common/GAListener";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -46,6 +49,18 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${CONFIG.GOOGLE_ANALYTICS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${CONFIG.GOOGLE_ANALYTICS_ID}');
+          `}
+        </Script>
       </head>
       <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden font-[Assistant]">
         <Navbar />
@@ -53,6 +68,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <AccessibilityWidget />
         <WhatsAppButton />
         <Footer />
+
+        <GAListener />
         <Analytics />
       </body>
     </html>

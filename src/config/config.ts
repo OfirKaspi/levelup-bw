@@ -11,9 +11,10 @@ export const CONFIG = {
 
   // CRON JOB
   CRON_SECRET: process.env.CRON_SECRET,
-  
-  // GOOGLE MAPS
+
+  // GOOGLE
   GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
+  GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
 
   // GENERAL CONFIGS
   facebookUsername: "the.levelup.agency",
