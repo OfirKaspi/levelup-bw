@@ -1,26 +1,44 @@
 import { useState, useEffect } from "react";
 
 const useResponsive = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [device, setDevice] = useState({
+    isMobile: false,
+    isTablet: false,
+    isDesktop: false,
+  });
 
   useEffect(() => {
-    const updateMatch = () => {
-      const width = window.innerWidth;
+    if (typeof window === "undefined") return;
 
-      setIsMobile(width < 768);
-      setIsTablet(width >= 768 && width < 1024);
-      setIsDesktop(width >= 1024);
+    const mediaMobile = window.matchMedia("(max-width: 767px)");
+    const mediaTablet = window.matchMedia("(min-width: 768px) and (max-width: 1023px)");
+    const mediaDesktop = window.matchMedia("(min-width: 1024px)");
+
+    const updateState = () => {
+      setDevice({
+        isMobile: mediaMobile.matches,
+        isTablet: mediaTablet.matches,
+        isDesktop: mediaDesktop.matches,
+      });
     };
 
-    updateMatch();
-    window.addEventListener("resize", updateMatch);
+    // Initial match
+    updateState();
 
-    return () => window.removeEventListener("resize", updateMatch);
+    // Attach listeners
+    mediaMobile.addEventListener("change", updateState);
+    mediaTablet.addEventListener("change", updateState);
+    mediaDesktop.addEventListener("change", updateState);
+
+    // Cleanup
+    return () => {
+      mediaMobile.removeEventListener("change", updateState);
+      mediaTablet.removeEventListener("change", updateState);
+      mediaDesktop.removeEventListener("change", updateState);
+    };
   }, []);
 
-  return { isMobile, isTablet, isDesktop };
+  return device;
 };
 
 export default useResponsive;

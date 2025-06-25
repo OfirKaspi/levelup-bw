@@ -47,7 +47,7 @@ const LeaveDetailsDialog = ({ text, isFancyWrapper = true, isDark = true }: Leav
           >
             <div className="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt" />
             <span
-              className={`relative z-20 h-10 px-4 transition-all duration-200 rounded-md flex items-center justify-center ${style}`}
+              className={`relative z-20 h-10 px-4 transition-all duration-200 rounded-md flex items-center justify-center font-bold ${style}`}
             >
               {text}
             </span>

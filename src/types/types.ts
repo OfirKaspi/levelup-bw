@@ -86,6 +86,9 @@ export interface HeroType {
   header: string;
   subHeader: string;
   image: Image;
+  video: Image;
+  imageMobile: Image;
+  videoMobile: Image;
   buttonText1: string;
   buttonText2: string;
 }

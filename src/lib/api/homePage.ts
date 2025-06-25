@@ -6,7 +6,22 @@ export const fetchHomePageData = async () => {
       subHeader: "הופכים חלום למציאות",
       image: {
         _id: "1",
-        src: "https://res.cloudinary.com/dudwjf2pu/video/upload/v1732805721/7020045_Abstract_Background_1920x1080_wfhrkz.mp4",
+        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1750703778/v1750703865/LevelUp/hero_image_ov36uv.webp",
+        alt: "תמונת נושא",
+      },
+      video: {
+        _id: "2",
+        src: "https://res.cloudinary.com/dudwjf2pu/video/upload/v1750703778/LevelUp/hero_video_ut01hm.mp4",
+        alt: "תמונת נושא",
+      },
+      imageMobile: {
+        _id: "3",
+        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/f_auto,q_auto,c_crop,ar_3:4/v1750703778/v1750705375/LevelUp/hero_image_mobile_eg1kwg.webp",
+        alt: "תמונת נושא",
+      },
+      videoMobile: {
+        _id: "4",
+        src: "https://res.cloudinary.com/dudwjf2pu/video/upload/f_auto,q_auto,c_crop,ar_3:4/v1750705376/LevelUp/hero_video_mobile_iwfyyj.mp4",
         alt: "תמונת נושא",
       },
       buttonText1: "צור קשר",
