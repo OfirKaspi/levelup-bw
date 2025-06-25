@@ -30,7 +30,7 @@ const Hero = ({ data }: HeroProps) => {
   return (
     <div
       className={`relative w-screen ${heroHeight} -mx-5 -mt-[90px] pt-[90px]
-      min-h-[560px] sm:min-h-[600px] md:min-h-[700px] lg:min-h-[800px] xl:min-h-[880px]`}
+      min-h-[650px] md:min-h-[700px] lg:min-h-[800px] xl:min-h-[880px]`}
     >
       {/* Video Background with Fallback Image */}
       <div className="absolute inset-0 w-full h-full -z-10">
