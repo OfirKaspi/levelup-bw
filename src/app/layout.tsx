@@ -44,7 +44,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           sizes="32x32"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&family=Heebo:wght@400;700&family=Varela+Round&display=swap"
           rel="stylesheet"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -77,7 +77,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         />
 
       </head>
-      <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden font-[Assistant]">
+      <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden">
         <Navbar />
         <main className="flex-1 px-5">{children}</main>
         <AccessibilityWidget />

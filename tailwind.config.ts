@@ -11,7 +11,9 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['"Assistant"', "sans-serif"],
+				body: ['var(--font-body)'],
+				heading: ['var(--font-heading)'],
+				button: ['var(--font-button)'],
 			},
 			colors: {
 				background: 'hsl(var(--background))',
