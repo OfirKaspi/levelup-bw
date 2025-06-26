@@ -2,9 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Assistant */
+@font-face {
+  font-family: 'Assistant';
+  src: url('/fonts/assistant/Assistant-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Assistant';
+  src: url('/fonts/assistant/Assistant-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Assistant';
+  src: url('/fonts/assistant/Assistant-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Heebo */
+@font-face {
+  font-family: 'Heebo';
+  src: url('/fonts/heebo/Heebo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Heebo';
+  src: url('/fonts/heebo/Heebo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Varela Round */
+@font-face {
+  font-family: 'Varela Round';
+  src: url('/fonts/varela-round/VarelaRound-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --font-body: 'Heebo', sans-serif;
-  --font-heading: 'Rubik', sans-serif;
+  --font-body: 'Assistant', sans-serif;
+  --font-heading: 'Heebo', sans-serif;
   --font-button: 'Varela Round', sans-serif;
 }
 

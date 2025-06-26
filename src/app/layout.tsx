@@ -43,12 +43,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           type="image/png"
           sizes="32x32"
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;800&family=Heebo:wght@400;700&family=Varela+Round&display=swap"
-          rel="stylesheet"
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${CONFIG.GOOGLE_ANALYTICS_ID}`}
           strategy="afterInteractive"
