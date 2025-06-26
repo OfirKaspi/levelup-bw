@@ -61,6 +61,21 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             gtag('config', '${CONFIG.GOOGLE_ANALYTICS_ID}');
           `}
         </Script>
+        <link
+          rel="preload"
+          as="video"
+          href="https://res.cloudinary.com/dudwjf2pu/video/upload/v1750703778/LevelUp/hero_video_ut01hm.mp4"
+          type="video/mp4"
+          media="(min-width: 768px)"
+        />
+        <link
+          rel="preload"
+          as="video"
+          href="https://res.cloudinary.com/dudwjf2pu/video/upload/f_auto,q_auto,c_crop,ar_3:4/v1750705376/LevelUp/hero_video_mobile_iwfyyj.mp4"
+          type="video/mp4"
+          media="(max-width: 767px)"
+        />
+
       </head>
       <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden font-[Assistant]">
         <Navbar />

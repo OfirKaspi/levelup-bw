@@ -99,8 +99,8 @@ const Navbar = () => {
                   aria-label={link.text}
                   className={`flex items-center justify-center h-10 px-4 rounded-md transition-all duration-300 ${isHomePage && !isScrolled && "text-white"
                     } ${pathname === link.href
-                      ? "bg-gray-900 text-white"
-                      : "hover:bg-purple-800 hover:text-white"
+                      ? "bg-purple-800 text-white"
+                      : "hover:bg-purple-600 hover:text-white"
                     }`}
                 >
                   {link.text}
