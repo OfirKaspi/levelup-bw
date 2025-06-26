@@ -13,7 +13,7 @@ interface LeaveDetailsProps {
   isDark?: boolean
 }
 
-const LeaveDetailsDialog = ({ text, isFancyWrapper = true, isDark = true }: LeaveDetailsProps) => {
+const LeaveDetailsDialog = ({ text, isFancyWrapper = true, isDark = false }: LeaveDetailsProps) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isOpen, setIsOpen] = useState(false)
 
@@ -52,7 +52,7 @@ const LeaveDetailsDialog = ({ text, isFancyWrapper = true, isDark = true }: Leav
             <div className="relative z-20 rounded-xl p-[2px] bg-gradient-to-r from-purple-500 via-pink-400 to-yellow-300">
               {/* Inner button content */}
               <div
-              className={`h-10 px-4 flex items-center justify-center font-bold rounded-[10px] transition-all duration-200 bg-white text-slate-900 ${style}`}
+              className={`h-10 px-4 flex items-center justify-center font-bold rounded-[10px] transition-all duration-200 ${style}`}
               >
               {text}
               </div>
