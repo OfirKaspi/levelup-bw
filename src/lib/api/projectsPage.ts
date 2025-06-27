@@ -25,9 +25,53 @@ export const fetchProjectsPageData = async () => {
     },
     projectsList: [
       {
+        _id: "2000",
+        header: "Buisiness Website",
+        name: "Sphog | סדנאות טרריום",
+        internalLink: {
+          _id: "1",
+          href: "sphog",
+          text: "לדף תדמית",
+        },
+        externalLink: {
+          _id: "2",
+          href: "https://sphogmoss.com/",
+          text: "צפו באתר",
+        },
+        desc: "פיתוח אתר עבור ספוג סדנאות טרריום, המשלב עיצוב ייחודי עם חוויית משתמש יוצאת דופן. האתר מציג את שירותי הסדנאות, כולל מידע מפורט, גלריית תמונות, וטפסי יצירת קשר מותאמים אישית. תהליך הבנייה כלל התאמה אישית לצרכים של ספוג, תוך דגש על נגישות, עיצוב מודרני והתאמה למובייל.",
+        logo: {
+          _id: "1",
+          src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1747765974/sphog/1_kawtgf.png",
+          alt: "Sphog Logo image"
+        },
+        backgroundColor: "#d6f5e3",
+        mockupImages: {
+          rightLaptop: {
+            _id: "1",
+            src: "https:/res.cloudinary.com/dudwjf2pu/image/upload/v1743349576/laptop-mockup-left-levelup-wdlp.png",
+            alt: "Sphog right laptop image"
+          },
+          leftLaptop: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1751023485/LevelUp/freepik__background__29597_n9ihbg.png",
+            alt: "Sphog left laptop image"
+          },
+          instagram: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1750500843/sphog/og_image_y1cltf.jpg",
+            alt: "Sphog instagram image"
+          },
+          phones: {
+            _id: "1",
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1751023485/LevelUp/iPhone_15_Mockup_Perspective_bufwje.png",
+            alt: "Sphog phones image"
+          }
+        },
+      },
+      {
         _id: "200",
         header: "Landing page",
-        name: "LevelUp - Web Development",
+        name: "LevelUp | פיתוח אתרים",
         internalLink: {
           _id: "1",
           href: "levelup-wdlp",
@@ -71,7 +115,7 @@ export const fetchProjectsPageData = async () => {
       {
         _id: "201",
         header: "Landing page",
-        name: "Yummy - Food Ordering Platform",
+        name: "Yummy | פלטפורמת הזמנת אוכל אונליין",
         internalLink: {
           _id: "1",
           href: "yummy",
@@ -115,7 +159,7 @@ export const fetchProjectsPageData = async () => {
       {
         _id: "1",
         header: "Landing page",
-        name: "Shikli - Interior Design",
+        name: "Shikli | עיצוב פנים",
         internalLink: {
           _id: "1",
           href: "shikli",
@@ -159,7 +203,7 @@ export const fetchProjectsPageData = async () => {
       {
         _id: "2",
         header: "Landing page",
-        name: "Bride Boutique",
+        name: "Bride Boutique | שמלות כלה יוקרתיות",
         internalLink: {
           _id: "1",
           href: "bride-boutique",
@@ -203,7 +247,7 @@ export const fetchProjectsPageData = async () => {
       {
         _id: "3",
         header: "Landing page",
-        name: "Let's Garden",
+        name: "Let's Garden | גינון מקצועי",
         internalLink: {
           _id: "1",
           href: "lets-garden",
@@ -247,7 +291,7 @@ export const fetchProjectsPageData = async () => {
       {
         _id: "4",
         header: "Landing page",
-        name: "SiteTech IL",
+        name: "SiteTech IL | פיתוח אתרים",
         internalLink: {
           _id: "1",
           href: "sitetech",

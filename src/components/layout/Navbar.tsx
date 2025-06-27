@@ -21,19 +21,20 @@ const Navbar = () => {
 
   const pathname = usePathname();
   const isHomePage = pathname === "/";
-  const { isMobile, isTablet, isDesktop } = useResponsive();
+  const { isDesktop } = useResponsive();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10); // trigger after scrolling 10px
+      setScrolled(window.scrollY > 10);
     };
+
+    setScrolled(window.scrollY > 10);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
 
   const closeSheet = () => {
     setIsOpen(false);
@@ -41,7 +42,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`sticky top-0 w-full min-h-20 p-5 z-50 flex flex-row-reverse items-center justify-between transition-all duration-300 
+      className={`sticky top-0 w-full h-20 p-5 z-50 flex flex-row-reverse items-center justify-between transition-all duration-300 
         ${isScrolled
           ? "bg-white/80 backdrop-blur shadow-sm"
           : "bg-transparent"
@@ -50,7 +51,7 @@ const Navbar = () => {
       {/* Logo */}
       <Logo isTextWhite={isHomePage && !isScrolled} />
 
-      {(isMobile || isTablet) && (
+      {(!isDesktop) && (
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <button

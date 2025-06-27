@@ -8,6 +8,7 @@ import AccessibilityWidget from "@/components/legal/AccessibilityWidget";
 import Script from "next/script";
 import { CONFIG } from "@/config/config";
 import GAListener from "@/components/common/GAListener";
+import CookieNotice from "@/components/legal/CookieNotice";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -74,10 +75,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body className="antialiased relative flex flex-col min-h-screen overflow-x-hidden">
         <Navbar />
         <main className="flex-1 px-5">{children}</main>
+        <Footer />
         <AccessibilityWidget />
         <WhatsAppButton />
-        <Footer />
-
+        <CookieNotice />
         <GAListener />
         <Analytics />
       </body>

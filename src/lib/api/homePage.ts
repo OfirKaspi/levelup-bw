@@ -4,11 +4,11 @@ export const fetchHomePageData = async () => {
       _id: "1",
       header: "העתיד הדיגיטלי שלך מתחיל כאן",
       subHeader: "הופכים חלום למציאות",
-      // image: {
-      //   _id: "1",
-      //   src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1750703778/LevelUp/hero_image_ov36uv.webp",
-      //   alt: "תמונת נושא",
-      // },
+      image: {
+        _id: "1",
+        src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1750703778/LevelUp/hero_image_ov36uv.webp",
+        alt: "תמונת נושא",
+      },
       video: {
         _id: "2",
         src: "https://res.cloudinary.com/dudwjf2pu/video/upload/v1750703778/LevelUp/hero_video_ut01hm.mp4",

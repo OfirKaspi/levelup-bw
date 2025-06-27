@@ -85,7 +85,7 @@ export interface QuestionsType extends BaseEntity {
 export interface HeroType {
   header: string;
   subHeader: string;
-  image?: Image;
+  image: Image;
   video: Image;
   buttonText1: string;
   buttonText2: string;
