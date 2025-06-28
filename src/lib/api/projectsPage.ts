@@ -69,46 +69,46 @@ export const fetchProjectsPageData = async () => {
         },
       },
       {
-        _id: "200",
-        header: "Landing page",
-        name: "LevelUp | פיתוח אתרים",
+        _id: "2001",
+        header: "Digital Business Card",
+        name: "שאהבה נפשי | הפקות הצעות נישואין",
         internalLink: {
           _id: "1",
-          href: "levelup-wdlp",
+          href: "sheahava-nafshi",
           text: "לדף תדמית",
         },
         externalLink: {
           _id: "2",
-          href: "https://websites.thelevelupagency.com/",
+          href: "https://nfc.thelevelupagency.com/sheahava-nafshi",
           text: "צפו באתר",
         },
-        desc: "פיתוח דף נחיתה עבור LevelUp, כחלק ממערך השיווק הדיגיטלי של החברה. מטרת הדף היא הצגת שירותי פיתוח האתרים של הסוכנות, תוך שילוב עיצוב נקי וחדשני עם טפסי יצירת קשר לצורך איסוף לידים. הדף פותח בהתאמה אישית לצרכים הפנימיים של החברה, עם דגש על חוויית משתמש, נגישות, והתאמה למובייל.",
+        desc: "כרטיס ביקור דיגיטלי אינטראקטיבי שפותח עבור חברת הפקות המתמחה ביצירת רגעים בלתי נשכחים – החל מהצעות נישואין מושקעות ועד לטקסי מקווה ואירועים מיוחדים. האתר כולל עיצוב רומנטי ומעודן, מותאם לכל סוגי המכשירים, ומציע חוויית משתמש חלקה ונעימה. בנוסף, הכרטיס משולב בטכנולוגיית NFC חכמה, המאפשרת גישה מיידית ונוחה דרך נגיעה פשוטה – אידיאלי לשיתוף מהיר והפנייה ישירה.",
         logo: {
           _id: "1",
-          src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1742731808/LevelUp/levelup-logo_bwqjf3.png",
-          alt: "LevelUp Logo image"
+          src: "https://res.cloudinary.com/dudwjf2pu/image/upload/e_background_removal/f_png/v1750004213/NFC/sheahava-nafshi/hirqsmtrmrrat4jhtena_dg5tiz.webp",
+          alt: "Sheahava Nafshi Logo image"
         },
-        backgroundColor: "#E6DAF5",
+        backgroundColor: "#fce4ec",
         mockupImages: {
           rightLaptop: {
             _id: "1",
-            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743349576/laptop-mockup-left-levelup-wdlp.png",
-            alt: "LevelUp right laptop image"
+            src: "https:/res.cloudinary.com/dudwjf2pu/image/upload/v1743349576/laptop-mockup-left-levelup-wdlp.png",
+            alt: "Sheahava Nafshi right laptop image"
           },
           leftLaptop: {
             _id: "1",
-            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743349576/laptop-mockup-left-levelup-wdlp.png",
-            alt: "LevelUp left laptop image"
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1751104838/NFC/sheahava-nafshi/laptop-sn_ck4e9r.webp",
+            alt: "Sheahava Nafshi left laptop image"
           },
           instagram: {
             _id: "1",
-            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743352168/iPhone_15_Mockup_Poster_rf4k4x.png",
-            alt: "LevelUp instagram image"
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1751104841/NFC/sheahava-nafshi/instagram-sn_bxv1gf.webp",
+            alt: "Sheahava Nafshi instagram image"
           },
           phones: {
             _id: "1",
-            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1743349576/phones-mockup-levelup-wdlp.png",
-            alt: "LevelUp phones image"
+            src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1751104836/NFC/sheahava-nafshi/iphones-sn_sokt51.webp",
+            alt: "Sheahava Nafshi phones image"
           }
         },
       },
@@ -236,7 +236,7 @@ export const fetchProjectsPageData = async () => {
             _id: "1",
             src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733326830/MOCKUP_-_BRIDE_BOUTIQUE_yjagtn.png",
             alt: "Bride Boutique instagram image"
-          },  
+          },
           phones: {
             _id: "1",
             src: "https://res.cloudinary.com/dudwjf2pu/image/upload/t_mockup-crop/v1740824444/LevelUp/phones-mockup-bride-boutique_wyi5lq.png",
@@ -265,7 +265,7 @@ export const fetchProjectsPageData = async () => {
           alt: "Let's Garden image"
         },
         backgroundColor: "#cae3b7",
-        mockupImages:{
+        mockupImages: {
           rightLaptop: {
             _id: "1",
             src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740830716/LevelUp/laptop-mockup-left-shikli_sslrbh.png",
@@ -309,7 +309,7 @@ export const fetchProjectsPageData = async () => {
           src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1733842719/SiteTech_-_Logo_h9jmvr.png",
           alt: "SiteTech IL image"
         },
-        mockupImages:{
+        mockupImages: {
           rightLaptop: {
             _id: "1",
             src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740830716/LevelUp/laptop-mockup-left-shikli_sslrbh.png",
