@@ -4,6 +4,6 @@ export function getWhatsappLink() {
   const whatsappNumber = CONFIG.whatsappNumber;
   if (!whatsappNumber) return null;
 
-  const message = encodeURIComponent("הי Sphog, אשמח לשמוע עוד פרטים.");
+  const message = encodeURIComponent("הי Level Up, אשמח לשמוע עוד פרטים.");
   return `https://wa.me/${whatsappNumber}?text=${message}`;
 }
