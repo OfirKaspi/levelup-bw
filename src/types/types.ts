@@ -9,7 +9,7 @@ interface Paragraph extends BaseEntity {
   image?: Image
 }
 
-interface Image extends BaseEntity {
+export interface Image extends BaseEntity {
   alt: string;
   src: string;
 }
@@ -137,3 +137,10 @@ export interface Article extends Paragraph {
   paragraphs: Paragraph[]
 }
 
+// Dvc
+export interface DvcPageType {
+  dvcDesc: CtaParagraph
+  dvcCta: ImageSectionType
+  imageSection: ImageSectionType
+  dvcList: Image[]
+}
