@@ -98,7 +98,7 @@ export const fetchHomePageData = async () => {
           link: {
             _id: "1",
             text: "צפו בפרויקט",
-            href: "/projects/shikli"
+            href: "/websites/shikli"
           }
         },
         {
@@ -112,7 +112,7 @@ export const fetchHomePageData = async () => {
           link: {
             _id: "2",
             text: "צפו בפרויקט",
-            href: "/projects/sitetech"
+            href: "/websites/sitetech"
           }
         },
         {
@@ -126,7 +126,7 @@ export const fetchHomePageData = async () => {
           link: {
             _id: "3",
             text: "צפו בפרויקט",
-            href: "/projects/bride-boutique"
+            href: "/websites/bride-boutique"
           }
         },
         {
@@ -140,7 +140,7 @@ export const fetchHomePageData = async () => {
           link: {
             _id: "4",
             text: "צפו בפרויקט",
-            href: "/projects/lets-garden"
+            href: "/websites/lets-garden"
           }
         }
       ]

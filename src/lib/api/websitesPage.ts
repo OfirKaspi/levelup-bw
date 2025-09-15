@@ -1,21 +1,21 @@
-import { Project, ProjectsPageType } from "@/types/types";
+import { Website, WebsitesPageType } from "@/types/types";
 
-export const fetchProjectsPageData = async () => {
+export const fetchWebsitesPageData = async () => {
   const data = {
     imageSection: {
       _id: "1",
-      header: "הפרויקטים שלנו",
-      desc: "אנחנו משקיעים בפרויקטים שלנו כאילו העסק שלך הוא שלנו, החל משיחת האיפיון והגדרת הצרכים והמטרות, ממשיך בעדכונים מעת לעת, הצגת ביניים, תיקונים, שינויים וכל מה שצריך עד שתרגישו שהגעתם לנחלה. הנוסחה הזאת גורמת להכל לעבוד טוב יותר, לנו כסוכנות דיגיטל מקצועית ואיכותית, ובעיקר לכם שתהיו שלמים עם האתר והנוכחות הדיגיטלית שלכם.",
+      header: "האתרים שלנו",
+      desc: "אנחנו משקיעים באתרים שלנו כאילו העסק שלך הוא שלנו, החל משיחת האיפיון והגדרת הצרכים והמטרות, ממשיך בעדכונים מעת לעת, הצגת ביניים, תיקונים, שינויים וכל מה שצריך עד שתרגישו שהגעתם לנחלה. הנוסחה הזאת גורמת להכל לעבוד טוב יותר, לנו כסוכנות דיגיטל מקצועית ואיכותית, ובעיקר לכם שתהיו שלמים עם האתר והנוכחות הדיגיטלית שלכם.",
       src: "https://res.cloudinary.com/dudwjf2pu/image/upload/f_auto,q_auto,c_limit/v1740676115/LevelUp/31641175_c15_jhtvlh.jpg",
       alt: "Our works image"
     },
-    projectsDesc: {
+    websitesDesc: {
       _id: "1",
       header: "תנו לנו להראות לכם איך עושים את זה",
       desc: "הייתה לנו את הזכות לייצר מגוון אתרים מתחומים שונים ולספק מוצרים דיגיטליים יוצאי דופן שמביאים הצלחה.",
       buttonText: "לפנייך מספר פרוייקטים לדוגמה:",
     },
-    projectsCta: {
+    websitesCta: {
       _id: "1",
       header: "תן לנו להפוך את החלום שלך למציאות בעולם הדיגיטלי",
       desc: "אנחנו כאן כדי להקשיב, להבין ולהגשים את החזון שלך – בין אם מדובר באתר מרהיב עם חוויית משתמש יוצאת דופן, קמפיינים שיווקיים שיגיעו לכל אחד או כל מוצר נוסף שיעזור לך להשיג נוכחות מקוונת ומותאמת אישית לצרכים שלך, בדיוק כמו שאתה מדמיין.  השאר לנו פרטים עכשיו ונתכנן יחד את הצעד הבא בדרך להצלחה דיגיטלית שתעיף את העסק שלך קדימה!",
@@ -23,7 +23,7 @@ export const fetchProjectsPageData = async () => {
       src: "https://res.cloudinary.com/dudwjf2pu/image/upload/v1740676115/LevelUp/33218313_r27_dubi81.jpg",
       alt: "Call to action image"
     },
-    projectsList: [
+    websitesList: [
       {
         _id: "2000",
         header: "Buisiness Website",
@@ -335,11 +335,11 @@ export const fetchProjectsPageData = async () => {
     ],
   };
 
-  return data as ProjectsPageType;
+  return data as WebsitesPageType;
 };
 
-export const fetchProjectData = async (name: string) => {
-  const { projectsList } = await fetchProjectsPageData()
-  const project = projectsList.find((p) => p.internalLink.href === name)
-  return project as Project
+export const fetchWebsiteData = async (name: string) => {
+  const { websitesList } = await fetchWebsitesPageData()
+  const website = websitesList.find((w) => w.internalLink.href === name)
+  return website as Website
 }

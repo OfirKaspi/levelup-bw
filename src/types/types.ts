@@ -33,15 +33,15 @@ export interface OurServicesType extends BaseEntity {
   services: ImageSectionType[];
 }
 
-// Project
-export interface ProjectsPageType extends ImageSectionType {
-  projectsCta: ImageSectionType
-  projectsDesc: CtaParagraph
+// Website
+export interface WebsitesPageType extends ImageSectionType {
+  websitesCta: ImageSectionType
+  websitesDesc: CtaParagraph
   imageSection: ImageSectionType
-  projectsList: Project[]
+  websitesList: Website[]
 }
 
-export interface Project extends Paragraph {
+export interface Website extends Paragraph {
   name: string
   backgroundColor: string
   images: Image

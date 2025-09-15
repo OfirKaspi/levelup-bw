@@ -8,7 +8,7 @@ const ArticlePage = async ({ params }: { params: Promise<{ name: string }> }) =>
   const article = await fetchArticleData(name)
 
   if (!article) {
-    return <div>Project do not found</div>
+    return <div>blog do not found</div>
   }
 
   return (

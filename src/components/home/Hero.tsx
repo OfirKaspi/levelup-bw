@@ -78,7 +78,7 @@ const Hero = ({ data }: HeroProps) => {
         <MotionFadeIn delay={0.2}>
           <div className="flex flex-wrap justify-center gap-3">
             <FancyWrapper className="text-lg md:text-xl xl:text-2xl xl:py-6 xl:px-6">
-              <Link href="/projects" aria-label={data.buttonText2}>
+              <Link href="/websites" aria-label={data.buttonText2}>
                 {data.buttonText2}
               </Link>
             </FancyWrapper>
