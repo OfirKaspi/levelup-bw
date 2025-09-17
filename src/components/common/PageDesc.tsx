@@ -12,7 +12,7 @@ const PageDesc = ({ data }: PageDescProps) => {
 				<h3 className="font-bold text-2xl lg:text-3xl">{header}</h3>
 				<div className="text-sm lg:text-base text-muted-foreground">
 					<p>{desc}</p>
-					<p>{buttonText}</p>
+					<p className="font-bold">{buttonText}</p>
 				</div>
 			</header>
 		</div>

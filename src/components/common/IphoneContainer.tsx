@@ -6,7 +6,7 @@ interface IphoneContainerProps {
 
 const IphoneContainer = ({ children }: IphoneContainerProps) => {
     return (
-        <div className="relative flex-1 w-full max-w-[270px] aspect-[9/16]">
+        <div className="relative flex-1 w-full max-w-[270px] aspect-[9/16] mx-auto">
             {/* Top center notch/speaker */}
             <div className="absolute top-[3%] left-1/2 -translate-x-1/2 w-[30%] h-[6px] z-30 bg-gray-700 rounded-md shadow-md" />
 
